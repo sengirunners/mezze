@@ -1,0 +1,52 @@
+{
+  "why_it_passes": "Same topic as the open backup server card but a different decision (a bigger, dearer server for speed), so it is not a repeat.",
+  "want_repeat_of": "",
+  "input": {
+    "approver": "dana",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Faster server for the busy morning hours?",
+      "context": "Between 8 and 9 am, when clinics open, booking pages take up to ten seconds to load. A server twice as fast costs $70 more a month. This is about speed, not about a backup.",
+      "question": "Should the agent move us to a server twice as fast for $70 more a month?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes, move",
+          "pros": "pages load in about two seconds at the morning rush",
+          "cons": "$840 more a year"
+        },
+        {
+          "key": "b",
+          "label": "No",
+          "pros": "no new cost",
+          "cons": "mornings stay slow and staff keep complaining"
+        }
+      ],
+      "recommend": "a",
+      "why": "Staff lose minutes every morning; $70 a month fixes it."
+    },
+    "open_cards": [
+      {
+        "id": "01HZTESTOPENCARD0000000001",
+        "title": "Pay for a second server?",
+        "context": "All clinic data is on one server; a backup that takes over by itself costs $30 a month.",
+        "question": "Should the agent add a backup server for $30 a month?",
+        "choices": [
+          "Yes, add it",
+          "No"
+        ]
+      },
+      {
+        "id": "01HZTESTOPENCARD0000000002",
+        "title": "Move email to a new company?",
+        "context": "Our email company raises its price by half next month; another company costs the same as today.",
+        "question": "Should we move our email to the other company before the price rises?",
+        "choices": [
+          "Move",
+          "Stay"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "why_it_passes": "The shelf ask rewritten: plain words, what each choice changes and costs, and since Bea has no machine that takes tasks, a complete hand brief with the one-time setup and a verify line.",
+  "want_risk": "",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [{"machine": "studio", "ready": false, "why_not": "it takes no remote tasks: bea sets remote_tasks in its zm config"}],
+    "machines_known": true,
+    "card": {
+      "title": "Turn on the shared package shelf on workshop?",
+      "context": "Every test machine on workshop downloads the same building blocks (about a minute each time, many times an hour). We built a shared shelf on workshop that keeps one copy of them, so machines start in seconds. Ivo already said yes to the idea and to its size (50 GB for the shelf, 60 GB per owner). Only a setting on workshop itself is missing, and no agent can reach workshop today.",
+      "background": "Pressing A hands a step-by-step plan to your own agent in the Mezze app on your machine. It turns on remote tasks for workshop once (so later host settings can be done by an agent after you approve a card), then switches the shelf on and checks it. You can watch it in the Mezze app. Undoing it later is one card too.",
+      "question": "Should your agent turn on the package shelf on workshop now?",
+      "choices": [
+        {"key": "a", "label": "Yes, my agent does it now", "pros": "tests start about a minute faster each time, from today", "cons": "workshop starts taking approved tasks from owners: one more way in, used only through cards like this one"},
+        {"key": "b", "label": "Leave the shelf off", "pros": "nothing changes on workshop", "cons": "every test keeps spending a minute downloading; agents keep asking you for host settings"}
+      ],
+      "recommend": "a",
+      "why": "One press saves a minute on every test run and lets future host settings be done by an agent after a card, instead of waiting for a visit."
+    },
+    "action": {
+      "kind": "hand",
+      "on": "a",
+      "agent": "claude",
+      "brief": "You are on Bea's machine, approved by Bea's answer to this card. Work until the check below passes.\n1. Open a shell on workshop (ssh workshop works from this machine). If it does not, stop and report why.\n2. One-time setup: in workshop's zm config.json set \"remote_tasks\": true, then restart its zm daemon (zm daemon restart). Check zm ask machines lists workshop as ready.\n3. In workshop's pool settings set the package shelf to on with 50 GB for the shelf and 60 GB per owner volume. Save.\n4. Restart the pool service and wait until it reports healthy.\n5. Start one test machine and confirm its install step reads from the shelf (the log line says shelf hit).\n6. Run the verify line below; it must exit 0. Report what you changed, each check's result, and how to undo it.",
+      "shown": "If you choose A, your own agent (claude) on your own machine works from this brief, as you, with full access: this answer approves it (in the Mezze app: Hand to my agent)."
+    },
+    "verify": "ssh workshop 'potluck shelf status --json' | grep -q '\"enabled\": true'"
+  }
+}

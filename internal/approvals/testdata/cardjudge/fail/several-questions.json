@@ -1,0 +1,29 @@
+{
+  "why_it_fails": "Three separate decisions (the price, the email company, the logo) are asked as one yes/no question, so a press cannot say which of them the person agreed to, and nothing says what each change costs or risks.",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Pricing, email and logo",
+      "context": "A few things came up this week. We could raise the monthly price for new clinics, move our emails to a different email company, and switch to the new logo the designer sent.",
+      "question": "Should we raise the price for new clinics, move to the new email company and switch to the new logo?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes",
+          "pros": "all done at once",
+          "cons": "more change"
+        },
+        {
+          "key": "b",
+          "label": "No",
+          "pros": "nothing changes",
+          "cons": "nothing improves"
+        }
+      ],
+      "recommend": "a",
+      "why": "Better to do it all at once."
+    }
+  }
+}

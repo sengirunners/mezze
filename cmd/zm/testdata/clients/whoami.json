@@ -1,0 +1,17 @@
+{
+  "as": "string",
+  "commit": "string",
+  "home": "string",
+  "identity": {
+    "created": "string",
+    "id": "string",
+    "kind": "string",
+    "name": "string"
+  },
+  "kind": "string",
+  "machine": "string",
+  "protocol": "string",
+  "socket": "string",
+  "version": "string",
+  "via": "string"
+}

@@ -1,0 +1,29 @@
+{
+  "why_it_passes": "The Gmail ask of 2026-11-14 (sent back four times): Google always needs the account's owner to press Allow once on its own page. The card says so plainly, the hand brief brings that page up and does everything before and after it, and a verify line checks the connection, so the one click is approving, not a step.",
+  "want_risk": "irreversible",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [{"machine": "beas-mac", "ready": false, "why_not": "it takes no remote tasks: bea sets remote_tasks in its zm config"}],
+    "machines_known": true,
+    "card": {
+      "title": "Let the outreach tool read your Gmail and save drafts?",
+      "context": "The outreach tool writes first emails to clinics for you. To see who replied and to save its emails as drafts in your Gmail (you still press send yourself), it needs your permission on your Google account. It can only read mail and save drafts: it cannot send, delete or change anything.",
+      "background": "Pressing A hands a step-by-step plan to your own agent in the Mezze app on your Mac. It opens the tool's sign-in page in your browser. Google then shows its own page asking whether the outreach tool may read your mail and save drafts: you press Allow once. Google asks this of the account's owner every time and no agent can press it for you. Your agent does everything else and checks the connection works. You can take the permission back any time in your Google account or with one more card.",
+      "question": "Should the outreach tool get read and draft access to your Gmail?",
+      "choices": [
+        {"key": "a", "label": "Yes, connect it (you press Allow once on Google's page)", "pros": "the tool sees replies and puts its emails in your drafts, so follow-ups stop being missed", "cons": "the tool can read your whole mailbox, not only outreach mail"},
+        {"key": "b", "label": "Not now", "pros": "nothing gets access to your mail", "cons": "the outreach tool cannot see replies or save drafts; follow-ups stay by hand"}
+      ],
+      "recommend": "a",
+      "why": "Missed replies cost clinics; read and draft access is the least the tool needs, and you can take it back any time."
+    },
+    "action": {
+      "kind": "hand",
+      "on": "a",
+      "agent": "claude",
+      "brief": "You are on Bea's Mac, approved by Bea's answer to this card. Work until the check below passes.\n1. Open the outreach tool's sign-in page (connect.example.com/signin) in Bea's default browser. If it does not load, stop and report why.\n2. Press its Connect Gmail button so Google's consent page opens for Bea's work account.\n3. Tell Bea in this thread that Google's page is up and asks him to press Allow, and wait up to 10 minutes for the sign-in page to say connected. If Google shows an error or the time runs out, stop and report what the page says.\n4. Open connect.example.com/health and confirm it shows Gmail connected with read and draft access only.\n5. Run the verify line; it must exit 0. Report what was connected and how to take it back.",
+      "shown": "If you choose A, your own agent (claude) on your own machine works from this brief, as you, with full access: this answer approves it (in the Mezze app: Hand to my agent)."
+    },
+    "verify": "curl -fsS https://connect.example.com/health | grep -q '\"gmail\": \"connected\"'"
+  }
+}

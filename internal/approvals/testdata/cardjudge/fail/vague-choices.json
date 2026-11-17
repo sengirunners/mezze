@@ -1,0 +1,29 @@
+{
+  "why_it_fails": "The choices are named plans with no word on what either one does, what it changes for clinics or what it costs; a reader cannot tell Plan Alpha from Plan Beta.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Plan Alpha or Plan Beta for the clinic rollout?",
+      "context": "We need to pick how the next clinics get onboarded. The team drafted two plans.",
+      "question": "Which plan should we use for the next clinic rollout?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Plan Alpha",
+          "pros": "better fit",
+          "cons": "some tradeoffs"
+        },
+        {
+          "key": "b",
+          "label": "Plan Beta",
+          "pros": "simpler",
+          "cons": "less flexible"
+        }
+      ],
+      "recommend": "a",
+      "why": "Alpha fits better overall."
+    }
+  }
+}

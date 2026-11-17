@@ -1,0 +1,7 @@
+{
+  "why_it_fails": "action needed",
+  "input": {
+    "reader": "bea",
+    "body": "Action needed: log in to PostHog and check the events."
+  }
+}

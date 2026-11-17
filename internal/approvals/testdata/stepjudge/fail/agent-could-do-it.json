@@ -1,0 +1,9 @@
+{
+  "why_it_fails": "merging a pull request needs no one person's machine: an agent with the repository's access does it itself",
+  "input": {
+    "person": "bea",
+    "title": "Merge the docs change",
+    "brief": "1. Open https://github.com/example-org/app/pull/12\n2. Press Squash and merge.\n3. Press Confirm squash and merge.",
+    "check": "gh pr view 12 --repo example-org/app --json state --jq .state | grep -qx MERGED"
+  }
+}

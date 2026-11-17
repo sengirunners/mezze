@@ -1,0 +1,18 @@
+{
+  "mail": [
+    {
+      "body": "string",
+      "created": "string",
+      "from": "string",
+      "id": "string",
+      "kind": "string",
+      "needs": "string",
+      "project": "string",
+      "recipient": "string",
+      "ref": "string",
+      "thread": "string",
+      "to": "string",
+      "via": "string"
+    }
+  ]
+}

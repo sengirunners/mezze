@@ -1,0 +1,45 @@
+[
+  {
+    "item": {
+      "created": "string",
+      "created_by": "string",
+      "id": "string",
+      "owner": "string",
+      "project": "string",
+      "source": "string",
+      "status": "string",
+      "title": "string",
+      "updated": "string"
+    },
+    "lease": {
+      "bound": "bool",
+      "claimed": "string",
+      "expires": "string",
+      "holder": "string",
+      "key": "string",
+      "project": "string",
+      "renewed": "string"
+    },
+    "session": {
+      "address": "string",
+      "agent": "string",
+      "cwd": "string",
+      "id": "string",
+      "launcher": "string",
+      "machine": "string",
+      "managed": "bool",
+      "needs": {
+        "at": "string",
+        "kind": "string"
+      },
+      "note": "string",
+      "project": "string",
+      "runtime_id": "string",
+      "started": "string",
+      "state": "string",
+      "title": "string",
+      "updated": "string",
+      "work": "string"
+    }
+  }
+]

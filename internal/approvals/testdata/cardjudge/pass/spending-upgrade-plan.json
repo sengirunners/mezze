@@ -1,0 +1,43 @@
+{
+  "why_it_passes": "An action that spends money: the agent moves the shop's hosting to a paid plan on approval, and the card says the cost and what each choice changes.",
+  "want_risk": "spending",
+  "input": {
+    "approver": "wren",
+    "approver_machines": [
+      {
+        "machine": "larch",
+        "ready": true
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Move the shop's site to the $25 a month hosting plan?",
+      "context": "The shop's website runs on the free hosting plan, which goes offline for a few minutes when more than 200 people visit at once. That happened twice last week during the newsletter, and orders stopped while it was down. The paid plan costs $25 a month and has no such limit.",
+      "question": "Should an agent move the site to the paid plan now, for $25 a month?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes, move it to the paid plan",
+          "pros": "no more outages when the newsletter goes out",
+          "cons": "$25 a month, $300 a year, charged to the shop's card"
+        },
+        {
+          "key": "b",
+          "label": "Stay on the free plan",
+          "pros": "no cost",
+          "cons": "the site may go down again at the next newsletter, and orders stop while it is down"
+        }
+      ],
+      "recommend": "a",
+      "why": "Two outages cost more in lost orders last week than a year of the plan; the agent switches it in a few minutes with the hosting account it already uses."
+    },
+    "action": {
+      "kind": "run",
+      "on": "a",
+      "machine": "larch",
+      "agent": "claude",
+      "brief": "1. Sign in to the hosting account with the saved login on this machine.\n2. Upgrade the shop site to the $25 a month plan, paying with the card on file.\n3. Check the site still loads and the plan page shows the paid plan.\n4. Report the new plan and the first charge date. If any step fails, stop and report; change nothing else.",
+      "shown": "If you choose A, an agent (claude) on larch will work from this brief, as you. Any other answer does nothing."
+    }
+  }
+}

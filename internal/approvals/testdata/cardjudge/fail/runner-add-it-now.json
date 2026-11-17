@@ -1,0 +1,19 @@
+{
+  "why_it_fails": "2026-11-13 ask about an always-ready runner: 'Only you can add runners', 'it needs your hands on workshop': choice A is a step for Bea with no action and no brief, and the reason names a runner label a non-coder cannot act on.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [{"machine": "studio", "ready": false, "why_not": "it takes no remote tasks: bea sets remote_tasks in its zm config"}],
+    "machines_known": true,
+    "card": {
+      "title": "Can you add the always-ready runner on workshop for zm's quick checks?",
+      "context": "Ivo chose an always-ready runner on workshop for zm's quick checks, so they start in seconds instead of waiting up to 15 minutes for room. Only you can add runners on workshop. It's one small 2-CPU runner, named like the two zm already has there, but kept ready all the time. Once it shows online, an agent points the quick checks at it with one setting, and deleting that setting undoes it.",
+      "question": "Can you add the always-ready runner on workshop for zm's quick checks?",
+      "choices": [
+        {"key": "a", "label": "Add it now", "pros": "quick checks start in seconds", "cons": "one more always-on runner on workshop"},
+        {"key": "b", "label": "Not now", "pros": "nothing changes on workshop", "cons": "quick checks keep waiting up to 15 minutes"}
+      ],
+      "recommend": "a",
+      "why": "Ivo already picked this option; it needs your hands on workshop. Label harbor-pc-runner-2, same group and image as harbor-pc-runner-4."
+    }
+  }
+}

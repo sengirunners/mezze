@@ -1,0 +1,19 @@
+{
+  "why_it_fails": "Asks the reader to run a migration, with no action that runs it.",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [{"machine": "mini", "ready": true}],
+    "machines_known": true,
+    "card": {
+      "title": "Run the billing migration tonight?",
+      "context": "The new billing table is ready. Moving last month's invoices into it takes about ten minutes, during which invoices cannot be opened.",
+      "question": "Can you run the billing migration tonight?",
+      "choices": [
+        {"key": "a", "label": "Yes, I'll run it after 10 pm", "pros": "nobody is using invoices then", "cons": "a late night for you"},
+        {"key": "b", "label": "Wait for the weekend", "pros": "even quieter", "cons": "the old table keeps growing for four days"}
+      ],
+      "recommend": "a",
+      "why": "Ten quiet minutes tonight beats four more days of invoices in the old table."
+    }
+  }
+}

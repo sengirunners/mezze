@@ -1,0 +1,12 @@
+{
+  "why": "A message to the team's own members only is not outward content.",
+  "input": {
+    "title": "Approve the team's weekly digest wording?",
+    "question": "Is this wording right for the digest that goes to the five people on our team?",
+    "context": "The digest goes only to team members' inboxes and lists open decisions.",
+    "choices": [
+      "Looks good",
+      "Reword it"
+    ]
+  }
+}

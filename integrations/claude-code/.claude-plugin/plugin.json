@@ -1,0 +1,8 @@
+{
+  "name": "zm",
+  "version": "0.1.0",
+  "description": "Mezze: connect Claude Code to the zm bus: session registration, state reporting, an unread-mail notice on each prompt, and zm's mail/work tools over MCP.",
+  "homepage": "https://github.com/sengirunners/mezze",
+  "repository": "https://github.com/sengirunners/mezze",
+  "keywords": ["agents", "mail", "work", "coordination"]
+}

@@ -1,0 +1,24 @@
+{
+  "why_it_passes": "reversible: test about admin rights",
+  "input": {
+    "card": {
+      "context": "The test that checks admin rights is flaky on one machine.",
+      "background": "",
+      "question": "Retry it twice, or mark it slow?",
+      "choices": [
+        {
+          "label": "Retry twice"
+        },
+        {
+          "label": "Mark it slow"
+        }
+      ],
+      "recommend": "a",
+      "why": "Retrying is a one-line change we can take back."
+    },
+    "work": {
+      "title": "flaky admin-rights test",
+      "body": ""
+    }
+  }
+}

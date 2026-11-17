@@ -1,0 +1,37 @@
+{
+  "answer": "string",
+  "answered_as": "string",
+  "approver": "string",
+  "ask": "string",
+  "decision": "string",
+  "deliveries": [
+    {
+      "kind": "string",
+      "state": "string"
+    }
+  ],
+  "machine": "string",
+  "method": "string",
+  "receipt": {
+    "answered_as": "string",
+    "approver": "string",
+    "ask": "string",
+    "card_sha256": "string",
+    "decision": "string",
+    "key_id": "string",
+    "node": "string",
+    "project": "string",
+    "sig": "string",
+    "subject": {
+      "head_sha": "string",
+      "pr": "number",
+      "repo": "string",
+      "work": "string"
+    },
+    "time": "string",
+    "v": "string"
+  },
+  "recorded_at": "string",
+  "surface": "string",
+  "time": "string"
+}

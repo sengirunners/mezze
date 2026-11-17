@@ -1,0 +1,246 @@
+#!/bin/sh
+# zm-install: install the zm release this plugin pins (../zm-release.pin) when
+# zm is missing. It downloads that release's SHA256SUMS, refuses it unless its
+# SHA-256 is the pinned one, downloads the tarball for this OS and CPU, refuses
+# it unless it matches SHA256SUMS, unpacks it into PREFIX/lib/zm/<tag> and
+# links PREFIX/bin/zm. Never sudo, never a package manager, never a script
+# from the network. A zm already on PATH (or at PREFIX/bin/zm) is left alone.
+#
+#   zm-install [--yes] [--prefix DIR]   install (asks first on a terminal; --yes confirms)
+#   zm-install --path [--prefix DIR]    print the zm to use; exit 1 if there is none
+#
+# Everything but --path output goes to stderr: zm-run calls this from an MCP
+# server, whose stdout is the protocol.
+set -eu
+# What it makes is writable by no one else: zm's daemon runs the drivers
+# beside zm only then (sengirunners/potluck DRIVERS.md; Ubuntu's umask is 002).
+umask 022
+
+here=$(cd "$(dirname "$0")" && pwd)
+pin="$here/../zm-release.pin"
+prefix="${HOME:?zm-install: HOME is not set}/.local"
+yes=0
+mode=install
+
+die() { echo "zm-install: $*" >&2; exit 1; }
+say() { echo "zm-install: $*" >&2; }
+
+while [ $# -gt 0 ]; do
+	case "$1" in
+	--yes | -y) yes=1 ;;
+	--path) mode=path ;;
+	--prefix) [ $# -ge 2 ] || die "--prefix needs a directory"; prefix=$2; shift ;;
+	-h | --help) sed -n '2,13p' "$0" | sed 's/^# \{0,1\}//' >&2; exit 0 ;;
+	*) die "unknown argument $1 (try --help)" ;;
+	esac
+	shift
+done
+# The zm link points into PREFIX: a relative prefix would leave it dangling.
+case "$prefix" in
+/*) ;;
+'') die "--prefix needs a directory" ;;
+*) prefix="$(pwd)/$prefix" ;;
+esac
+
+# existing prints the zm this machine already has, if any.
+existing() {
+	if p=$(command -v zm 2>/dev/null) && [ -n "$p" ]; then
+		echo "$p"
+		return 0
+	fi
+	if [ -x "$prefix/bin/zm" ]; then
+		echo "$prefix/bin/zm"
+		return 0
+	fi
+	return 1
+}
+
+if [ "$mode" = path ]; then
+	existing
+	exit
+fi
+if p=$(existing); then
+	say "zm is already installed ($p); leaving it alone"
+	exit 0
+fi
+
+pinned() { sed -n "s/^$1=//p" "$pin" | head -n 1; }
+[ -r "$pin" ] || die "no pin file at $pin"
+# A blank tag= says no release is pinned: the first public copy cannot name its own release (the release is built
+# from the commit that would hold its hash), so it says where to install from instead of asking a server.
+if grep -q '^tag=$' "$pin"; then
+	first=$(sed -n 's/^repo=//p' "$pin" | head -n 1)
+	die "this copy of the plugin pins no zm release yet, so there is nothing to download: install zm from a clone of github.com/${first:-the project}, with git, Go and make (make install), then start the plugin again"
+fi
+tag=$(pinned tag)
+version=$(pinned version)
+want_sums=$(pinned sums_sha256)
+for v in tag version want_sums; do
+	eval "[ -n \"\$$v\" ]" || die "$pin lacks $v"
+done
+case "$tag$version" in */* | *' '* | *..*) die "bad tag or version in $pin" ;; esac
+echo "$want_sums" | grep -Eq '^[0-9a-f]{64}$' || die "sums_sha256 in $pin is not a SHA-256"
+# The sources, in the order the pin lists them (new repo first): each repo=
+# line starts one, and the base_url= line after it is where its releases are.
+sources=$(awk '/^repo=/ { if (r != "") print r " " b; r = substr($0, 6); b = "" }
+	/^base_url=/ { b = substr($0, 10) }
+	END { if (r != "") print r " " b }' "$pin")
+[ -n "$sources" ] || die "$pin lacks repo"
+# https only; plain http only to this machine (tests and local mirrors).
+proto_of() {
+	case "$1" in
+	https://*) echo '=https' ;;
+	http://127.0.0.1:* | http://127.0.0.1/* | http://localhost:* | http://localhost/*) echo '=http,https' ;;
+	*) return 1 ;;
+	esac
+}
+while read -r r b; do
+	[ -n "$b" ] || die "$pin lacks base_url for $r"
+	proto_of "$b" >/dev/null || die "base_url in $pin must be https:// ($b)"
+done <<EOF2
+$sources
+EOF2
+# Every source, for the prompt: the install may come from any of them.
+repos=$(printf '%s\n' "$sources" | awk '{ printf "%sgithub.com/%s", (NR > 1 ? " or " : ""), $1 }')
+nsources=$(printf '%s\n' "$sources" | wc -l | tr -d ' ')
+
+case "$(uname -s)" in
+Darwin) os=darwin ;;
+Linux) os=linux ;;
+*) die "zm runs on macOS and Linux, not $(uname -s)" ;;
+esac
+case "$(uname -m)" in
+arm64 | aarch64) arch=arm64 ;;
+x86_64 | amd64) arch=amd64 ;;
+*) die "no zm release for CPU $(uname -m)" ;;
+esac
+
+command -v curl >/dev/null 2>&1 || die "needs curl"
+command -v tar >/dev/null 2>&1 || die "needs tar"
+if command -v shasum >/dev/null 2>&1; then
+	sha256() { shasum -a 256 "$1" | cut -d ' ' -f 1; }
+elif command -v sha256sum >/dev/null 2>&1; then
+	sha256() { sha256sum "$1" | cut -d ' ' -f 1; }
+else
+	die "needs shasum or sha256sum to check the download"
+fi
+
+name="zm_${version}_${os}_${arch}"
+dest="$prefix/lib/zm/$tag"
+if [ "$yes" != 1 ]; then
+	[ -t 0 ] && [ -t 2 ] || die "zm is not installed. To install zm $version from $repos (SHA-256 checked) into $dest, run: $0 --yes"
+	printf 'Install zm %s (%s/%s) from %s into %s,\nlinked as %s/bin/zm? [y/N] ' "$version" "$os" "$arch" "$repos" "$dest" "$prefix" >&2
+	read -r answer || answer=
+	case "$answer" in y | Y | yes | YES | Yes) ;; *) die "not installed" ;; esac
+fi
+
+mkdir -p "$prefix/lib/zm" "$prefix/bin"
+# One installer at a time: another session may be installing right now. The
+# lock holds its installer's pid; a lock whose installer is gone (killed) is
+# taken over, as is one that stays without a pid.
+lock="$prefix/lib/zm/.install-lock"
+n=0
+until mkdir "$lock" 2>/dev/null; do
+	holder=$(cat "$lock/pid" 2>/dev/null || true)
+	stale=0
+	if [ -n "$holder" ]; then
+		kill -0 "$holder" 2>/dev/null || stale=1
+	elif [ "$n" -ge 5 ]; then
+		stale=1
+	fi
+	if [ "$stale" = 1 ] && [ "$(cat "$lock/pid" 2>/dev/null || true)" = "$holder" ]; then
+		rm -rf "$lock"
+		say "took over the install lock of an installer that is gone (pid ${holder:-unknown})"
+		continue
+	fi
+	n=$((n + 1))
+	[ "$n" -le 300 ] || die "another install (pid ${holder:-unknown}) holds $lock"
+	sleep 1
+done
+echo $$ >"$lock/pid"
+tmp=
+trap 'rm -rf ${tmp:+"$tmp"} "$lock"' EXIT
+trap 'exit 1' HUP INT TERM
+tmp=$(mktemp -d "$prefix/lib/zm/.install.XXXXXX")
+if p=$(existing); then
+	say "zm was installed meanwhile ($p); leaving it alone"
+	exit 0
+fi
+
+# fetch URL FILE: download; on failure say why in $why and return 1, so the
+# next source is tried. A 404 is the usual answer of a source that is private
+# or not published yet; what to do about it is said once, if no source had it.
+fetch() {
+	code=$(curl -sSL --proto "$proto" --proto-redir "$proto" --retry 2 --connect-timeout 15 \
+		-o "$2" -w '%{http_code}' "$1") || { why="could not download $1"; return 1; }
+	case "$code" in
+	200) ;;
+	404) why="$1 answered 404"; return 1 ;;
+	*) why="$1 answered HTTP $code"; return 1 ;;
+	esac
+}
+
+# try REPO BASE: download and check the pinned release from one source.
+try() {
+	repo=$1 base=$2
+	proto=$(proto_of "$base")
+	say "downloading zm $version for $os/$arch from github.com/$repo"
+	fetch "$base/$tag/SHA256SUMS" "$tmp/SHA256SUMS" || return 1
+	got=$(sha256 "$tmp/SHA256SUMS")
+	[ "$got" = "$want_sums" ] || { why="checksum mismatch: SHA256SUMS of $tag at github.com/$repo is $got, the plugin pins $want_sums; not installing"; return 1; }
+	want=$(awk -v f="$name.tar.gz" '$2 == f || $2 == "*" f { print $1 }' "$tmp/SHA256SUMS")
+	[ -n "$want" ] || { why="release $tag has no $name.tar.gz"; return 1; }
+	fetch "$base/$tag/$name.tar.gz" "$tmp/$name.tar.gz" || return 1
+	got=$(sha256 "$tmp/$name.tar.gz")
+	[ "$got" = "$want" ] || { why="checksum mismatch: $name.tar.gz is $got, SHA256SUMS says $want; not installing"; return 1; }
+}
+
+ok=0
+why=
+i=0
+while read -r r b; do
+	i=$((i + 1))
+	if try "$r" "$b"; then
+		ok=1
+		break
+	fi
+	# A later source is tried; the last failure is the one reported.
+	if [ "$i" -lt "$nsources" ]; then
+		say "$why; trying the next source"
+	fi
+done <<EOF2
+$sources
+EOF2
+if [ "$ok" != 1 ]; then
+	case "$why" in
+	*" answered 404") die "$why. No source had release $tag: while $repos is private (or not published yet) its releases cannot be downloaded:
+  install zm from a clone instead (make install), then start the plugin again.
+  If a repository is public, release $tag is gone there: update the plugin." ;;
+	esac
+	die "${why:-no source had the release}"
+fi
+
+mkdir "$tmp/x"
+tar -xzf "$tmp/$name.tar.gz" -C "$tmp/x"
+[ -f "$tmp/x/$name/zm" ] || die "$name.tar.gz has no $name/zm"
+chmod 755 "$tmp/x/$name/zm"
+rm -rf "$dest"
+mv "$tmp/x/$name" "$dest"
+ln -sf "$dest/zm" "$prefix/bin/zm"
+# The daemon refuses a driver under a directory others may change (a sticky
+# one above, like /tmp, is fine): lib/zm is zm's own; the rest is said.
+chmod go-w "$prefix/lib/zm" "$dest"
+d=$(dirname "$dest")
+while :; do
+	if [ -n "$(find "$d" -maxdepth 0 \( -perm -0020 -o -perm -0002 \) ! -perm -1000 2>/dev/null)" ]; then
+		say "warning: $d is writable by group or others, so zm's daemon will refuse the drivers in $dest (no boxes or jobs from this machine); fix: chmod go-w $d"
+	fi
+	[ "$d" = / ] && break
+	d=$(dirname "$d")
+done
+"$prefix/bin/zm" --version >&2 || die "the installed zm does not run ($prefix/bin/zm)"
+say "installed zm $version (Mezze): $prefix/bin/zm. If your agent's MCP client gave up waiting for this first start, reconnect the server (Claude Code: /mcp, plugin:zm-compute:zm, Reconnect)"
+case ":${PATH:-}:" in
+*":$prefix/bin:"*) ;;
+*) say "$prefix/bin is not on your PATH; add it to use zm from a shell" ;;
+esac

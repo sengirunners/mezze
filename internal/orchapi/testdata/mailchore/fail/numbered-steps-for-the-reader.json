@@ -1,0 +1,7 @@
+{
+  "why_it_fails": "numbered steps for the reader",
+  "input": {
+    "reader": "bea",
+    "body": "Steps:\n1. Paste the token into the settings page\n2. Save"
+  }
+}

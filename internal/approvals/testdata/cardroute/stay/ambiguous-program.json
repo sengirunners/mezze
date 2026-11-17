@@ -1,0 +1,45 @@
+{
+ "why": "No single party is meant; several programs could be.",
+ "want_party": 0,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Default call length",
+   "context": "Most programs we schedule use 24-hour call, a few use 28-hour call. New programs start with a default.",
+   "background": "",
+   "question": "Should new programs default to 24-hour or 28-hour call?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "24 hours",
+     "pros": "most common",
+     "cons": "some programs must change it"
+    },
+    {
+     "key": "b",
+     "label": "28 hours",
+     "pros": "matches a few large programs",
+     "cons": "most must change it"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

@@ -1,0 +1,36 @@
+{
+  "why_it_fails": "The card discloses Google's Allow click but has no action: approving only records the answer, and Bea is left to open a link the agent sends later and press Allow, a step nothing carries.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [
+      {
+        "machine": "beas-mac",
+        "ready": false,
+        "why_not": "it takes no remote tasks: bea sets remote_tasks in its zm config"
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Let the outreach tool read your Gmail and save drafts?",
+      "context": "The outreach tool writes first emails to clinics for you. To see who replied and to save its emails as drafts in your Gmail (you still press send yourself), it needs your permission on your Google account. It can only read mail and save drafts: it cannot send, delete or change anything.",
+      "background": "After you choose A, I will send you a link in this thread. Open it on your Mac, Google shows its page asking whether the outreach tool may read your mail and save drafts, and you press Allow once.",
+      "question": "Should the outreach tool get read and draft access to your Gmail?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes, connect it (you press Allow once on Google's page)",
+          "pros": "the tool sees replies and puts its emails in your drafts, so follow-ups stop being missed",
+          "cons": "the tool can read your whole mailbox, not only outreach mail"
+        },
+        {
+          "key": "b",
+          "label": "Not now",
+          "pros": "nothing gets access to your mail",
+          "cons": "the outreach tool cannot see replies or save drafts; follow-ups stay by hand"
+        }
+      ],
+      "recommend": "a",
+      "why": "Missed replies cost clinics; read and draft access is the least the tool needs, and you can take it back any time."
+    }
+  }
+}

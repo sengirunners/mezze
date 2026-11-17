@@ -1,0 +1,7 @@
+{
+  "why_it_passes": "reader's earlier request",
+  "input": {
+    "reader": "bea",
+    "body": "I deployed the branch you asked to deploy."
+  }
+}

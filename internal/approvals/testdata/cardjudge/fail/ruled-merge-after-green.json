@@ -1,0 +1,39 @@
+{
+  "why_it_fails": "The owners' ruling merge-after-green already answers it: a reviewed pull request with green checks is merged by the agent, so the owner's press could only repeat the ruling.",
+  "input": {
+    "approver": "dana",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Merge the invoice screen change?",
+      "context": "The change that adds a print button to the invoice screen is finished. A separate review agent read it and signed off, and all required checks passed on the final version. Merging puts it into the next release.",
+      "question": "Should I merge the print button change now?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Merge it",
+          "pros": "clinics get the print button in the next release",
+          "cons": "a small chance of a bug we fix in the following release"
+        },
+        {
+          "key": "b",
+          "label": "Wait",
+          "pros": "nothing changes yet",
+          "cons": "clinics keep printing from the browser menu"
+        }
+      ],
+      "recommend": "a",
+      "why": "It was reviewed and every check passed."
+    },
+    "rulings": [
+      {
+        "name": "merge-after-green",
+        "text": "An agent merges its own pull request once a separate review agent has signed off and the required checks are green. The owners never review or merge pull requests themselves."
+      },
+      {
+        "name": "no-weekend-deploys",
+        "text": "Nothing is released to customers between Friday 6 pm and Monday 8 am, whoever asks."
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "why_it_passes": "No one person is named and machines are not known, but nothing in either choice needs a person's machine or hands: the agent does the work either way, and the card says what each choice changes.",
+  "input": {
+    "approver": "the project's owners (no one person is named)",
+    "approver_machines": [],
+    "machines_known": false,
+    "card": {
+      "title": "Keep a copy of deleted messages for 30 days or delete them at once?",
+      "context": "When a clinic deletes a message to a patient today, it is gone at once. Two clinics have asked us to recover messages deleted by mistake, and we could not. The agent can make deleted messages stay recoverable for 30 days, then disappear for good.",
+      "question": "Should deleted messages stay recoverable for 30 days?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Keep them 30 days",
+          "pros": "a message deleted by mistake can be brought back for a month",
+          "cons": "we hold patient messages a month longer than clinics may expect, so our privacy page needs one more sentence (the agent writes it)"
+        },
+        {
+          "key": "b",
+          "label": "Delete at once, as now",
+          "pros": "nothing is kept after a clinic deletes it",
+          "cons": "a mistake cannot be undone"
+        }
+      ],
+      "recommend": "a",
+      "why": "Mistakes happen weekly and cost clinics real messages; a month's hold, stated on the privacy page, is what most messaging apps do. The agent builds it and updates the page either way you choose."
+    }
+  }
+}

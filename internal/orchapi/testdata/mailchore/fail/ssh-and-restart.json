@@ -1,0 +1,7 @@
+{
+  "why_it_fails": "ssh and restart",
+  "input": {
+    "reader": "bea",
+    "body": "You need to ssh to the box and restart it."
+  }
+}

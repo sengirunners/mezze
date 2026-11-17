@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "zm": {
+      "command": "zm",
+      "args": ["mcp"]
+    }
+  }
+}

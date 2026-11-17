@@ -1,0 +1,266 @@
+# The public copy's ci (internal/deps/publiccopy: scripts/publish carries it in place of the private one). Every job
+# runs on GitHub-hosted ubuntu-latest: no self-hosted runner, no routing (scripts/ci/fork-safe-lint.sh pins it).
+# A PR runs only `fast check` and govulncheck, a few minutes; `gate` passes only when both pass, and it is main's
+# one required check. The full suite (`make check + smoke`) runs on every push to main, nightly and on dispatch; a
+# red scheduled run opens or updates one issue (the notify job). Timing (`make bench`) is not run here: a shared
+# runner's numbers decide nothing.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "23 8 * * *" # the nightly full suite (its string is matched in the jobs' if)
+    - cron: "17 9 * * 1" # the weekly load test
+  workflow_dispatch:
+    inputs:
+      duration:
+        description: load test duration (Go duration, e.g. 3m, 10m)
+        default: 10m
+      profile:
+        description: also write a CPU profile of the load test
+        type: boolean
+        default: false
+
+# A PR's new push replaces its old run. Main never cancels: a merge used to cancel
+# the run in progress, so a busy day left main with no finished run at all. A
+# scheduled run has its own group, so a push's pending run never replaces it.
+concurrency:
+  group: ci-${{ github.ref }}${{ github.event_name == 'schedule' && '-schedule' || '' }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+permissions:
+  contents: read
+
+env:
+  GOFLAGS: -mod=readonly
+  # Fall back to the origin when proxy.golang.org drops connections (2026-11-05/06).
+  GOPROXY: https://proxy.golang.org,direct
+
+jobs:
+  # The PR gate: under ~3 minutes, the checks that catch real breaks cheaply (gofmt,
+  # build, vet, the size ratchet, AGENTS.md budgets, the bricks boundaries, the leak
+  # and route tests, the client schema, ceilings only tighten). Branch protection requires only `gate`
+  # (below), never this name: rename it freely, and keep it in gate's needs.
+  fast:
+    name: fast check
+    if: ${{ !cancelled() && github.event_name != 'schedule' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - name: go mod download
+        run: scripts/ci/go-mod-download.sh
+      - name: gofmt
+        run: test -z "$(gofmt -l .)" || { gofmt -l .; echo "gofmt needed"; exit 1; }
+      - run: go build ./...
+      - run: go vet ./...
+      # deps: size ratchet, pinned deps, bricks boundaries, ownership. budget: AGENTS.md
+      # and the 8 KiB agent surface. wiring/fulltest: every route in API.md, the leak tests.
+      - name: ratchet, budgets, bricks, leaks, routes
+        run: |
+          for v in $(env | grep -E '^ZM_' | cut -d= -f1); do unset "$v"; done
+          tmp=$(mktemp -d)
+          HOME="$tmp/home" ZM_HOME="$tmp/zm" go test -p 4 -count=1 ./internal/deps/ ./internal/budget/
+          HOME="$tmp/home" ZM_HOME="$tmp/zm" go test -count=1 \
+            -run 'Leak|^TestAPIDocListsEveryRoute$|^TestTailnet|^TestUnmarkedListenerFailsClosed$|^TestMarkUnixMarksOnlyUnix$|^TestRemoteOwnerCannot' \
+            ./internal/wiring/fulltest/
+      # docs/schema/openapi.json is the stable routes' and events' Go types as generated now
+      # (scripts/clientschema), names every stable API.md route and dev.zm.* type, and agrees
+      # with the CLI goldens: a shape change is a diff of that file (docs/clients.md).
+      - name: client schema drift
+        run: go test -count=1 ./scripts/clientschema/
+      # Nice must be inherited before the first payload/probe instruction. Keep
+      # these bounded launch regressions on PRs: the full suite runs after merge.
+      - name: session launch priority and identity
+        run: |
+          for v in $(env | grep -E '^ZM_' | cut -d= -f1); do unset "$v"; done
+          tmp=$(mktemp -d)
+          mkdir -p "$tmp/home"
+          HOME="$tmp/home" ZM_HOME="$tmp/zm" ZM_NO_AUTOSTART=1 go test -p 2 -count=1 -timeout=45s -v \
+            -run '^(TestPriority.*|TestHolderPriorityModes|TestAgentNice|TestHolderProtocol|TestHolderPipeMode|TestGrantRequiredBeforeAnyAgentCode|TestGrantedColdLaunchPreservesPromptPIDAndArgv|TestWrappedProbeAndExecRemainBehindGrant|TestHiddenModesKeepGC)$' \
+            ./internal/session/holder ./internal/session ./internal/session/tasklaunch ./cmd/zm
+      # No fork-reachable job on a self-hosted label, no pull_request_target, read-only defaults.
+      - name: fork-safe workflows
+        run: |
+          scripts/ci/fork-safe-lint_test.sh
+      # Reads a file and times nothing. Compare the PR event's immutable base: main can
+      # advance while tests run, adding rows absent from this event's tested merge.
+      - name: ceilings only tighten
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: scripts/ci/ceilings-base.sh
+
+  # The full suite: every push to main, nightly and on dispatch, never on a PR (12
+  # minutes, and its flakes held PRs up). A red here is a signal to fix main.
+  check:
+    name: make check + smoke
+    if: ${{ !cancelled() && github.event_name != 'pull_request' && (github.event_name != 'schedule' || github.event.schedule == '23 8 * * *') }}
+    runs-on: ubuntu-latest
+    # 10 more than before: room for a retried module prefetch.
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      # Bounded, retried prefetch: a flaky module proxy fails a try, not the job's timeout.
+      - name: go mod download
+        run: scripts/ci/go-mod-download.sh
+      # The search brick's ripgrep driver (SPEC 21) is tested only where rg
+      # is on PATH: install it, and make its tests fail rather than skip.
+      # A pinned GitHub release, not apt.
+      - name: ripgrep
+        run: scripts/ci/ensure-ripgrep.sh
+      # A systemd --user manager, for TestSessionsUnderSystemd (real units; that
+      # test fails rather than skips with ZM_REQUIRE_SYSTEMD=1). Its own step and
+      # -v, so its lines are in the log.
+      - name: systemd --user
+        run: |
+          sudo loginctl enable-linger "$(id -un)"
+          dir="/run/user/$(id -u)"
+          for _ in $(seq 1 50); do [ -S "$dir/systemd/private" ] && break; sleep 0.2; done
+          echo "XDG_RUNTIME_DIR=$dir" >> "$GITHUB_ENV"
+          XDG_RUNTIME_DIR="$dir" systemctl --user --version | head -1
+      - name: sessions under systemd
+        run: go test -count=1 -v -run TestSessionsUnderSystemd ./cmd/zm
+        env:
+          ZM_REQUIRE_SYSTEMD: "1"
+      - name: bench quiet-pool wait
+        run: scripts/ci/bench-quiet_test.sh
+      - name: bench baseline verdicts
+        run: scripts/ci/bench-baseline_test.sh
+      - name: bench calibration proposal
+        run: scripts/ci/bench-calibrate_test.sh
+      - name: bench tools
+        run: scripts/ci/bench-tools_test.sh
+      - name: bench runner classes (shell agrees with Go)
+        run: scripts/ci/bench-class_test.sh
+      - name: ripgrep setup regression
+        run: scripts/ci/ensure-ripgrep_test.sh
+      - name: ceiling base snapshot regression
+        run: scripts/ci/ceilings-base_test.sh
+      - run: make check
+        env:
+          ZM_REQUIRE_RG: "1"
+          ZM_REQUIRE_SYSTEMD: "1"
+      - run: scripts/smoke.sh
+
+  vuln:
+    name: govulncheck
+    if: ${{ !cancelled() && (github.event_name != 'schedule' || github.event.schedule == '23 8 * * *') }}
+    runs-on: ubuntu-latest
+    # Two retried fetches (modules, then govulncheck) can take up to ~11 minutes each.
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      # Bounded, retried prefetch of the modules and govulncheck itself.
+      - name: go mod download
+        run: scripts/ci/go-mod-download.sh install golang.org/x/vuln/cmd/govulncheck@v1.9.0
+      # Fails on a known vulnerability that our code can reach (call graph,
+      # not just go.mod), in a dependency or the Go toolchain.
+      - run: "$(go env GOPATH)/bin/govulncheck ./..."
+
+  # The one check main's branch protection requires: protection names
+  # `gate`, never a job, so renaming or adding a PR job never blocks every open PR
+  # again (#383). Every job in needs must succeed: a failed, cancelled or skipped one
+  # is red. always(), not !cancelled(): a skipped required check counts as passing,
+  # so a cancelled run must leave gate red, not skipped. Never rename this job.
+  # A new PR job goes in needs; one that may skip on a PR does not belong here.
+  gate:
+    name: gate
+    needs: [fast, vuln]
+    if: ${{ always() && github.event_name != 'schedule' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: every PR job passed
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "$NEEDS"
+          for r in $RESULTS; do
+            [ "$r" = success ] || { echo "gate: a PR job ended $r (results: $RESULTS)"; exit 1; }
+          done
+          [ -n "$RESULTS" ] || { echo "gate: no job results"; exit 1; }
+
+  # Weekly and on dispatch, not on every push or PR. A red here is a signal to fix main.
+  loadtest:
+    name: load test (SPEC 17.7)
+    if: ${{ !cancelled() && ((github.event_name == 'schedule' && github.event.schedule != '23 8 * * *') || github.event_name == 'workflow_dispatch') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      # Bounded, retried prefetch: a flaky module proxy fails a try, not the job's timeout.
+      - name: go mod download
+        run: scripts/ci/go-mod-download.sh
+      - name: load test
+        env:
+          # The weekly run is a short pass; a dispatch runs what it asks.
+          DURATION: ${{ inputs.duration || '3m' }}
+          PROFILE: ${{ inputs.profile && '-cpuprofile loadtest-cpu.prof' || '' }}
+        run: |
+          go build -o loadtest-bin ./scripts/loadtest
+          # The job fails with the binary, not with tee, and the table reaches
+          # the summary either way (GitHub's default shell has no pipefail).
+          set -o pipefail
+          status=0
+          # Latency warns; missing samples and correctness checks still fail.
+          ./loadtest-bin -budgets=false -duration "$DURATION" -out loadtest.md $PROFILE | tee loadtest.log || status=$?
+          if [ -f loadtest.md ]; then cat loadtest.md >> "$GITHUB_STEP_SUMMARY"; fi
+          exit "$status"
+      # Storage: the text a person reads, always; the profile and goroutine dump only when
+      # the job failed (go tool pprof reads a profile without the binary). 3 days, not 14.
+      - if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadtest
+          path: |
+            loadtest.md
+            loadtest.log
+          if-no-files-found: ignore
+          retention-days: 3
+      - if: failure() || inputs.profile
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: loadtest-debug
+          path: |
+            loadtest-cpu.prof
+            loadtest-goroutines.txt
+          if-no-files-found: ignore
+          retention-days: 3
+
+  # A red scheduled run on main reaches someone (scripts/ci/scheduled-red.sh): one
+  # open issue, commented on while red; only a green nightly (the full suite) closes it.
+  notify:
+    name: scheduled red
+    needs: [check, vuln, loadtest]
+    if: ${{ !cancelled() && github.event_name == 'schedule' && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: scripts/ci/scheduled-red.sh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          WORKFLOW: ci
+          RED: ${{ contains(needs.*.result, 'failure') }}
+          CLOSE: ${{ github.event.schedule == '23 8 * * *' }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

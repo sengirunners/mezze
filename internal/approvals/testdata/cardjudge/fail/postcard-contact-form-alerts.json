@@ -1,0 +1,35 @@
+{
+  "why_it_fails": "Its face is far past a postcard (face_words over 140): how the email service, the side address and the confirmation link work is setup the agent carries out, and belongs in background.",
+  "input": {
+    "approver": "the project's owners (no one person is named)",
+    "approver_machines": [],
+    "machines_known": false,
+    "card": {
+      "title": "Turn on email alerts for the website's contact form?",
+      "context": "The Talk to us form on the Larder website went live today. It saves every message, but nobody is told when one arrives. The code that emails each new message to your shared team inbox (with Reply-To set to the sender, so you can just hit reply) is built and tested, and waiting to ship. For the web host to send these emails, it needs its email service switched on for a side address under the Larder domain (a separate name used only to send these alerts), and the team inbox confirmed by opening a link the host emails to it. Your agent does both: it switches the service on, then opens the team inbox in your signed-in browser and opens the link. Today, any email someone sends to an address at the Larder domain is delivered to another email company that also receives the team inbox's mail. A side address leaves that alone.",
+      "question": "How should the contact form tell you about new messages?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Email, sent from a side address",
+          "pros": "Mail to Larder-domain addresses keeps going where it goes today; alerts arrive within seconds; no Mac has to be awake",
+          "cons": "Your agent uses your signed-in browser to confirm the team inbox"
+        },
+        {
+          "key": "b",
+          "label": "Email, sent from the main Larder domain",
+          "pros": "Simplest setup; alerts within seconds",
+          "cons": "Mail to Larder-domain addresses moves to the web host, so any forwarding set up today stops"
+        },
+        {
+          "key": "c",
+          "label": "No email: a note in your zm For you list instead",
+          "pros": "Nothing changes for Larder-domain mail; no inbox to confirm",
+          "cons": "A small program on one Mac checks the saved messages every 15 minutes; while that Mac sleeps, notes wait"
+        }
+      ],
+      "recommend": "a",
+      "why": "Email from a side address reaches you within seconds with no Mac awake, and leaves Larder-domain mail where it is today. The agent switches it on, confirms the team inbox, ships the code, sends a test alert and closes the work."
+    }
+  }
+}

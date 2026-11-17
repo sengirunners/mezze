@@ -1,0 +1,29 @@
+{
+  "why_it_passes": "A postcard: one clear yes or no on sending seven drafts at set times, what each choice changes, the cost (the Mac must be awake), and nothing the decision does not need.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Send the 7 emails in your Drafts at their set times on Monday?",
+      "context": "This morning's outreach job left 7 first emails and 0 follow-ups in your Gmail Drafts. If you say yes, your Mac sends each one at its time, Monday 8:01 to 10:10 am, one every few minutes. Edit a draft in Gmail and the edited text goes; delete one and it never goes. Anyone who replied or opted out by then is skipped.",
+      "question": "Send the 7 emails in your Drafts at their set times on Monday?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Send at the set times",
+          "pros": "No more scheduling by hand",
+          "cons": "Your Mac must be awake then"
+        },
+        {
+          "key": "b",
+          "label": "Don't send",
+          "pros": "You send or schedule them yourself",
+          "cons": "More clicks"
+        }
+      ],
+      "recommend": "a",
+      "why": "The drafts already passed the voice and safety checks."
+    }
+  }
+}

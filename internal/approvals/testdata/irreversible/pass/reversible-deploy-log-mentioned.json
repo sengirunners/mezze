@@ -1,0 +1,24 @@
+{
+  "why_it_passes": "reversible: deploy log mentioned",
+  "input": {
+    "card": {
+      "context": "A check needs a build tool that one test machine lacks, so the check fails there. The deploy log shows the same failure on that machine.",
+      "background": "Both fixes can be changed back in a minute.",
+      "question": "Should the check install the tool, or run only on the machine that has it?",
+      "choices": [
+        {
+          "label": "Install the tool"
+        },
+        {
+          "label": "Use the one machine"
+        }
+      ],
+      "recommend": "a",
+      "why": "Installing keeps every machine usable; it costs a minute once."
+    },
+    "work": {
+      "title": "pick a CI runner",
+      "body": ""
+    }
+  }
+}

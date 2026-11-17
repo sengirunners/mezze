@@ -1,0 +1,12 @@
+{
+  "why": "A directory listing's text is public content to approve.",
+  "input": {
+    "title": "Approve our listing on the Widget Directory",
+    "question": "Submit this description for the Acme app?",
+    "context": "The directory shows a 300-character description and three screenshots. Our draft is below.",
+    "choices": [
+      "Submit as written",
+      "Change the description first"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "why_it_fails": "The steps send Wren to sign in to Stripe, but the link opens a different site that is not Stripe's own, so the button would take his Stripe sign-in somewhere else.",
+  "input": {
+    "approver": "wren",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Turn on payouts to the new bank account?",
+      "context": "Stripe holds this month's customer payments until the account owner confirms the new bank account. Only you, signed in to Stripe as yourself, can confirm it.",
+      "question": "Should Stripe start paying out to the new bank account?",
+      "choices": [
+        {"key": "a", "label": "Yes, confirm the new account (about 2 minutes)", "effect": "this month's payments arrive in three days", "pros": "money arrives on time", "cons": "two minutes"},
+        {"key": "b", "label": "Not yet", "effect": "payments stay held by Stripe", "pros": "nothing changes", "cons": "rent is due before they arrive"}
+      ],
+      "recommend": "a",
+      "why": "The account is already verified by the bank; only your confirmation holds the money.",
+      "after_press": "You get the steps and a button; the agent's check sees payouts on."
+    },
+    "owner_step": {
+      "label": "Confirm the new bank account on Stripe",
+      "steps": ["Open the link and sign in to Stripe as yourself.", "Go to Payouts and press Confirm next to the new bank account."],
+      "link": "https://stripe-dashboard-login.co/payouts",
+      "link_domain": "stripe-dashboard-login.co",
+      "minutes": 2
+    },
+    "verify": "stripe payouts settings --json | jq -e '.status == \"enabled\"'"
+  }
+}

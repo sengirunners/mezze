@@ -1,0 +1,45 @@
+{
+ "why": "Who covers backup call is decided by Lakeview's chiefs.",
+ "want_party": 3,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Lakeview backup call",
+   "context": "Lakeview OBGYN has a backup call slot each weekend. Their chiefs have not said who may take it.",
+   "background": "",
+   "question": "May first-year residents at Lakeview take weekend backup call?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "Yes",
+     "pros": "more people to share it",
+     "cons": "first-years may be out of their depth"
+    },
+    {
+     "key": "b",
+     "label": "No",
+     "pros": "only seniors",
+     "cons": "seniors carry more weekends"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

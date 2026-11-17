@@ -1,0 +1,20 @@
+{
+  "why_it_fails": "2026-11-13 ask about the package shelf: choice A leaves Bea a step with no how ('turns it on at his next visit'), the shelf is never explained, and Bea has no machine that takes tasks yet the card carries no hand brief.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [{"machine": "studio", "ready": false, "why_not": "it takes no remote tasks: bea sets remote_tasks in its zm config"}],
+    "machines_known": true,
+    "card": {
+      "title": "How should the package shelf get turned on at workshop?",
+      "context": "Boxes on workshop spend about a minute downloading the same npm packages every time. We built a shared, read-only package shelf so they can skip that. Ivo already approved turning it on at workshop (50 GB shelf, 60 GB per-owner volumes). It is a setting on workshop itself, agents cannot reach that machine, and workshop does not take remote tasks.",
+      "question": "How should the package shelf get turned on at workshop?",
+      "choices": [
+        {"key": "a", "label": "Bea turns it on at his next visit", "pros": "no new access for agents", "cons": "waits for Bea's time"},
+        {"key": "b", "label": "Let workshop take remote tasks from owners", "pros": "agents can apply host settings like this one after an owner approves each card", "cons": "one more way in to workshop"},
+        {"key": "c", "label": "Leave the shelf off at workshop", "pros": "nothing changes", "cons": "npm installs stay slow; we can only measure the per-project layers"}
+      ],
+      "recommend": "a",
+      "why": "Smallest change, and it is one setting. Option b is worth doing later if host settings change often."
+    }
+  }
+}

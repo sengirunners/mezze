@@ -1,0 +1,24 @@
+{
+  "why_it_fails": "missed by regex: customer-facing without keywords",
+  "input": {
+    "card": {
+      "context": "The clinic list is ready.",
+      "background": "",
+      "question": "Turn on the reminder texts for all 4,000 patients today, or wait for the pilot clinic's sign-off?",
+      "choices": [
+        {
+          "label": "Turn them on today"
+        },
+        {
+          "label": "Wait for sign-off"
+        }
+      ],
+      "recommend": "a",
+      "why": "The texts are written and tested."
+    },
+    "work": {
+      "title": "patient reminders",
+      "body": ""
+    }
+  }
+}

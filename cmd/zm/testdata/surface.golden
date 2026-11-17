@@ -1,0 +1,1416 @@
+alias zm ci add setup
+alias zm connection connections
+alias zm door tasks ls
+alias zm ls ps
+alias zm ls sessions
+alias zm project ls list
+alias zm project ruling ls list
+alias zm tracker ls list
+alias zm webhook show log
+alias zm webhook webhooks
+alias zm work ls list
+cmd zm
+cmd zm ack
+cmd zm approver
+cmd zm approver add
+cmd zm approver ls
+cmd zm approver pair-me
+cmd zm approver rm
+cmd zm area
+cmd zm area add
+cmd zm area ls
+cmd zm area set
+cmd zm area show
+cmd zm ask
+cmd zm ask answer
+cmd zm ask bundle
+cmd zm ask bundle add
+cmd zm ask bundle check
+cmd zm ask bundle drop
+cmd zm ask bundle ls
+cmd zm ask bundle report
+cmd zm ask bundle step-check
+cmd zm ask check
+cmd zm ask content-count
+cmd zm ask inbox
+cmd zm ask join
+cmd zm ask ls
+cmd zm ask machines
+cmd zm ask new
+cmd zm ask object
+cmd zm ask receipt
+cmd zm ask retry
+cmd zm ask show
+cmd zm ask similar
+cmd zm ask step-done
+cmd zm ask undo
+cmd zm ask withdraw
+cmd zm attach
+cmd zm backup
+cmd zm backup ls
+cmd zm backup off
+cmd zm backup restore
+cmd zm backup run
+cmd zm backup set
+cmd zm backup status
+cmd zm backup watchdog
+cmd zm ci
+cmd zm ci add
+cmd zm ci doctor
+cmd zm ci pr noflagparse
+cmd zm ci status
+cmd zm claim
+cmd zm completion
+cmd zm completion bash
+cmd zm completion fish
+cmd zm completion powershell
+cmd zm completion zsh
+cmd zm connection
+cmd zm connection add
+cmd zm connection check
+cmd zm connection ls
+cmd zm connection rm
+cmd zm connection show
+cmd zm daemon
+cmd zm daemon preflight
+cmd zm daemon restart
+cmd zm daemon stop
+cmd zm daemon update
+cmd zm daemon update disable
+cmd zm daemon update enable
+cmd zm daemon update hold
+cmd zm daemon update resume
+cmd zm daemon update status
+cmd zm daemon upgrade
+cmd zm doctor
+cmd zm door
+cmd zm door add
+cmd zm door deliveries
+cmd zm door off
+cmd zm door on
+cmd zm door rm
+cmd zm door rotate
+cmd zm door tasks
+cmd zm driver
+cmd zm driver pin
+cmd zm events
+cmd zm exec
+cmd zm forget noflagparse
+cmd zm github
+cmd zm github link
+cmd zm github ls
+cmd zm github repos
+cmd zm github sync
+cmd zm github unlink
+cmd zm grant
+cmd zm grants
+cmd zm help
+cmd zm hook hidden
+cmd zm host
+cmd zm host doctor
+cmd zm host share
+cmd zm identity
+cmd zm identity add
+cmd zm identity alias
+cmd zm identity alias add
+cmd zm identity alias ls
+cmd zm identity alias rm
+cmd zm identity ls
+cmd zm identity person-link
+cmd zm identity person-link ls
+cmd zm identity person-link rm
+cmd zm identity unlink
+cmd zm inbox
+cmd zm inflight
+cmd zm init
+cmd zm install
+cmd zm invite
+cmd zm invite ls
+cmd zm invite rm
+cmd zm isolation noflagparse
+cmd zm issues
+cmd zm issues ack-gap
+cmd zm issues attach
+cmd zm issues attachments
+cmd zm issues attachments get
+cmd zm issues attachments rm
+cmd zm issues history
+cmd zm issues ls
+cmd zm issues move
+cmd zm issues redact
+cmd zm issues restore
+cmd zm issues setup
+cmd zm job
+cmd zm job run
+cmd zm join
+cmd zm kill
+cmd zm lease
+cmd zm leases
+cmd zm leave
+cmd zm lend
+cmd zm lend pause
+cmd zm lend resume
+cmd zm lend status
+cmd zm lend stop
+cmd zm lend switch
+cmd zm login
+cmd zm login github
+cmd zm ls
+cmd zm machine-class
+cmd zm mail
+cmd zm mail-import hidden
+cmd zm mcp
+cmd zm measures
+cmd zm measures report
+cmd zm names
+cmd zm names bind
+cmd zm names ls
+cmd zm names resolve
+cmd zm notice
+cmd zm outbox
+cmd zm owed
+cmd zm peers
+cmd zm people
+cmd zm permit
+cmd zm permit ask
+cmd zm permit dryrun
+cmd zm permit grant
+cmd zm permit list
+cmd zm permit revoke
+cmd zm permit unmark
+cmd zm pool
+cmd zm pool create
+cmd zm pool host
+cmd zm pool join
+cmd zm project
+cmd zm project cloud
+cmd zm project export
+cmd zm project ls
+cmd zm project new
+cmd zm project ruling
+cmd zm project ruling add
+cmd zm project ruling ls
+cmd zm project ruling rm
+cmd zm project set
+cmd zm project show
+cmd zm project solo
+cmd zm project team
+cmd zm project team cancel
+cmd zm project triage
+cmd zm project use
+cmd zm project why
+cmd zm receipt
+cmd zm receipt key
+cmd zm receipt verify
+cmd zm release
+cmd zm remotes
+cmd zm reply
+cmd zm revoke
+cmd zm run
+cmd zm runners
+cmd zm runners allow
+cmd zm runners disallow
+cmd zm runners jobs
+cmd zm runners link
+cmd zm runners ls
+cmd zm runners repos
+cmd zm runners set
+cmd zm runners setup
+cmd zm runners unlink
+cmd zm sandbox
+cmd zm sandbox cp
+cmd zm sandbox create
+cmd zm sandbox exec
+cmd zm sandbox kill
+cmd zm sandbox ls
+cmd zm sandbox output
+cmd zm sandbox preview
+cmd zm sandbox preview configure
+cmd zm sandbox preview ls
+cmd zm sandbox preview publish
+cmd zm sandbox preview revoke
+cmd zm sandbox push
+cmd zm sandbox renew
+cmd zm sandbox rm
+cmd zm sandbox shell
+cmd zm sandbox spawn
+cmd zm sandbox start
+cmd zm sandbox stop
+cmd zm sandbox usage
+cmd zm sandbox usage limit
+cmd zm secret
+cmd zm secret keys
+cmd zm secret keys publish
+cmd zm secret keys revoke
+cmd zm secret trust
+cmd zm send
+cmd zm sent
+cmd zm session
+cmd zm session admission
+cmd zm session answer
+cmd zm session attach
+cmd zm session events
+cmd zm session gc
+cmd zm session hook
+cmd zm session input
+cmd zm session interrupt
+cmd zm session move
+cmd zm session name
+cmd zm session output
+cmd zm session prompt
+cmd zm session prompts
+cmd zm session register
+cmd zm session show
+cmd zm session state
+cmd zm session stop
+cmd zm session turn
+cmd zm ssh
+cmd zm status
+cmd zm t3
+cmd zm t3 disable
+cmd zm t3 enable
+cmd zm tailnet
+cmd zm tailnet down
+cmd zm tailnet status
+cmd zm tailnet up
+cmd zm target
+cmd zm target acquire
+cmd zm target bind
+cmd zm target exec
+cmd zm target ls
+cmd zm target release
+cmd zm target renew
+cmd zm target status
+cmd zm target unbind
+cmd zm tasks
+cmd zm tasks cancel
+cmd zm tasks start
+cmd zm tasks status
+cmd zm thread
+cmd zm token
+cmd zm token ls
+cmd zm token mint
+cmd zm token revoke
+cmd zm tracker
+cmd zm tracker add
+cmd zm tracker backup
+cmd zm tracker backup add
+cmd zm tracker backup ls
+cmd zm tracker backup rm
+cmd zm tracker backup run
+cmd zm tracker ls
+cmd zm tracker rm
+cmd zm tracker test
+cmd zm tracker where
+cmd zm tunnel
+cmd zm tunnel key
+cmd zm tunnel key clear
+cmd zm tunnel key escrow
+cmd zm tunnel remove
+cmd zm tunnel setup
+cmd zm tunnel status
+cmd zm uninstall
+cmd zm web
+cmd zm web test-push
+cmd zm webhook
+cmd zm webhook add
+cmd zm webhook disable
+cmd zm webhook enable
+cmd zm webhook ls
+cmd zm webhook rm
+cmd zm webhook show
+cmd zm webhook test
+cmd zm who
+cmd zm whoami
+cmd zm work
+cmd zm work claim
+cmd zm work comment
+cmd zm work comments
+cmd zm work export
+cmd zm work inflight
+cmd zm work leases
+cmd zm work link
+cmd zm work ls
+cmd zm work new
+cmd zm work release
+cmd zm work renew
+cmd zm work show
+cmd zm work sources
+cmd zm work status
+cmd zm work who
+flag zm --as type=string default=""
+flag zm --help -h type=bool default="false"
+flag zm --json type=bool default="false"
+flag zm --project -P type=string default=""
+flag zm --version -v type=bool default="false"
+flag zm ack --help -h type=bool default="false"
+flag zm approver --help -h type=bool default="false"
+flag zm approver add --for type=string default=""
+flag zm approver add --help -h type=bool default="false"
+flag zm approver add --no-qr type=bool default="false"
+flag zm approver ls --help -h type=bool default="false"
+flag zm approver pair-me --help -h type=bool default="false"
+flag zm approver pair-me --no-qr type=bool default="false"
+flag zm approver rm --help -h type=bool default="false"
+flag zm area --help -h type=bool default="false"
+flag zm area add --help -h type=bool default="false"
+flag zm area add --label type=stringSlice default="[]"
+flag zm area add --path type=stringSlice default="[]"
+flag zm area add --remote type=stringSlice default="[]"
+flag zm area add --work type=stringSlice default="[]"
+flag zm area ls --help -h type=bool default="false"
+flag zm area set --help -h type=bool default="false"
+flag zm area set --label type=stringSlice default="[]"
+flag zm area set --path type=stringSlice default="[]"
+flag zm area set --remote type=stringSlice default="[]"
+flag zm area set --work type=stringSlice default="[]"
+flag zm area show --help -h type=bool default="false"
+flag zm ask --help -h type=bool default="false"
+flag zm ask answer --as type=string default=""
+flag zm ask answer --help -h type=bool default="false"
+flag zm ask answer --text type=string default=""
+flag zm ask bundle --help -h type=bool default="false"
+flag zm ask bundle add --brief type=string default=""
+flag zm ask bundle add --check type=string default=""
+flag zm ask bundle add --draft type=string default=""
+flag zm ask bundle add --from-ask type=string default=""
+flag zm ask bundle add --help -h type=bool default="false"
+flag zm ask bundle add --title type=string default=""
+flag zm ask bundle add --to type=string default=""
+flag zm ask bundle add --work type=string default=""
+flag zm ask bundle check --help -h type=bool default="false"
+flag zm ask bundle drop --help -h type=bool default="false"
+flag zm ask bundle ls --help -h type=bool default="false"
+flag zm ask bundle ls --state type=string default=""
+flag zm ask bundle ls --to type=string default=""
+flag zm ask bundle report --help -h type=bool default="false"
+flag zm ask bundle step-check --help -h type=bool default="false"
+flag zm ask bundle step-check --yes type=bool default="false"
+flag zm ask check --evidence type=string default=""
+flag zm ask check --give-up type=string default=""
+flag zm ask check --help -h type=bool default="false"
+flag zm ask check --yes type=bool default="false"
+flag zm ask content-count --days type=int default="7"
+flag zm ask content-count --from type=string default=""
+flag zm ask content-count --help -h type=bool default="false"
+flag zm ask content-count --since type=string default=""
+flag zm ask content-count --tz type=string default="UTC"
+flag zm ask content-count --until type=string default=""
+flag zm ask inbox --agents type=bool default="false"
+flag zm ask inbox --everyone type=bool default="false"
+flag zm ask inbox --help -h type=bool default="false"
+flag zm ask inbox --status type=string default=""
+flag zm ask join --area type=string default=""
+flag zm ask join --help -h type=bool default="false"
+flag zm ask join --work type=string default=""
+flag zm ask ls --help -h type=bool default="false"
+flag zm ask ls --open type=bool default="false"
+flag zm ask machines --help -h type=bool default="false"
+flag zm ask new --ack-mail type=stringSlice default="[]"
+flag zm ask new --ack-on type=string default=""
+flag zm ask new --after-press type=string default=""
+flag zm ask new --agent type=string default=""
+flag zm ask new --apply-default type=bool default="false"
+flag zm ask new --area type=string default=""
+flag zm ask new --arg type=stringArray default="[]"
+flag zm ask new --attach type=stringArray default="[]"
+flag zm ask new --authorize-key type=string default=""
+flag zm ask new --background type=string default=""
+flag zm ask new --brief type=string default=""
+flag zm ask new --browser-on type=string default=""
+flag zm ask new --by type=string default=""
+flag zm ask new --choice type=stringArray default="[]"
+flag zm ask new --command type=string default=""
+flag zm ask new --commit type=string default=""
+flag zm ask new --context type=string default=""
+flag zm ask new --for type=string default=""
+flag zm ask new --for-ref type=string default=""
+flag zm ask new --hand type=bool default="false"
+flag zm ask new --head type=string default=""
+flag zm ask new --help -h type=bool default="false"
+flag zm ask new --latest type=string default=""
+flag zm ask new --on-machine type=string default=""
+flag zm ask new --option type=stringSlice default="[]"
+flag zm ask new --origin type=stringArray default="[]"
+flag zm ask new --owner type=string default=""
+flag zm ask new --plan type=string default=""
+flag zm ask new --pr type=int default="0"
+flag zm ask new --pr-url type=string default=""
+flag zm ask new --priority type=int default="2"
+flag zm ask new --program type=string default=""
+flag zm ask new --program-ref type=string default=""
+flag zm ask new --recommend type=string default=""
+flag zm ask new --ref type=string default=""
+flag zm ask new --repeat-key type=string default=""
+flag zm ask new --repo type=string default=""
+flag zm ask new --risk type=string default=""
+flag zm ask new --run-on type=string default=""
+flag zm ask new --script type=string default=""
+flag zm ask new --searched type=string default=""
+flag zm ask new --sign-in type=string default=""
+flag zm ask new --step type=stringArray default="[]"
+flag zm ask new --step-label type=string default=""
+flag zm ask new --step-link type=string default=""
+flag zm ask new --step-minutes type=int default="0"
+flag zm ask new --submit type=bool default="false"
+flag zm ask new --thread-title type=string default=""
+flag zm ask new --title type=string default=""
+flag zm ask new --to type=string default="owners"
+flag zm ask new --topic type=string default=""
+flag zm ask new --user type=string default=""
+flag zm ask new --verify type=string default=""
+flag zm ask new --why type=string default=""
+flag zm ask new --work type=string default=""
+flag zm ask object --help -h type=bool default="false"
+flag zm ask object --note type=string default=""
+flag zm ask receipt --help -h type=bool default="false"
+flag zm ask retry --help -h type=bool default="false"
+flag zm ask show --help -h type=bool default="false"
+flag zm ask similar --help -h type=bool default="false"
+flag zm ask step-done --help -h type=bool default="false"
+flag zm ask step-done --project type=string default=""
+flag zm ask undo --help -h type=bool default="false"
+flag zm ask withdraw --help -h type=bool default="false"
+flag zm attach --embed type=bool default="false"
+flag zm attach --help -h type=bool default="false"
+flag zm attach --on type=string default=""
+flag zm attach --read-only type=bool default="false"
+flag zm attach --replay-modes type=bool default="false"
+flag zm attach --why-file type=string default="" hidden
+flag zm backup --help -h type=bool default="false"
+flag zm backup ls --help -h type=bool default="false"
+flag zm backup off --help -h type=bool default="false"
+flag zm backup restore --access-key type=string default=""
+flag zm backup restore --at type=string default=""
+flag zm backup restore --dry-run type=bool default="false"
+flag zm backup restore --encrypt type=string default=""
+flag zm backup restore --encrypt-salt type=string default=""
+flag zm backup restore --endpoint type=string default=""
+flag zm backup restore --from type=string default="" required
+flag zm backup restore --help -h type=bool default="false"
+flag zm backup restore --home type=string default="" required
+flag zm backup restore --key type=string default=""
+flag zm backup restore --no-download type=bool default="false"
+flag zm backup restore --region type=string default=""
+flag zm backup restore --secret-key type=string default=""
+flag zm backup restore --to type=string default=""
+flag zm backup restore --yes -y type=bool default="false"
+flag zm backup run --help -h type=bool default="false"
+flag zm backup set --access-key type=string default=""
+flag zm backup set --encrypt type=string default=""
+flag zm backup set --encrypt-salt type=string default=""
+flag zm backup set --endpoint type=string default=""
+flag zm backup set --every type=duration default="0s"
+flag zm backup set --help -h type=bool default="false"
+flag zm backup set --home type=string default="" required
+flag zm backup set --keep type=int default="0"
+flag zm backup set --keep-daily type=int default="0"
+flag zm backup set --keep-hourly type=int default="0"
+flag zm backup set --no-download type=bool default="false"
+flag zm backup set --now type=bool default="false"
+flag zm backup set --region type=string default=""
+flag zm backup set --secret-key type=string default=""
+flag zm backup set --yes -y type=bool default="false"
+flag zm backup status --help -h type=bool default="false"
+flag zm backup watchdog --help -h type=bool default="false"
+flag zm backup watchdog --home type=string default=""
+flag zm backup watchdog --secret type=string default=""
+flag zm ci --help -h type=bool default="false"
+flag zm ci add --help -h type=bool default="false"
+flag zm ci add --job type=string default=""
+flag zm ci add --mine type=bool default="false"
+flag zm ci add --org type=string default=""
+flag zm ci add --public type=bool default="false"
+flag zm ci add --wait type=duration default="10m0s"
+flag zm ci add --workflow type=string default=""
+flag zm ci doctor --help -h type=bool default="false"
+flag zm ci doctor --labels type=string default=""
+flag zm ci doctor --os type=string default=""
+flag zm ci doctor --probe type=bool default="false"
+flag zm ci doctor --public type=bool default="false"
+flag zm ci doctor --size type=string default=""
+flag zm ci pr --help -h type=bool default="false"
+flag zm ci status --help -h type=bool default="false"
+flag zm claim --help -h type=bool default="false"
+flag zm claim --no-queue type=bool default="false"
+flag zm claim --note type=string default=""
+flag zm claim --ttl type=int default="0"
+flag zm completion --help -h type=bool default="false"
+flag zm completion bash --help -h type=bool default="false"
+flag zm completion bash --no-descriptions type=bool default="false"
+flag zm completion fish --help -h type=bool default="false"
+flag zm completion fish --no-descriptions type=bool default="false"
+flag zm completion powershell --help -h type=bool default="false"
+flag zm completion powershell --no-descriptions type=bool default="false"
+flag zm completion zsh --help -h type=bool default="false"
+flag zm completion zsh --no-descriptions type=bool default="false"
+flag zm connection --help -h type=bool default="false"
+flag zm connection add --allow-private type=bool default="false"
+flag zm connection add --help -h type=bool default="false"
+flag zm connection add --note type=string default=""
+flag zm connection add --token-file type=string default=""
+flag zm connection add --token-ref type=string default=""
+flag zm connection check --help -h type=bool default="false"
+flag zm connection ls --help -h type=bool default="false"
+flag zm connection rm --help -h type=bool default="false"
+flag zm connection show --account type=string default=""
+flag zm connection show --help -h type=bool default="false"
+flag zm daemon --detach -d type=bool default="false"
+flag zm daemon --help -h type=bool default="false"
+flag zm daemon --tailnet type=bool default="false"
+flag zm daemon --verbose -v type=bool default="false"
+flag zm daemon preflight --help -h type=bool default="false"
+flag zm daemon restart --end-sessions type=bool default="false"
+flag zm daemon restart --force type=bool default="false"
+flag zm daemon restart --help -h type=bool default="false"
+flag zm daemon stop --end-sessions type=bool default="false"
+flag zm daemon stop --force type=bool default="false"
+flag zm daemon stop --help -h type=bool default="false"
+flag zm daemon update --dir type=string default=""
+flag zm daemon update --help -h type=bool default="false"
+flag zm daemon update --hold-file type=string default=""
+flag zm daemon update --key type=stringArray default="[]"
+flag zm daemon update --min-age type=duration default="0s"
+flag zm daemon update --no-canary type=bool default="false"
+flag zm daemon update --quiet-window type=string default=""
+flag zm daemon update --release type=string default=""
+flag zm daemon update --repo type=string default=""
+flag zm daemon update disable --help -h type=bool default="false"
+flag zm daemon update enable --help -h type=bool default="false"
+flag zm daemon update enable --min-age type=duration default="6h0m0s"
+flag zm daemon update hold --help -h type=bool default="false"
+flag zm daemon update resume --help -h type=bool default="false"
+flag zm daemon update status --help -h type=bool default="false"
+flag zm daemon upgrade --dir type=string default=""
+flag zm daemon upgrade --end-sessions type=bool default="false"
+flag zm daemon upgrade --force type=bool default="false"
+flag zm daemon upgrade --help -h type=bool default="false"
+flag zm doctor --help -h type=bool default="false"
+flag zm door --help -h type=bool default="false"
+flag zm door add --help -h type=bool default="false"
+flag zm door add --label type=string default=""
+flag zm door deliveries --help -h type=bool default="false"
+flag zm door deliveries --limit type=int default="0"
+flag zm door off --help -h type=bool default="false"
+flag zm door on --help -h type=bool default="false"
+flag zm door rm --help -h type=bool default="false"
+flag zm door rotate --help -h type=bool default="false"
+flag zm door tasks --help -h type=bool default="false"
+flag zm driver --help -h type=bool default="false"
+flag zm driver pin --help -h type=bool default="false"
+flag zm events --help -h type=bool default="false"
+flag zm events --no-follow type=bool default="false"
+flag zm events --since type=string default=""
+flag zm events --subject type=string default=""
+flag zm events --types type=string default=""
+flag zm exec --cancel type=string default=""
+flag zm exec --commit type=string default=""
+flag zm exec --front type=bool default="false"
+flag zm exec --help -h type=bool default="false"
+flag zm exec --machine type=string default=""
+flag zm exec --ref type=string default="main"
+flag zm exec --request-id type=string default=""
+flag zm exec --timeout type=duration default="0s"
+flag zm forget --help -h type=bool default="false"
+flag zm github --help -h type=bool default="false"
+flag zm github link --bin type=string default=""
+flag zm github link --gate type=string default=""
+flag zm github link --help -h type=bool default="false"
+flag zm github link --host type=string default=""
+flag zm github link --match type=stringSlice default="[]"
+flag zm github link --on-close type=string default=""
+flag zm github link --on-merge type=string default=""
+flag zm github link --on-open type=string default=""
+flag zm github link --poll type=duration default="0s"
+flag zm github link --prefix type=stringSlice default="[]"
+flag zm github link --repo type=stringSlice default="[]"
+flag zm github link --secret-file type=string default=""
+flag zm github link --source type=stringSlice default="[]"
+flag zm github link --token-file type=string default=""
+flag zm github ls --help -h type=bool default="false"
+flag zm github repos --add type=stringSlice default="[]"
+flag zm github repos --help -h type=bool default="false"
+flag zm github repos --reset type=bool default="false"
+flag zm github repos --rm type=stringSlice default="[]"
+flag zm github repos --set type=stringSlice default="[]"
+flag zm github sync --help -h type=bool default="false"
+flag zm github unlink --help -h type=bool default="false"
+flag zm grant --help -h type=bool default="false"
+flag zm grants --help -h type=bool default="false"
+flag zm help --help -h type=bool default="false"
+flag zm hook --help -h type=bool default="false"
+flag zm host --help -h type=bool default="false"
+flag zm host doctor --help -h type=bool default="false"
+flag zm host doctor --max-cores type=int default="0"
+flag zm host doctor --max-ram-mb type=int64 default="0"
+flag zm host doctor --share type=float64 default="0.5"
+flag zm host doctor --state-dir type=string default=""
+flag zm host share --admission-token-file type=string default=""
+flag zm host share --admission-ttl-s type=int default="0"
+flag zm host share --admission-url type=string default=""
+flag zm host share --docker type=bool default="false"
+flag zm host share --dry-run type=bool default="false"
+flag zm host share --full type=bool default="false"
+flag zm host share --help -h type=bool default="false"
+flag zm host share --image type=stringArray default="[]"
+flag zm host share --layer type=string default=""
+flag zm host share --max-cores type=int default="0"
+flag zm host share --max-ram-mb type=int64 default="0"
+flag zm host share --name-prefix type=string default=""
+flag zm host share --net-allow type=stringArray default="[]"
+flag zm host share --net-forbid type=stringArray default="[]"
+flag zm host share --net-mail type=stringArray default="[]"
+flag zm host share --net-mbit type=int default="0"
+flag zm host share --no-auto-update type=bool default="false"
+flag zm host share --no-sudo type=bool default="false"
+flag zm host share --oci-cli type=string default=""
+flag zm host share --oci-host-profile type=string default=""
+flag zm host share --oci-network type=string default=""
+flag zm host share --oci-runtime type=string default=""
+flag zm host share --pool type=string default=""
+flag zm host share --reclaim-idle-s type=int default="0"
+flag zm host share --root type=bool default="false"
+flag zm host share --runner-dir type=string default=""
+flag zm host share --share type=float64 default="0.5"
+flag zm host share --shelf-fill type=string default=""
+flag zm host share --shelf-gb type=int default="0"
+flag zm host share --sizes type=stringSlice default="[]"
+flag zm host share --state-dir type=string default=""
+flag zm host share --volume-max-gb type=int default="0"
+flag zm identity --help -h type=bool default="false"
+flag zm identity add --help -h type=bool default="false"
+flag zm identity add --kind type=string default="human"
+flag zm identity add --tailscale type=string default=""
+flag zm identity alias --help -h type=bool default="false"
+flag zm identity alias add --help -h type=bool default="false"
+flag zm identity alias add --identity type=string default=""
+flag zm identity alias ls --help -h type=bool default="false"
+flag zm identity alias ls --identity type=string default=""
+flag zm identity alias rm --help -h type=bool default="false"
+flag zm identity ls --help -h type=bool default="false"
+flag zm identity person-link --help -h type=bool default="false"
+flag zm identity person-link --no-share-mail type=bool default="false"
+flag zm identity person-link --person type=string default=""
+flag zm identity person-link --share-mail type=bool default="false"
+flag zm identity person-link ls --help -h type=bool default="false"
+flag zm identity person-link rm --help -h type=bool default="false"
+flag zm identity unlink --help -h type=bool default="false"
+flag zm identity unlink --revoke type=bool default="false"
+flag zm inbox --all type=bool default="false"
+flag zm inbox --help -h type=bool default="false"
+flag zm inbox --limit type=int default="0"
+flag zm inbox --peek type=bool default="false"
+flag zm inbox --reports type=bool default="false"
+flag zm inflight --help -h type=bool default="false"
+flag zm init --help -h type=bool default="false"
+flag zm init --pin type=bool default="false"
+flag zm init --slug type=string default=""
+flag zm install --apply type=bool default="false" hidden
+flag zm install --config-dir type=string default=""
+flag zm install --dry-run type=bool default="true"
+flag zm install --help -h type=bool default="false"
+flag zm install --home type=string default=""
+flag zm install --yes -y type=bool default="false"
+flag zm install --zm type=string default=""
+flag zm invite --allow-tagged type=bool default="false"
+flag zm invite --as type=string default="" required
+flag zm invite --class type=string default=""
+flag zm invite --help -h type=bool default="false"
+flag zm invite --role type=string default="member"
+flag zm invite --ttl type=duration default="24h0m0s"
+flag zm invite --via type=string default=""
+flag zm invite ls --help -h type=bool default="false"
+flag zm invite rm --help -h type=bool default="false"
+flag zm isolation --help -h type=bool default="false"
+flag zm issues --help -h type=bool default="false"
+flag zm issues ack-gap --help -h type=bool default="false"
+flag zm issues attach --expires type=string default=""
+flag zm issues attach --help -h type=bool default="false"
+flag zm issues attachments --help -h type=bool default="false"
+flag zm issues attachments get --help -h type=bool default="false"
+flag zm issues attachments get --out -o type=string default=""
+flag zm issues attachments rm --help -h type=bool default="false"
+flag zm issues history --help -h type=bool default="false"
+flag zm issues ls --help -h type=bool default="false"
+flag zm issues move --children type=bool default="false"
+flag zm issues move --dry-run type=bool default="false"
+flag zm issues move --help -h type=bool default="false"
+flag zm issues move --ids-from type=string default=""
+flag zm issues move --to type=string default="" required
+flag zm issues move --transfer-claims type=bool default="false"
+flag zm issues redact --help -h type=bool default="false"
+flag zm issues restore --at type=string default=""
+flag zm issues restore --dry-run type=bool default="false"
+flag zm issues restore --force type=bool default="false"
+flag zm issues restore --from type=string default=""
+flag zm issues restore --help -h type=bool default="false"
+flag zm issues setup --help -h type=bool default="false"
+flag zm job --help -h type=bool default="false"
+flag zm job run --deps type=stringArray default="[]"
+flag zm job run --deps-scripts type=string default="on"
+flag zm job run --deps-wait type=int default="600"
+flag zm job run --dir type=string default="checkout"
+flag zm job run --dirty type=bool default="false"
+flag zm job run --full type=bool default="false"
+flag zm job run --help -h type=bool default="false"
+flag zm job run --image type=string default=""
+flag zm job run --include-untracked type=bool default="false"
+flag zm job run --keep type=bool default="false"
+flag zm job run --max-mib type=int default="128"
+flag zm job run --net type=string default="on"
+flag zm job run --on type=string default=""
+flag zm job run --os type=string default=""
+flag zm job run --ref type=string default=""
+flag zm job run --size type=string default=""
+flag zm job run --template type=string default=""
+flag zm job run --timeout type=duration default="30m0s"
+flag zm join --auth-key type=string default=""
+flag zm join --cf-access-id type=string default=""
+flag zm join --cf-access-secret-file type=string default=""
+flag zm join --from type=string default=""
+flag zm join --help -h type=bool default="false"
+flag zm join --machine type=string default=""
+flag zm join --path type=stringSlice default="[]"
+flag zm join --role type=string default=""
+flag zm join --wait type=duration default="10s"
+flag zm kill --force -f type=bool default="false"
+flag zm kill --help -h type=bool default="false"
+flag zm kill --signal type=string default=""
+flag zm lease --fence type=int64 default="0"
+flag zm lease --force type=bool default="false"
+flag zm lease --help -h type=bool default="false"
+flag zm lease --no-queue type=bool default="false"
+flag zm lease --note type=string default=""
+flag zm lease --release type=bool default="false"
+flag zm lease --renew type=bool default="false"
+flag zm lease --ttl type=int default="0"
+flag zm leases --help -h type=bool default="false"
+flag zm leases --holder type=string default=""
+flag zm leave --help -h type=bool default="false"
+flag zm lend --admission-token-file type=string default="" hidden
+flag zm lend --admission-ttl-s type=int default="0" hidden
+flag zm lend --admission-url type=string default="" hidden
+flag zm lend --detach type=bool default="false"
+flag zm lend --docker type=bool default="false" hidden
+flag zm lend --dry-run type=bool default="false"
+flag zm lend --full type=bool default="false" hidden
+flag zm lend --help -h type=bool default="false"
+flag zm lend --image type=stringArray default="[]" hidden
+flag zm lend --layer type=string default="" hidden
+flag zm lend --max-cores type=int default="0" hidden
+flag zm lend --max-ram-mb type=int64 default="0" hidden
+flag zm lend --name-prefix type=string default="" hidden
+flag zm lend --net-allow type=stringArray default="[]" hidden
+flag zm lend --net-forbid type=stringArray default="[]" hidden
+flag zm lend --net-mail type=stringArray default="[]" hidden
+flag zm lend --net-mbit type=int default="0" hidden
+flag zm lend --no-auto-update type=bool default="false"
+flag zm lend --no-sudo type=bool default="false"
+flag zm lend --oci-cli type=string default="" hidden
+flag zm lend --oci-host-profile type=string default="" hidden
+flag zm lend --oci-network type=string default="" hidden
+flag zm lend --oci-runtime type=string default="" hidden
+flag zm lend --reclaim-idle-s type=int default="0" hidden
+flag zm lend --root type=bool default="false" hidden
+flag zm lend --runner-dir type=string default="" hidden
+flag zm lend --share type=float64 default="0.5"
+flag zm lend --shelf-fill type=string default="" hidden
+flag zm lend --shelf-gb type=int default="0" hidden
+flag zm lend --sizes type=stringSlice default="[]"
+flag zm lend --state-dir type=string default="" hidden
+flag zm lend --volume-max-gb type=int default="0" hidden
+flag zm lend --when type=string default=""
+flag zm lend --with type=string default=""
+flag zm lend pause --help -h type=bool default="false"
+flag zm lend resume --admission-token-file type=string default="" hidden
+flag zm lend resume --admission-ttl-s type=int default="0" hidden
+flag zm lend resume --admission-url type=string default="" hidden
+flag zm lend resume --detach type=bool default="false"
+flag zm lend resume --docker type=bool default="false" hidden
+flag zm lend resume --dry-run type=bool default="false"
+flag zm lend resume --full type=bool default="false" hidden
+flag zm lend resume --help -h type=bool default="false"
+flag zm lend resume --image type=stringArray default="[]" hidden
+flag zm lend resume --layer type=string default="" hidden
+flag zm lend resume --max-cores type=int default="0" hidden
+flag zm lend resume --max-ram-mb type=int64 default="0" hidden
+flag zm lend resume --name-prefix type=string default="" hidden
+flag zm lend resume --net-allow type=stringArray default="[]" hidden
+flag zm lend resume --net-forbid type=stringArray default="[]" hidden
+flag zm lend resume --net-mail type=stringArray default="[]" hidden
+flag zm lend resume --net-mbit type=int default="0" hidden
+flag zm lend resume --no-auto-update type=bool default="false"
+flag zm lend resume --no-sudo type=bool default="false"
+flag zm lend resume --oci-cli type=string default="" hidden
+flag zm lend resume --oci-host-profile type=string default="" hidden
+flag zm lend resume --oci-network type=string default="" hidden
+flag zm lend resume --oci-runtime type=string default="" hidden
+flag zm lend resume --reclaim-idle-s type=int default="0" hidden
+flag zm lend resume --root type=bool default="false" hidden
+flag zm lend resume --runner-dir type=string default="" hidden
+flag zm lend resume --share type=float64 default="0.5"
+flag zm lend resume --shelf-fill type=string default="" hidden
+flag zm lend resume --shelf-gb type=int default="0" hidden
+flag zm lend resume --sizes type=stringSlice default="[]"
+flag zm lend resume --state-dir type=string default="" hidden
+flag zm lend resume --volume-max-gb type=int default="0" hidden
+flag zm lend resume --when type=string default=""
+flag zm lend resume --with type=string default=""
+flag zm lend status --help -h type=bool default="false"
+flag zm lend stop --help -h type=bool default="false"
+flag zm lend switch --deadline type=string default=""
+flag zm lend switch --for type=string default=""
+flag zm lend switch --help -h type=bool default="false"
+flag zm lend switch --until type=string default=""
+flag zm login --help -h type=bool default="false"
+flag zm login github --help -h type=bool default="false"
+flag zm ls --agent type=string default=""
+flag zm ls --all -a type=bool default="false"
+flag zm ls --help -h type=bool default="false"
+flag zm ls --state type=string default=""
+flag zm machine-class --help -h type=bool default="false"
+flag zm mail --from type=string default=""
+flag zm mail --help -h type=bool default="false"
+flag zm mail --limit type=int default="0"
+flag zm mail --needs type=string default=""
+flag zm mail --open type=bool default="false"
+flag zm mail --ref type=string default=""
+flag zm mail --to type=string default=""
+flag zm mail-import --apply type=bool default="false"
+flag zm mail-import --help -h type=bool default="false"
+flag zm mail-import --hub-token-env type=string default=""
+flag zm mail-import --read-hub type=string default=""
+flag zm mcp --compute type=bool default="false"
+flag zm mcp --help -h type=bool default="false"
+flag zm mcp --sandboxes type=string default="off" noopt="on"
+flag zm mcp --sessions type=bool default="false"
+flag zm measures --allow-short type=bool default="false"
+flag zm measures --days type=int default="7"
+flag zm measures --exclude-asker type=stringArray default="[]"
+flag zm measures --from type=string default=""
+flag zm measures --group-untaken-after type=duration default="24h0m0s"
+flag zm measures --help -h type=bool default="false"
+flag zm measures --lookback type=duration default="720h0m0s"
+flag zm measures --md type=bool default="false"
+flag zm measures --not-done-after type=duration default="24h0m0s"
+flag zm measures --to type=string default=""
+flag zm measures --tz type=string default=""
+flag zm measures --withdrawn-within type=duration default="10m0s"
+flag zm measures report --allow-short type=bool default="false"
+flag zm measures report --days type=int default="7"
+flag zm measures report --exclude-asker type=stringArray default="[]"
+flag zm measures report --from type=string default=""
+flag zm measures report --group-untaken-after type=duration default="24h0m0s"
+flag zm measures report --help -h type=bool default="false"
+flag zm measures report --lookback type=duration default="720h0m0s"
+flag zm measures report --md type=bool default="false"
+flag zm measures report --not-done-after type=duration default="24h0m0s"
+flag zm measures report --through type=string default=""
+flag zm measures report --to type=string default="owners"
+flag zm measures report --tz type=string default=""
+flag zm measures report --withdrawn-within type=duration default="10m0s"
+flag zm names --help -h type=bool default="false"
+flag zm names bind --help -h type=bool default="false"
+flag zm names ls --help -h type=bool default="false"
+flag zm names resolve --help -h type=bool default="false"
+flag zm notice --help -h type=bool default="false"
+flag zm outbox --all type=bool default="false"
+flag zm outbox --help -h type=bool default="false"
+flag zm owed --help -h type=bool default="false"
+flag zm owed --person type=string default=""
+flag zm owed --session type=string default=""
+flag zm owed --since type=string default=""
+flag zm peers --help -h type=bool default="false"
+flag zm people --help -h type=bool default="false"
+flag zm permit --help -h type=bool default="false"
+flag zm permit ask --box type=string default=""
+flag zm permit ask --class type=string default=""
+flag zm permit ask --days type=int default="0"
+flag zm permit ask --help -h type=bool default="false"
+flag zm permit ask --recommend type=string default=""
+flag zm permit ask --searched type=string default=""
+flag zm permit ask --to type=string default=""
+flag zm permit ask --why type=string default=""
+flag zm permit ask --work type=string default=""
+flag zm permit dryrun --days type=int default="0"
+flag zm permit dryrun --help -h type=bool default="false"
+flag zm permit grant --box type=string default=""
+flag zm permit grant --class type=string default=""
+flag zm permit grant --days type=int default="0"
+flag zm permit grant --help -h type=bool default="false"
+flag zm permit list --help -h type=bool default="false"
+flag zm permit revoke --help -h type=bool default="false"
+flag zm permit unmark --class type=string default="no-secrets"
+flag zm permit unmark --help -h type=bool default="false"
+flag zm pool --help -h type=bool default="false"
+flag zm pool create --help -h type=bool default="false"
+flag zm pool create --host type=stringArray default="[]"
+flag zm pool create --image type=stringArray default="[]"
+flag zm pool create --public-host type=stringArray default="[]"
+flag zm pool create --renter type=stringArray default="[]"
+flag zm pool create --team type=string default="team"
+flag zm pool create --via type=string default=""
+flag zm pool create --wait type=duration default="0s" hidden
+flag zm pool host --admission-token-file type=string default=""
+flag zm pool host --admission-ttl-s type=int default="0"
+flag zm pool host --admission-url type=string default=""
+flag zm pool host --docker type=bool default="false"
+flag zm pool host --dry-run type=bool default="false"
+flag zm pool host --full type=bool default="false"
+flag zm pool host --help -h type=bool default="false"
+flag zm pool host --image type=stringArray default="[]"
+flag zm pool host --layer type=string default=""
+flag zm pool host --max-cores type=int default="0"
+flag zm pool host --max-ram-mb type=int64 default="0"
+flag zm pool host --name-prefix type=string default=""
+flag zm pool host --net-allow type=stringArray default="[]"
+flag zm pool host --net-forbid type=stringArray default="[]"
+flag zm pool host --net-mail type=stringArray default="[]"
+flag zm pool host --net-mbit type=int default="0"
+flag zm pool host --no-auto-update type=bool default="false"
+flag zm pool host --no-sudo type=bool default="false"
+flag zm pool host --oci-cli type=string default=""
+flag zm pool host --oci-host-profile type=string default=""
+flag zm pool host --oci-network type=string default=""
+flag zm pool host --oci-runtime type=string default=""
+flag zm pool host --reclaim-idle-s type=int default="0"
+flag zm pool host --root type=bool default="false"
+flag zm pool host --runner-dir type=string default=""
+flag zm pool host --share type=float64 default="0.5"
+flag zm pool host --shelf-fill type=string default=""
+flag zm pool host --shelf-gb type=int default="0"
+flag zm pool host --sizes type=stringSlice default="[]"
+flag zm pool host --state-dir type=string default=""
+flag zm pool host --volume-max-gb type=int default="0"
+flag zm pool join --help -h type=bool default="false"
+flag zm project --help -h type=bool default="false"
+flag zm project cloud --claude type=string default=""
+flag zm project cloud --codex type=string default=""
+flag zm project cloud --help -h type=bool default="false"
+flag zm project export --dir type=string default=""
+flag zm project export --help -h type=bool default="false"
+flag zm project ls --help -h type=bool default="false"
+flag zm project new --help -h type=bool default="false"
+flag zm project new --name type=string default=""
+flag zm project new --path type=stringSlice default="[]"
+flag zm project new --remote type=stringSlice default="[]"
+flag zm project ruling --help -h type=bool default="false"
+flag zm project ruling add --ask type=string default="" required
+flag zm project ruling add --help -h type=bool default="false"
+flag zm project ruling add --text type=string default="" required
+flag zm project ruling ls --help -h type=bool default="false"
+flag zm project ruling rm --help -h type=bool default="false"
+flag zm project set --guest-issues type=bool default="false"
+flag zm project set --help -h type=bool default="false"
+flag zm project set --name type=string default=""
+flag zm project set --path type=stringSlice default="[]"
+flag zm project set --remote type=stringSlice default="[]"
+flag zm project set --slug type=string default=""
+flag zm project show --help -h type=bool default="false"
+flag zm project solo --help -h type=bool default="false"
+flag zm project team --help -h type=bool default="false"
+flag zm project team cancel --help -h type=bool default="false"
+flag zm project triage --agent type=string default=""
+flag zm project triage --help -h type=bool default="false"
+flag zm project triage --machine type=string default=""
+flag zm project triage --wait type=int default="0"
+flag zm project use --area type=string default=""
+flag zm project use --help -h type=bool default="false"
+flag zm project why --help -h type=bool default="false"
+flag zm receipt --help -h type=bool default="false"
+flag zm receipt key --help -h type=bool default="false"
+flag zm receipt verify --any-decision type=bool default="false"
+flag zm receipt verify --approver type=string default=""
+flag zm receipt verify --ask type=string default=""
+flag zm receipt verify --card type=string default=""
+flag zm receipt verify --decision type=string default=""
+flag zm receipt verify --for-project type=string default=""
+flag zm receipt verify --head type=string default=""
+flag zm receipt verify --help -h type=bool default="false"
+flag zm receipt verify --key type=string default=""
+flag zm receipt verify --key-file type=string default=""
+flag zm receipt verify --pr type=int default="0"
+flag zm receipt verify --question type=string default=""
+flag zm receipt verify --repo type=string default=""
+flag zm receipt verify --signature-only type=bool default="false"
+flag zm receipt verify --work type=string default=""
+flag zm release --fence type=int64 default="0"
+flag zm release --force type=bool default="false"
+flag zm release --help -h type=bool default="false"
+flag zm release --no-queue type=bool default="false"
+flag zm remotes --help -h type=bool default="false"
+flag zm reply --client-request-id type=string default=""
+flag zm reply --help -h type=bool default="false"
+flag zm reply --needs type=string default=""
+flag zm revoke --help -h type=bool default="false"
+flag zm run --agent type=string default=""
+flag zm run --allow-tool type=stringArray default="[]"
+flag zm run --approvals type=string default=""
+flag zm run --area type=string default=""
+flag zm run --cwd -C type=string default=""
+flag zm run --detach -d type=bool default="false"
+flag zm run --for type=string default=""
+flag zm run --help -h type=bool default="false"
+flag zm run --job-kind type=string default=""
+flag zm run --model type=string default=""
+flag zm run --name -n type=string default=""
+flag zm run --on type=string default=""
+flag zm run --permission-mode type=string default=""
+flag zm run --pipe type=bool default="false"
+flag zm run --prompt type=string default=""
+flag zm run --resume type=string default=""
+flag zm run --sandbox type=bool default="false"
+flag zm run --shared type=bool default="false"
+flag zm run --title type=string default=""
+flag zm run --work type=string default=""
+flag zm run --worktree type=bool default="false"
+flag zm runners --help -h type=bool default="false"
+flag zm runners allow --help -h type=bool default="false"
+flag zm runners allow --public type=bool default="false"
+flag zm runners disallow --help -h type=bool default="false"
+flag zm runners jobs --help -h type=bool default="false"
+flag zm runners jobs --limit type=int default="50"
+flag zm runners link --area type=string default=""
+flag zm runners link --help -h type=bool default="false"
+flag zm runners ls --help -h type=bool default="false"
+flag zm runners repos --help -h type=bool default="false"
+flag zm runners set --help -h type=bool default="false"
+flag zm runners setup --area type=string default=""
+flag zm runners setup --help -h type=bool default="false"
+flag zm runners setup --name type=string default=""
+flag zm runners setup --org type=string default=""
+flag zm runners setup --repo type=stringSlice default="[]"
+flag zm runners setup --url type=string default=""
+flag zm runners unlink --help -h type=bool default="false"
+flag zm sandbox --help -h type=bool default="false"
+flag zm sandbox cp --help -h type=bool default="false"
+flag zm sandbox cp --max-mib type=int default="128"
+flag zm sandbox create --deps type=stringArray default="[]"
+flag zm sandbox create --deps-scripts type=string default="on"
+flag zm sandbox create --deps-wait type=int default="600"
+flag zm sandbox create --dir type=string default="checkout"
+flag zm sandbox create --dirty type=bool default="false"
+flag zm sandbox create --full type=bool default="false"
+flag zm sandbox create --help -h type=bool default="false"
+flag zm sandbox create --image type=string default=""
+flag zm sandbox create --include-untracked type=bool default="false"
+flag zm sandbox create --max-mib type=int default="128"
+flag zm sandbox create --net type=string default="on"
+flag zm sandbox create --on type=string default=""
+flag zm sandbox create --os type=string default=""
+flag zm sandbox create --persist type=bool default="false"
+flag zm sandbox create --ref type=string default=""
+flag zm sandbox create --request-id type=string default=""
+flag zm sandbox create --size type=string default=""
+flag zm sandbox create --template type=string default=""
+flag zm sandbox create --ttl type=duration default="0s"
+flag zm sandbox create --volume type=stringArray default="[]"
+flag zm sandbox exec --cwd type=string default=""
+flag zm sandbox exec --help -h type=bool default="false"
+flag zm sandbox exec --secret type=stringArray default="[]"
+flag zm sandbox exec --stdin type=bool default="false"
+flag zm sandbox exec --timeout type=int default="0"
+flag zm sandbox kill --help -h type=bool default="false"
+flag zm sandbox kill --signal type=string default="TERM"
+flag zm sandbox ls --help -h type=bool default="false"
+flag zm sandbox ls --live type=bool default="false"
+flag zm sandbox output --follow type=bool default="false"
+flag zm sandbox output --help -h type=bool default="false"
+flag zm sandbox output --max-bytes type=int default="0"
+flag zm sandbox output --stderr-from type=int64 default="0"
+flag zm sandbox output --stdout-from type=int64 default="0"
+flag zm sandbox output --wait type=int default="0"
+flag zm sandbox preview --help -h type=bool default="false"
+flag zm sandbox preview configure --help -h type=bool default="false"
+flag zm sandbox preview ls --help -h type=bool default="false"
+flag zm sandbox preview publish --help -h type=bool default="false"
+flag zm sandbox preview publish --public type=bool default="false"
+flag zm sandbox preview revoke --help -h type=bool default="false"
+flag zm sandbox push --dir type=string default="checkout"
+flag zm sandbox push --dirty type=bool default="false"
+flag zm sandbox push --full type=bool default="false"
+flag zm sandbox push --help -h type=bool default="false"
+flag zm sandbox push --include-untracked type=bool default="false"
+flag zm sandbox push --max-mib type=int default="128"
+flag zm sandbox renew --help -h type=bool default="false"
+flag zm sandbox renew --ttl type=duration default="10m0s"
+flag zm sandbox rm --help -h type=bool default="false"
+flag zm sandbox shell --cwd type=string default=""
+flag zm sandbox shell --help -h type=bool default="false"
+flag zm sandbox shell --timeout type=int default="0"
+flag zm sandbox spawn --cwd type=string default=""
+flag zm sandbox spawn --help -h type=bool default="false"
+flag zm sandbox spawn --request-id type=string default=""
+flag zm sandbox spawn --secret type=stringArray default="[]"
+flag zm sandbox spawn --stdin type=bool default="false"
+flag zm sandbox spawn --timeout type=int default="0"
+flag zm sandbox start --help -h type=bool default="false"
+flag zm sandbox start --ttl type=duration default="0s"
+flag zm sandbox stop --help -h type=bool default="false"
+flag zm sandbox usage --help -h type=bool default="false"
+flag zm sandbox usage --since type=string default=""
+flag zm sandbox usage limit --help -h type=bool default="false"
+flag zm sandbox usage limit --per type=string default=""
+flag zm secret --help -h type=bool default="false"
+flag zm secret keys --all type=bool default="false"
+flag zm secret keys --help -h type=bool default="false"
+flag zm secret keys --to type=string default=""
+flag zm secret keys publish --help -h type=bool default="false"
+flag zm secret keys revoke --help -h type=bool default="false"
+flag zm secret trust --help -h type=bool default="false"
+flag zm send --area type=string default=""
+flag zm send --audience type=string default=""
+flag zm send --client-request-id type=string default=""
+flag zm send --digest type=bool default="false"
+flag zm send --help -h type=bool default="false"
+flag zm send --kind type=string default=""
+flag zm send --needs type=string default=""
+flag zm send --ref type=string default=""
+flag zm send --reply-to type=string default=""
+flag zm sent --help -h type=bool default="false"
+flag zm sent --limit type=int default="0"
+flag zm session --help -h type=bool default="false"
+flag zm session admission --help -h type=bool default="false"
+flag zm session answer --help -h type=bool default="false"
+flag zm session answer --text type=string default=""
+flag zm session attach --embed type=bool default="false"
+flag zm session attach --help -h type=bool default="false"
+flag zm session attach --on type=string default=""
+flag zm session attach --read-only type=bool default="false"
+flag zm session attach --replay-modes type=bool default="false"
+flag zm session attach --why-file type=string default="" hidden
+flag zm session events --after type=int64 default="0"
+flag zm session events --follow -f type=bool default="false"
+flag zm session events --help -h type=bool default="false"
+flag zm session gc --discard-redaction type=string default=""
+flag zm session gc --help -h type=bool default="false"
+flag zm session gc --transcript type=string default=""
+flag zm session hook --agent type=string default=""
+flag zm session hook --help -h type=bool default="false"
+flag zm session input --enter type=bool default="true"
+flag zm session input --help -h type=bool default="false"
+flag zm session interrupt --help -h type=bool default="false"
+flag zm session move --help -h type=bool default="false"
+flag zm session name --help -h type=bool default="false"
+flag zm session output --help -h type=bool default="false"
+flag zm session output --since type=int64 default="0"
+flag zm session prompt --help -h type=bool default="false"
+flag zm session prompts --help -h type=bool default="false"
+flag zm session register --agent type=string default=""
+flag zm session register --cwd type=string default=""
+flag zm session register --for type=string default=""
+flag zm session register --help -h type=bool default="false"
+flag zm session register --job-kind type=string default=""
+flag zm session register --model type=string default=""
+flag zm session register --pid type=int default="0"
+flag zm session register --runtime-id type=string default=""
+flag zm session register --state type=string default=""
+flag zm session register --title type=string default=""
+flag zm session register --version type=string default=""
+flag zm session show --help -h type=bool default="false"
+flag zm session state --help -h type=bool default="false"
+flag zm session state --note type=string default=""
+flag zm session stop --force -f type=bool default="false"
+flag zm session stop --help -h type=bool default="false"
+flag zm session stop --signal type=string default=""
+flag zm session turn --help -h type=bool default="false"
+flag zm session turn --image type=stringArray default="[]"
+flag zm session turn --model type=string default=""
+flag zm session turn --steer type=bool default="false"
+flag zm ssh --help -h type=bool default="false"
+flag zm ssh --known-only type=bool default="false"
+flag zm status --help -h type=bool default="false"
+flag zm t3 --help -h type=bool default="false"
+flag zm t3 --scope type=stringArray default="[]"
+flag zm t3 disable --help -h type=bool default="false"
+flag zm t3 enable --help -h type=bool default="false"
+flag zm tailnet --help -h type=bool default="false"
+flag zm tailnet down --help -h type=bool default="false"
+flag zm tailnet status --help -h type=bool default="false"
+flag zm tailnet up --auth-key type=string default=""
+flag zm tailnet up --control-url type=string default=""
+flag zm tailnet up --help -h type=bool default="false"
+flag zm tailnet up --hostname type=string default=""
+flag zm target --help -h type=bool default="false"
+flag zm target acquire --commit type=string default=""
+flag zm target acquire --help -h type=bool default="false"
+flag zm target acquire --image type=string default=""
+flag zm target acquire --name type=string default=""
+flag zm target acquire --ref type=string default="main"
+flag zm target acquire --request-id type=string default=""
+flag zm target acquire --script type=string default=""
+flag zm target acquire --ttl type=duration default="0s"
+flag zm target acquire --wait type=bool default="false"
+flag zm target bind --allow-any-ref type=bool default="false"
+flag zm target bind --branch type=string default="main"
+flag zm target bind --budget type=string default=""
+flag zm target bind --config type=stringArray default="[]"
+flag zm target bind --create-in type=stringSlice default="[]"
+flag zm target bind --credentials type=bool default="false"
+flag zm target bind --driver type=string default=""
+flag zm target bind --handles-max type=int default="0"
+flag zm target bind --help -h type=bool default="false"
+flag zm target bind --host type=bool default="false"
+flag zm target bind --image type=stringSlice default="[]"
+flag zm target bind --isolation type=string default="ephemeral"
+flag zm target bind --kind type=string default="run"
+flag zm target bind --replace type=bool default="false"
+flag zm target bind --repo type=string default=""
+flag zm target bind --script type=stringSlice default="[]"
+flag zm target bind --setup type=bool default="false"
+flag zm target bind --share type=stringSlice default="[]"
+flag zm target bind --ttl-max type=int default="0"
+flag zm target exec --cwd type=string default=""
+flag zm target exec --help -h type=bool default="false"
+flag zm target exec --secret type=stringArray default="[]"
+flag zm target exec --stdin type=bool default="false"
+flag zm target exec --timeout type=int default="0"
+flag zm target ls --describe type=bool default="false"
+flag zm target ls --help -h type=bool default="false"
+flag zm target ls --host type=bool default="false"
+flag zm target release --help -h type=bool default="false"
+flag zm target renew --help -h type=bool default="false"
+flag zm target renew --ttl type=duration default="10m0s"
+flag zm target status --help -h type=bool default="false"
+flag zm target unbind --help -h type=bool default="false"
+flag zm target unbind --host type=bool default="false"
+flag zm tasks --help -h type=bool default="false"
+flag zm tasks cancel --help -h type=bool default="false"
+flag zm tasks start --agent type=string default="codex"
+flag zm tasks start --cwd type=string default=""
+flag zm tasks start --egress type=stringSlice default="[]"
+flag zm tasks start --front type=bool default="false"
+flag zm tasks start --help -h type=bool default="false"
+flag zm tasks start --machine type=string default=""
+flag zm tasks start --model type=string default=""
+flag zm tasks start --request-id type=string default=""
+flag zm tasks start --sandbox type=bool default="false"
+flag zm tasks start --size type=string default=""
+flag zm tasks start --timeout type=duration default="0s"
+flag zm tasks start --where type=string default=""
+flag zm tasks start --work type=string default=""
+flag zm tasks status --help -h type=bool default="false"
+flag zm tasks status --wait type=int default="0"
+flag zm thread --help -h type=bool default="false"
+flag zm token --help -h type=bool default="false"
+flag zm token ls --help -h type=bool default="false"
+flag zm token mint --answer-only type=bool default="false"
+flag zm token mint --area type=string default=""
+flag zm token mint --as type=string default=""
+flag zm token mint --help -h type=bool default="false"
+flag zm token mint --no-grant type=bool default="false"
+flag zm token mint --node type=string default=""
+flag zm token mint --note type=string default=""
+flag zm token mint --role type=string default=""
+flag zm token mint --ttl type=duration default="0s"
+flag zm token revoke --help -h type=bool default="false"
+flag zm tracker --help -h type=bool default="false"
+flag zm tracker add --allow-migrate type=bool default="false"
+flag zm tracker add --area type=string default=""
+flag zm tracker add --config type=stringArray default="[]"
+flag zm tracker add --database type=string default=""
+flag zm tracker add --dir type=string default=""
+flag zm tracker add --env type=string default=""
+flag zm tracker add --help -h type=bool default="false"
+flag zm tracker add --new type=bool default="false"
+flag zm tracker add --password-file type=string default=""
+flag zm tracker add --prefix type=string default=""
+flag zm tracker add --readonly type=bool default="false"
+flag zm tracker add --server type=string default=""
+flag zm tracker add --user type=string default=""
+flag zm tracker add --wait type=duration default="5m0s"
+flag zm tracker backup --help -h type=bool default="false"
+flag zm tracker backup add --every type=duration default="0s"
+flag zm tracker backup add --help -h type=bool default="false"
+flag zm tracker backup add --keep type=int default="0"
+flag zm tracker backup add --kind type=string default=""
+flag zm tracker backup add --now type=bool default="false"
+flag zm tracker backup ls --help -h type=bool default="false"
+flag zm tracker backup rm --help -h type=bool default="false"
+flag zm tracker backup rm --kind type=string default=""
+flag zm tracker backup run --help -h type=bool default="false"
+flag zm tracker backup run --kind type=string default=""
+flag zm tracker ls --help -h type=bool default="false"
+flag zm tracker rm --help -h type=bool default="false"
+flag zm tracker test --help -h type=bool default="false"
+flag zm tracker where --help -h type=bool default="false"
+flag zm tunnel --help -h type=bool default="false"
+flag zm tunnel key --help -h type=bool default="false"
+flag zm tunnel key clear --help -h type=bool default="false"
+flag zm tunnel key escrow --help -h type=bool default="false"
+flag zm tunnel key escrow --to type=string default=""
+flag zm tunnel remove --help -h type=bool default="false"
+flag zm tunnel remove --keep-tunnel type=bool default="false"
+flag zm tunnel remove --supervisor type=string default="" hidden
+flag zm tunnel setup --as-root type=bool default="false"
+flag zm tunnel setup --cloudflared type=string default=""
+flag zm tunnel setup --help -h type=bool default="false"
+flag zm tunnel setup --listen type=string default="127.0.0.1:7435"
+flag zm tunnel setup --name type=string default=""
+flag zm tunnel setup --quick type=bool default="false" hidden
+flag zm tunnel setup --supervisor type=string default="" hidden
+flag zm tunnel setup --wait type=duration default="2m0s"
+flag zm tunnel status --help -h type=bool default="false"
+flag zm uninstall --apply type=bool default="false" hidden
+flag zm uninstall --config-dir type=string default=""
+flag zm uninstall --dry-run type=bool default="true"
+flag zm uninstall --help -h type=bool default="false"
+flag zm uninstall --home type=string default=""
+flag zm uninstall --yes -y type=bool default="false"
+flag zm uninstall --zm type=string default=""
+flag zm web --help -h type=bool default="false"
+flag zm web test-push --help -h type=bool default="false"
+flag zm webhook --help -h type=bool default="false"
+flag zm webhook add --all type=bool default="false"
+flag zm webhook add --allow-private type=bool default="false"
+flag zm webhook add --events type=stringSlice default="[]"
+flag zm webhook add --help -h type=bool default="false"
+flag zm webhook add --note type=string default=""
+flag zm webhook add --secret-file type=string default=""
+flag zm webhook disable --help -h type=bool default="false"
+flag zm webhook enable --help -h type=bool default="false"
+flag zm webhook ls --help -h type=bool default="false"
+flag zm webhook rm --help -h type=bool default="false"
+flag zm webhook show --help -h type=bool default="false"
+flag zm webhook show --limit type=int default="20"
+flag zm webhook test --help -h type=bool default="false"
+flag zm who --help -h type=bool default="false"
+flag zm whoami --help -h type=bool default="false"
+flag zm work --help -h type=bool default="false"
+flag zm work claim --help -h type=bool default="false"
+flag zm work claim --no-queue type=bool default="false"
+flag zm work claim --note type=string default=""
+flag zm work claim --ttl type=int default="0"
+flag zm work comment --fence type=int64 default="0"
+flag zm work comment --help -h type=bool default="false"
+flag zm work comments --help -h type=bool default="false"
+flag zm work export --help -h type=bool default="false"
+flag zm work export --source type=string default="local"
+flag zm work inflight --help -h type=bool default="false"
+flag zm work leases --help -h type=bool default="false"
+flag zm work leases --holder type=string default=""
+flag zm work link --help -h type=bool default="false"
+flag zm work ls --area type=string default=""
+flag zm work ls --help -h type=bool default="false"
+flag zm work ls --limit type=int default="0"
+flag zm work ls --owner type=string default=""
+flag zm work ls --query -q type=string default=""
+flag zm work ls --source type=string default=""
+flag zm work ls --status type=string default=""
+flag zm work new --area type=string default=""
+flag zm work new --body type=string default=""
+flag zm work new --help -h type=bool default="false"
+flag zm work new --label type=stringSlice default="[]"
+flag zm work release --fence type=int64 default="0"
+flag zm work release --force type=bool default="false"
+flag zm work release --help -h type=bool default="false"
+flag zm work release --no-queue type=bool default="false"
+flag zm work renew --fence type=int64 default="0"
+flag zm work renew --help -h type=bool default="false"
+flag zm work renew --note type=string default=""
+flag zm work renew --ttl type=int default="0"
+flag zm work show --help -h type=bool default="false"
+flag zm work sources --help -h type=bool default="false"
+flag zm work status --fence type=int64 default="0"
+flag zm work status --help -h type=bool default="false"
+flag zm work who --help -h type=bool default="false"

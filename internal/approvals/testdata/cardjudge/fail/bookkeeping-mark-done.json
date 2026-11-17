@@ -1,0 +1,41 @@
+{
+  "why_it_fails": "It is bookkeeping: marking an approval done in zm changes nothing for anyone ('Cons: none'), and with its check wrong the asking agent records it done with its evidence itself (SPEC: zm ask check --evidence), so it is not a decision a person must make.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [
+      {
+        "machine": "bea-mac",
+        "ready": true
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Mark the 'make the three machine images public' approval as done?",
+      "context": "Yesterday you approved making Larder's three ready-made machine images public. They are public now: anyone can download them without logging in, and we tested all three. But zm still lists that approval as not done, because its automatic test looks for a version name that our build never uses. Marking it done only updates zm's list: nothing about the images changes.",
+      "question": "Mark the 'make the three machine images public' approval as done?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Mark it done",
+          "pros": "Clears it from your Decisions, with the download test results written on the record",
+          "cons": "None"
+        },
+        {
+          "key": "b",
+          "label": "Leave it open",
+          "pros": "Nothing changes",
+          "cons": "It stays in your Decisions as not done, since its test can never pass"
+        }
+      ],
+      "recommend": "a",
+      "why": "The images really are public; the test only checks the wrong version name."
+    },
+    "action": {
+      "kind": "command",
+      "on": "a",
+      "machine": "bea-mac",
+      "command": "zm ask check demo --evidence 'all three download'",
+      "shown": "If you choose A, zm runs zm ask check demo --evidence 'all three download' on bea-mac, as you."
+    }
+  }
+}

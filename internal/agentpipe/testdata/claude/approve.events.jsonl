@@ -1,0 +1,47 @@
+{"seq":1,"at":"0001-01-01T00:00:00Z","type":"session","status":"starting","model":"haiku","cwd":"/work","capabilities":{"steer":true,"interrupt":true,"approvals":true,"questions":true,"resume":true,"partial":true,"usage":true,"plan":true,"model":true,"mcp":true,"tools":true}}
+{"seq":2,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready"}
+{"seq":3,"at":"0001-01-01T00:00:00Z","type":"op","op":"op1","ok":true}
+{"seq":4,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t1","status":"running"}
+{"seq":5,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t1","item":"a342aaad-60cf-4725-b925-9ef05d1f62c2","status":"completed","role":"user","text":"Use the shell to run exactly this command: touch zm-approve.txt\nThen reply in one short sentence."}
+{"seq":6,"at":"0001-01-01T00:00:00Z","type":"op","op":"op2","ok":true}
+{"seq":7,"at":"0001-01-01T00:00:00Z","type":"session","status":"running"}
+{"seq":8,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"f1584265-32cf-495b-ae72-05ce51494fd1","model":"claude-haiku-5-5","version":"2.1.318"}
+{"seq":9,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"t1","item":"toolu_01NTRuazWqhYdB3iMtoi6Bsg","status":"running","kind":"command","name":"Bash","title":"touch zm-approve.txt","input":{"command":"touch zm-approve.txt","description":"Create empty file zm-approve.txt"}}
+{"seq":10,"at":"0001-01-01T00:00:00Z","type":"approval","turn":"t1","item":"toolu_01NTRuazWqhYdB3iMtoi6Bsg","status":"pending","kind":"command","title":"touch zm-approve.txt","request":"6890c2e1-43c1-4547-abd5-0886ae84b321","options":["accept","accept_session","decline","cancel"],"detail":"Create empty file zm-approve.txt"}
+{"seq":11,"at":"0001-01-01T00:00:00Z","type":"session","status":"waiting","runtime_id":"f1584265-32cf-495b-ae72-05ce51494fd1"}
+{"seq":12,"at":"0001-01-01T00:00:00Z","type":"op","op":"op3","ok":true}
+{"seq":13,"at":"0001-01-01T00:00:00Z","type":"approval","turn":"t1","item":"toolu_01NTRuazWqhYdB3iMtoi6Bsg","status":"answered","kind":"command","request":"6890c2e1-43c1-4547-abd5-0886ae84b321","decision":"accept"}
+{"seq":14,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"f1584265-32cf-495b-ae72-05ce51494fd1"}
+{"seq":15,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"t1","item":"toolu_01NTRuazWqhYdB3iMtoi6Bsg","status":"completed","kind":"command","name":"Bash","title":"touch zm-approve.txt","input":{"command":"touch zm-approve.txt","description":"Create empty file zm-approve.txt"},"output":"(Bash completed with no output)"}
+{"seq":16,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t1","item":"msg_011CgiZxMHQVHXV4DTCB6qz1/0","role":"assistant","text":"Created"}
+{"seq":17,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t1","item":"msg_011CgiZxMHQVHXV4DTCB6qz1/0","role":"assistant","text":" `zm-approve.tx"}
+{"seq":18,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t1","item":"msg_011CgiZxMHQVHXV4DTCB6qz1/0","role":"assistant","text":"t` with"}
+{"seq":19,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t1","item":"msg_011CgiZxMHQVHXV4DTCB6qz1/0","role":"assistant","text":" `"}
+{"seq":20,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t1","item":"msg_011CgiZxMHQVHXV4DTCB6qz1/0","role":"assistant","text":"touch`."}
+{"seq":21,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t1","item":"msg_011CgiZxMHQVHXV4DTCB6qz1/0","status":"completed","role":"assistant","text":"Created `zm-approve.txt` with `touch`."}
+{"seq":22,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"t1","usage":{"input_tokens":41517,"output_tokens":109,"cached_input_tokens":32961,"context_tokens":41626,"context_window":1000000,"cost_usd":0.0022253100000000003}}
+{"seq":23,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t1","status":"completed","usage":{"input_tokens":41517,"output_tokens":109,"cached_input_tokens":32961,"context_tokens":41626,"context_window":1000000,"cost_usd":0.0022253100000000003}}
+{"seq":24,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"f1584265-32cf-495b-ae72-05ce51494fd1"}
+{"seq":25,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t2","status":"running"}
+{"seq":26,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t2","item":"e7b3680f-e28a-4ebb-9b6b-0a130358ec78","status":"completed","role":"user","text":"Use the shell to run exactly this command: rm zm-approve.txt\nIf you cannot, reply in one short sentence saying so."}
+{"seq":27,"at":"0001-01-01T00:00:00Z","type":"op","op":"op4","ok":true}
+{"seq":28,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"f1584265-32cf-495b-ae72-05ce51494fd1"}
+{"seq":29,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"t2","item":"toolu_011W3DFFJKW8qevWJ3CQCCr1","status":"running","kind":"command","name":"Bash","title":"rm zm-approve.txt","input":{"command":"rm zm-approve.txt","description":"Remove file zm-approve.txt"}}
+{"seq":30,"at":"0001-01-01T00:00:00Z","type":"approval","turn":"t2","item":"toolu_011W3DFFJKW8qevWJ3CQCCr1","status":"pending","kind":"command","title":"rm zm-approve.txt","request":"dacd3ad1-9461-4316-9cf7-7eb2ba2adcb4","options":["accept","accept_session","decline","cancel"],"detail":"Remove file zm-approve.txt"}
+{"seq":31,"at":"0001-01-01T00:00:00Z","type":"session","status":"waiting","runtime_id":"f1584265-32cf-495b-ae72-05ce51494fd1"}
+{"seq":32,"at":"0001-01-01T00:00:00Z","type":"op","op":"op5","ok":true}
+{"seq":33,"at":"0001-01-01T00:00:00Z","type":"approval","turn":"t2","item":"toolu_011W3DFFJKW8qevWJ3CQCCr1","status":"answered","kind":"command","request":"dacd3ad1-9461-4316-9cf7-7eb2ba2adcb4","decision":"decline"}
+{"seq":34,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"f1584265-32cf-495b-ae72-05ce51494fd1"}
+{"seq":35,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"t2","item":"toolu_011W3DFFJKW8qevWJ3CQCCr1","status":"failed","kind":"command","name":"Bash","title":"rm zm-approve.txt","input":{"command":"rm zm-approve.txt","description":"Remove file zm-approve.txt"},"output":"The user declined this tool use."}
+{"seq":36,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t2","item":"msg_011CgiZxYqw5jguveNxkspff/0","role":"assistant","text":"I can't run that:"}
+{"seq":37,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t2","item":"msg_011CgiZxYqw5jguveNxkspff/0","role":"assistant","text":" the `rm z"}
+{"seq":38,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t2","item":"msg_011CgiZxYqw5jguveNxkspff/0","role":"assistant","text":"m-approve.txt`"}
+{"seq":39,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t2","item":"msg_011CgiZxYqw5jguveNxkspff/0","role":"assistant","text":" command was declined, so the"}
+{"seq":40,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t2","item":"msg_011CgiZxYqw5jguveNxkspff/0","role":"assistant","text":" file is"}
+{"seq":41,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t2","item":"msg_011CgiZxYqw5jguveNxkspff/0","role":"assistant","text":" still there."}
+{"seq":42,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t2","item":"msg_011CgiZxYqw5jguveNxkspff/0","status":"completed","role":"assistant","text":"I can't run that: the `rm zm-approve.txt` command was declined, so the file is still there."}
+{"seq":43,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"t2","usage":{"input_tokens":85249,"output_tokens":230,"cached_input_tokens":76468,"context_tokens":43853,"context_window":1000000,"cost_usd":0.0027654800000000003}}
+{"seq":44,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t2","status":"completed","usage":{"input_tokens":85249,"output_tokens":230,"cached_input_tokens":76468,"context_tokens":43853,"context_window":1000000,"cost_usd":0.0027654800000000003}}
+{"seq":45,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"f1584265-32cf-495b-ae72-05ce51494fd1"}
+{"seq":46,"at":"0001-01-01T00:00:00Z","type":"op","op":"op6","ok":true}
+{"seq":47,"at":"0001-01-01T00:00:00Z","type":"session","status":"stopped","runtime_id":"f1584265-32cf-495b-ae72-05ce51494fd1"}

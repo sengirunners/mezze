@@ -1,0 +1,8 @@
+Mezze
+Copyright 2026 Sengi, Inc.
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It includes third-party code under its own license:
+- internal/api/textclean: portions from T3 Code, MIT License (internal/api/textclean/T3-LICENSE)
+- internal/api/textclean: Unicode data, Unicode License (internal/api/textclean/UNICODE-LICENSE)

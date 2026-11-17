@@ -1,0 +1,39 @@
+{
+  "why_it_fails": "It asks an owner to review a pull request, which the merge-after-green ruling says owners never do; a review agent does it.",
+  "input": {
+    "approver": "dana",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Please review the login change",
+      "context": "I rewrote how staff sign in so that a lost phone no longer locks them out. The change is ready and needs a review before it can be merged.",
+      "question": "Can you review the sign-in change before I merge it?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "I will review it",
+          "pros": "a second pair of eyes on it",
+          "cons": "takes about an hour of your time"
+        },
+        {
+          "key": "b",
+          "label": "Skip the review",
+          "pros": "it ships sooner",
+          "cons": "nobody checks it"
+        }
+      ],
+      "recommend": "a",
+      "why": "Sign-in is important, so a person should look at it."
+    },
+    "rulings": [
+      {
+        "name": "merge-after-green",
+        "text": "An agent merges its own pull request once a separate review agent has signed off and the required checks are green. The owners never review or merge pull requests themselves."
+      },
+      {
+        "name": "no-weekend-deploys",
+        "text": "Nothing is released to customers between Friday 6 pm and Monday 8 am, whoever asks."
+      }
+    ]
+  }
+}

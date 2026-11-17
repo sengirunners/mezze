@@ -1,0 +1,45 @@
+{
+ "why": "About the team's own machines; no outside party.",
+ "want_party": 0,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Build machines stopped",
+   "context": "Our build machines stopped starting checks this morning. An agent restarted one and it works again.",
+   "background": "",
+   "question": "Should agents restart the build machines automatically when they stop?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "Yes, automatically",
+     "pros": "no waiting",
+     "cons": "a deeper fault could hide"
+    },
+    {
+     "key": "b",
+     "label": "No, ask each time",
+     "pros": "we see each fault",
+     "cons": "slower"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

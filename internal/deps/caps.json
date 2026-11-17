@@ -1,0 +1,16 @@
+{
+  "_doc": "Size caps checked by internal/deps/ratchet_test.go. When code moves out, lower the cap to the number the test prints. Any agent may change a cap or an entry in its own PR with a one-line reason in 'why' (no sign-off); the default for internal/work's top level is not to grow (new code goes into a sub-package, bricks rule). Lines are physical lines, comments and blanks included; internal/work's top level counts every non-test .go file directly in internal/work (team.go too). The test also fails when a number drops more than the slack below its cap, so two shrinking PRs merged back to back can turn main red: the fix is to lower the cap.",
+  "work_top_lines": 7148,
+  "work_top_why": "7148 (+58): lease fencing (SPEC 10 Fencing): the fence is threaded through take/claim/release/comment/status, which need loc, leaseDB and TeamTx, so only the counter and the check moved to work/fencing; release paths moved out of work.go into release.go. Was 7090 (-4): the claim no longer waits for its write-back; a write-back's status event carries its lease (internal/work/wbcause) and checkBase skips the writer's own. Was 7094 (+8): a replica's tracker claim waits for its own write-back's status event (the wait itself is core.AwaitStatusEvent); writeBack/writeOne/mirrorWriteBack carry the event id back on the job, so it cannot move to a sub-package. Was 7086 (+18): ItemSettled (core.WorkSettled) so mail can settle an old lease-expiry note once its item is claimed again or done; it needs keyItem, liveLease and load, so it cannot move to a sub-package. Was 7068 (+8): a claim replacing another holder's expired lease must end that holder's tracker claim first (claimItem/teamClaimItem need res.replaced and s.call/s.writeBack, so it cannot move to a sub-package). Was 7060 (+10): ItemLabels (core.WorkLabeler) so an ask goes to the person its work item's owner:<name> label names; it reuses locateRecorded and load. Was 7050 (+32): GET /v0/work/page?epic= needs its hook in page()'s per-project loop and the tracker-visibility glue beside it; the epic walk is in internal/rollup (SQL.Owned), parsing in work/query, holder state in work/rollupmirror. Was 7018: moving unchanged pure page reference merging and total-order comparison beside query/cursor helpers.",
+  "work_top_slack": 300,
+  "file_max_lines": 1200,
+  "file_slack": 100,
+  "files_over_cap": {
+    "internal/issues/store/sqlite/write.go": {
+      "cap": 1349,
+      "owner": "zm issues session",
+      "added": "2026-11-01",
+      "why": "the issues store's write funnel; split per op family when next touched. 1349 (-271): comment ops live in comments.go (the update funnel gained a Mutation.Check hook, +5). 1615 (+1): the orchapi import line (orchestration types leave potluck). 1614 (-24): statusChange lives in status.go. 1638 (-2, 2026-11-02): move ops live in move.go, the error helpers in sqlite.go"
+    }
+  }
+}

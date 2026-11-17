@@ -1,0 +1,85 @@
+{"seq":1,"at":"0001-01-01T00:00:00Z","type":"session","status":"starting","cwd":"/work","capabilities":{"steer":true,"interrupt":true,"approvals":true,"questions":true,"resume":true,"images":true,"partial":true,"usage":true,"plan":true,"tool_output":true,"model":true,"mcp":true,"tools":true}}
+{"seq":2,"at":"0001-01-01T00:00:00Z","type":"op","op":"op1","ok":true}
+{"seq":3,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395","model":"gpt-6.1-sol"}
+{"seq":4,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","status":"running"}
+{"seq":5,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395"}
+{"seq":6,"at":"0001-01-01T00:00:00Z","type":"op","op":"op2","ok":true}
+{"seq":7,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"01a1a862-52dd-7c21-9e96-f4faf054a933","status":"completed","role":"user","text":"Use the shell to run exactly this command: touch zm-approve.txt\nThen reply in one short sentence."}
+{"seq":8,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","status":"streaming","role":"assistant"}
+{"seq":9,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","role":"assistant","text":"I"}
+{"seq":10,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","role":"assistant","text":"’ll"}
+{"seq":11,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","role":"assistant","text":" run"}
+{"seq":12,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","role":"assistant","text":" the"}
+{"seq":13,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","role":"assistant","text":" exact"}
+{"seq":14,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","role":"assistant","text":" command"}
+{"seq":15,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","role":"assistant","text":" now"}
+{"seq":16,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","role":"assistant","text":".\n"}
+{"seq":17,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4bc4c887d088ed3055494286c6","status":"completed","role":"assistant","text":"I’ll run the exact command now.\n"}
+{"seq":18,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"exec-d3a4c6cc-f12c-4ce9-a406-ae2d561146be","status":"running","kind":"command","name":"shell","title":"/bin/zsh -lc 'touch zm-approve.txt'","input":{"command":"/bin/zsh -lc 'touch zm-approve.txt'"}}
+{"seq":19,"at":"0001-01-01T00:00:00Z","type":"approval","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"exec-d3a4c6cc-f12c-4ce9-a406-ae2d561146be","status":"pending","kind":"command","title":"/bin/zsh -lc 'touch zm-approve.txt'","request":"r0","options":["accept","accept_session","decline","cancel"]}
+{"seq":20,"at":"0001-01-01T00:00:00Z","type":"session","status":"waiting","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395"}
+{"seq":21,"at":"0001-01-01T00:00:00Z","type":"op","op":"op3","ok":true}
+{"seq":22,"at":"0001-01-01T00:00:00Z","type":"approval","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"exec-d3a4c6cc-f12c-4ce9-a406-ae2d561146be","status":"answered","kind":"command","request":"r0","decision":"accept"}
+{"seq":23,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395"}
+{"seq":24,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"exec-d3a4c6cc-f12c-4ce9-a406-ae2d561146be","status":"completed","kind":"command","name":"shell","title":"/bin/zsh -lc 'touch zm-approve.txt'","input":{"command":"/bin/zsh -lc 'touch zm-approve.txt'"},"exit_code":0}
+{"seq":25,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","usage":{"input_tokens":18430,"output_tokens":46,"cached_input_tokens":12800,"context_tokens":18476,"context_window":475000}}
+{"seq":26,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","status":"streaming","role":"assistant"}
+{"seq":27,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":"Ran"}
+{"seq":28,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":" `"}
+{"seq":29,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":"touch"}
+{"seq":30,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":" zm"}
+{"seq":31,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":"-"}
+{"seq":32,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":"approve"}
+{"seq":33,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":".txt"}
+{"seq":34,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":"`"}
+{"seq":35,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":" successfully"}
+{"seq":36,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","role":"assistant","text":"."}
+{"seq":37,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","item":"msg_031c7ff245e1a8bd016aeb9e4dff9c87d08a085bc2d4ccab96","status":"completed","role":"assistant","text":"Ran `touch zm-approve.txt` successfully."}
+{"seq":38,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","usage":{"input_tokens":36962,"output_tokens":60,"cached_input_tokens":31104,"context_tokens":18546,"context_window":475000}}
+{"seq":39,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-4deb-7d10-a25f-bf26799b412a","status":"completed","usage":{"input_tokens":36962,"output_tokens":60,"cached_input_tokens":31104,"context_tokens":18546,"context_window":475000}}
+{"seq":40,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395"}
+{"seq":41,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-6164-7301-a366-1ae2986836be","status":"running"}
+{"seq":42,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395"}
+{"seq":43,"at":"0001-01-01T00:00:00Z","type":"op","op":"op4","ok":true}
+{"seq":44,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"01a1a862-6179-7b60-ad7c-44064726c9eb","status":"completed","role":"user","text":"Use the shell to run exactly this command: rm zm-approve.txt\nIf you cannot, reply in one short sentence saying so."}
+{"seq":45,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","status":"streaming","role":"assistant"}
+{"seq":46,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","role":"assistant","text":"I"}
+{"seq":47,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","role":"assistant","text":"’ll"}
+{"seq":48,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","role":"assistant","text":" run"}
+{"seq":49,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","role":"assistant","text":" the"}
+{"seq":50,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","role":"assistant","text":" exact"}
+{"seq":51,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","role":"assistant","text":" command"}
+{"seq":52,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","role":"assistant","text":" now"}
+{"seq":53,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","role":"assistant","text":".\n"}
+{"seq":54,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e4fe4c887d0bf7222b6042b3454","status":"completed","role":"assistant","text":"I’ll run the exact command now.\n"}
+{"seq":55,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"exec-4cb1790e-71e9-4b67-8ee4-3e4c38d2502a","status":"running","kind":"command","name":"shell","title":"/bin/zsh -lc 'rm zm-approve.txt'","input":{"command":"/bin/zsh -lc 'rm zm-approve.txt'"}}
+{"seq":56,"at":"0001-01-01T00:00:00Z","type":"approval","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"exec-4cb1790e-71e9-4b67-8ee4-3e4c38d2502a","status":"pending","kind":"command","title":"/bin/zsh -lc 'rm zm-approve.txt'","request":"r1","options":["accept","accept_session","decline","cancel"]}
+{"seq":57,"at":"0001-01-01T00:00:00Z","type":"session","status":"waiting","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395"}
+{"seq":58,"at":"0001-01-01T00:00:00Z","type":"op","op":"op5","ok":true}
+{"seq":59,"at":"0001-01-01T00:00:00Z","type":"approval","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"exec-4cb1790e-71e9-4b67-8ee4-3e4c38d2502a","status":"answered","kind":"command","request":"r1","decision":"decline"}
+{"seq":60,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395"}
+{"seq":61,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"exec-4cb1790e-71e9-4b67-8ee4-3e4c38d2502a","status":"declined","kind":"command","name":"shell","title":"/bin/zsh -lc 'rm zm-approve.txt'","input":{"command":"/bin/zsh -lc 'rm zm-approve.txt'"}}
+{"seq":62,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-6164-7301-a366-1ae2986836be","usage":{"input_tokens":60352,"output_tokens":106,"cached_input_tokens":31104,"context_tokens":23436,"context_window":475000}}
+{"seq":63,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","status":"streaming","role":"assistant"}
+{"seq":64,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":"I"}
+{"seq":65,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":" couldn"}
+{"seq":66,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":"’t"}
+{"seq":67,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":" run"}
+{"seq":68,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":" `"}
+{"seq":69,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":"rm"}
+{"seq":70,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":" zm"}
+{"seq":71,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":"-"}
+{"seq":72,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":"approve"}
+{"seq":73,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":".txt"}
+{"seq":74,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":"`"}
+{"seq":75,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":" because"}
+{"seq":76,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":" approval"}
+{"seq":77,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":" was"}
+{"seq":78,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":" rejected"}
+{"seq":79,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","role":"assistant","text":"."}
+{"seq":80,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-6164-7301-a366-1ae2986836be","item":"msg_031c7ff245e1a8bd016aeb9e52194c87d08446c28d4f92deaa","status":"completed","role":"assistant","text":"I couldn’t run `rm zm-approve.txt` because approval was rejected."}
+{"seq":81,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-6164-7301-a366-1ae2986836be","usage":{"input_tokens":83833,"output_tokens":126,"cached_input_tokens":49408,"context_tokens":23501,"context_window":475000}}
+{"seq":82,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-6164-7301-a366-1ae2986836be","status":"completed","usage":{"input_tokens":83833,"output_tokens":126,"cached_input_tokens":49408,"context_tokens":23501,"context_window":475000}}
+{"seq":83,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395"}
+{"seq":84,"at":"0001-01-01T00:00:00Z","type":"op","op":"op6","ok":true}
+{"seq":85,"at":"0001-01-01T00:00:00Z","type":"session","status":"stopped","runtime_id":"01a1a862-4dce-7d82-80ce-3e5d540ed395"}

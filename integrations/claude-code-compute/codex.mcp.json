@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "zm": {
+      "command": "zm",
+      "args": ["mcp", "--sandboxes"],
+      "enabled_tools": ["sandbox_create", "sandbox_exec", "sandbox_list", "sandbox_renew", "sandbox_stop", "sandbox_start", "sandbox_delete", "sandbox_spawn", "sandbox_output", "sandbox_signal", "sandbox_write_file", "sandbox_read_file", "sandbox_preview_publish", "sandbox_preview_list", "sandbox_preview_revoke"]
+    }
+  }
+}

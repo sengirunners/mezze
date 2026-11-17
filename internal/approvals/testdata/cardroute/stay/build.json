@@ -1,0 +1,45 @@
+{
+ "why": "What to build is the owners' decision.",
+ "want_party": 0,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Build swap requests next?",
+   "context": "Two programs, including Lakeview, asked for residents to trade shifts in the app. It would take about a week.",
+   "background": "",
+   "question": "Should we build shift trades next, or finish the billing page first?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "Shift trades",
+     "pros": "programs asked for it",
+     "cons": "billing waits"
+    },
+    {
+     "key": "b",
+     "label": "Billing page",
+     "pros": "we get paid sooner",
+     "cons": "programs wait"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

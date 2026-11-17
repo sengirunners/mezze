@@ -1,0 +1,9 @@
+{
+  "why_it_fails": "touching a hardware security key needs the person's own hands; no agent can do it",
+  "input": {
+    "person": "bea",
+    "title": "Add your security key to the team's GitHub",
+    "brief": "1. Plug your YubiKey into the Mac.\n2. Open https://github.com/settings/security signed in as bea-gh.\n3. Under Security keys press Register new security key and name it bea-yubikey.\n4. Touch the gold disc on the key when the browser asks.",
+    "check": "gh api user/keys --jq length | grep -qv '^0$'"
+  }
+}

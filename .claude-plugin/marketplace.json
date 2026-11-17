@@ -1,0 +1,19 @@
+{
+  "name": "zm",
+  "description": "Mezze plugins: the zm bus (hooks + MCP) and zm compute (sandbox tools).",
+  "owner": {
+    "name": "zm contributors"
+  },
+  "plugins": [
+    {
+      "name": "zm",
+      "source": "./integrations/claude-code",
+      "description": "Connect Claude Code to the zm bus (hooks + MCP)."
+    },
+    {
+      "name": "zm-compute",
+      "source": "./integrations/claude-code-compute",
+      "description": "Sandbox tools (throwaway VMs) for your agent; installs a pinned zm release on first use if you allow it."
+    }
+  ]
+}

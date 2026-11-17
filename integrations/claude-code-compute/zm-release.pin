@@ -1,0 +1,12 @@
+# The public copy pins no zm release yet: the first public copy cannot name its own release (a release is built from
+# the commit that would hold its SHA-256), and the private repo's releases cannot be downloaded by outsiders. With
+# tag= blank, scripts/zm-install says to install from a clone (make install). The copy that follows the first
+# public release's kept release (vMAJOR.MINOR.PATCH, never pruned) deletes this file, and the pin in
+# integrations/claude-code-compute then names that release: scripts/publish refuses a pin that does not match what
+# the public repo serves.
+tag=
+version=
+sums_sha256=
+# Sources, in order: the first is publicRepo in cmd/zm/daemon_update.go (a test checks).
+repo=sengirunners/mezze
+base_url=https://github.com/sengirunners/mezze/releases/download

@@ -1,0 +1,43 @@
+{
+  "why_it_passes": "A run action restarts the stuck service on Bea's ready machine, so the press does the whole thing; the card says what is broken, what the restart costs and what waiting costs.",
+  "want_risk": "",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [
+      {
+        "machine": "studio",
+        "ready": true
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Restart the stuck photo uploader on your studio Mac?",
+      "context": "The service that uploads clinic photos to patient records has been stuck since 9 am; about 120 photos are waiting. It runs on your studio Mac. Restarting it usually clears it; the waiting photos then upload within a few minutes.",
+      "question": "Should zm restart the photo uploader on your studio Mac now?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Restart it now",
+          "pros": "the 120 waiting photos upload in minutes",
+          "cons": "any photo mid-upload is retried, so it arrives a minute later"
+        },
+        {
+          "key": "b",
+          "label": "Wait until tonight",
+          "pros": "nothing changes during clinic hours",
+          "cons": "clinic staff cannot see today's photos until tomorrow morning"
+        }
+      ],
+      "recommend": "a",
+      "why": "Staff need today's photos today; a restart costs at most a minute's delay on one photo."
+    },
+    "action": {
+      "kind": "command",
+      "on": "a",
+      "machine": "studio",
+      "command": "launchctl kickstart -k gui/501/com.example.photo-uploader",
+      "shown": "If you choose A, this command runs on studio, as you: launchctl kickstart -k gui/501/com.example.photo-uploader. Any other answer does nothing."
+    },
+    "verify": "curl -fsS http://studio.local:8088/health | grep -q '\"queue\": 0'"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "secret": "string",
+  "token": {
+    "created": "string",
+    "expires": "string",
+    "id": "string",
+    "identity": "string",
+    "note": "string",
+    "project": "string",
+    "role": "string"
+  }
+}

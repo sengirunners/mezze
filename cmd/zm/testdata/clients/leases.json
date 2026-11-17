@@ -1,0 +1,11 @@
+[
+  {
+    "bound": "bool",
+    "claimed": "string",
+    "expires": "string",
+    "holder": "string",
+    "key": "string",
+    "project": "string",
+    "renewed": "string"
+  }
+]

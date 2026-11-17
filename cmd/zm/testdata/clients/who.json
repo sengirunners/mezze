@@ -1,0 +1,28 @@
+{
+  "holder": "string",
+  "id": "string",
+  "lease": {
+    "bound": "bool",
+    "claimed": "string",
+    "expires": "string",
+    "holder": "string",
+    "key": "string",
+    "project": "string",
+    "renewed": "string"
+  },
+  "mail_to": "string",
+  "session": {
+    "address": "string",
+    "agent": "string",
+    "id": "string",
+    "machine": "string",
+    "managed": "bool",
+    "note": "string",
+    "project": "string",
+    "started": "string",
+    "state": "string",
+    "title": "string",
+    "updated": "string"
+  },
+  "via": "string"
+}

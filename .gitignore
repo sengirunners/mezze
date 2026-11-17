@@ -1,0 +1,14 @@
+/bin/
+/dist/
+*.test
+*.out
+/.zm/
+*.db
+*.db-shm
+*.db-wal
+*.sock
+.DS_Store
+/zm
+/loadtest
+/loopnet
+/bd-zm

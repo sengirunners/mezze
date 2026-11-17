@@ -1,0 +1,25 @@
+{"seq":1,"at":"0001-01-01T00:00:00Z","type":"session","status":"starting","cwd":"/work","capabilities":{"steer":true,"interrupt":true,"approvals":true,"questions":true,"resume":true,"images":true,"partial":true,"usage":true,"plan":true,"tool_output":true,"model":true,"mcp":true,"tools":true}}
+{"seq":2,"at":"0001-01-01T00:00:00Z","type":"op","op":"op1","ok":true}
+{"seq":3,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-19c5-7203-a999-242428c44f9e","model":"gpt-6.1-sol"}
+{"seq":4,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-1a1c-7ef2-a712-79387cb6b772","status":"running"}
+{"seq":5,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"01a1a862-19c5-7203-a999-242428c44f9e"}
+{"seq":6,"at":"0001-01-01T00:00:00Z","type":"op","op":"op2","ok":true}
+{"seq":7,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-1a1c-7ef2-a712-79387cb6b772","item":"01a1a862-1ffe-7123-bccf-1eeee663b87a","status":"completed","role":"user","text":"Reply with exactly the word: alpha"}
+{"seq":8,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-1a1c-7ef2-a712-79387cb6b772","item":"msg_0eab9528aaefcf54016aeb9e3e9e6087d0b224215af4848114","status":"streaming","role":"assistant"}
+{"seq":9,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-1a1c-7ef2-a712-79387cb6b772","item":"msg_0eab9528aaefcf54016aeb9e3e9e6087d0b224215af4848114","role":"assistant","text":"alpha"}
+{"seq":10,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-1a1c-7ef2-a712-79387cb6b772","item":"msg_0eab9528aaefcf54016aeb9e3e9e6087d0b224215af4848114","status":"completed","role":"assistant","text":"alpha"}
+{"seq":11,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-1a1c-7ef2-a712-79387cb6b772","usage":{"input_tokens":20937,"output_tokens":5,"context_tokens":20942,"context_window":475000}}
+{"seq":12,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-1a1c-7ef2-a712-79387cb6b772","status":"completed","usage":{"input_tokens":20937,"output_tokens":5,"context_tokens":20942,"context_window":475000}}
+{"seq":13,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-19c5-7203-a999-242428c44f9e"}
+{"seq":14,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-24fa-7361-8161-bd762b770894","status":"running"}
+{"seq":15,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"01a1a862-19c5-7203-a999-242428c44f9e"}
+{"seq":16,"at":"0001-01-01T00:00:00Z","type":"op","op":"op3","ok":true}
+{"seq":17,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-24fa-7361-8161-bd762b770894","item":"01a1a862-2524-7dd1-924a-6ee41f1014db","status":"completed","role":"user","text":"Now reply with exactly the word: beta"}
+{"seq":18,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-24fa-7361-8161-bd762b770894","item":"msg_0eab9528aaefcf54016aeb9e3fea0c87d098c0ea8533b79cf7","status":"streaming","role":"assistant"}
+{"seq":19,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-24fa-7361-8161-bd762b770894","item":"msg_0eab9528aaefcf54016aeb9e3fea0c87d098c0ea8533b79cf7","role":"assistant","text":"beta"}
+{"seq":20,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-24fa-7361-8161-bd762b770894","item":"msg_0eab9528aaefcf54016aeb9e3fea0c87d098c0ea8533b79cf7","status":"completed","role":"assistant","text":"beta"}
+{"seq":21,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-24fa-7361-8161-bd762b770894","usage":{"input_tokens":46704,"output_tokens":10,"cached_input_tokens":20736,"context_tokens":25772,"context_window":475000}}
+{"seq":22,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-24fa-7361-8161-bd762b770894","status":"completed","usage":{"input_tokens":46704,"output_tokens":10,"cached_input_tokens":20736,"context_tokens":25772,"context_window":475000}}
+{"seq":23,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-19c5-7203-a999-242428c44f9e"}
+{"seq":24,"at":"0001-01-01T00:00:00Z","type":"op","op":"op4","ok":true}
+{"seq":25,"at":"0001-01-01T00:00:00Z","type":"session","status":"stopped","runtime_id":"01a1a862-19c5-7203-a999-242428c44f9e"}

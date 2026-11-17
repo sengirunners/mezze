@@ -1,0 +1,117 @@
+# zm release channel (SPEC 2 "Release channel"): after each green push to main (and daily, and on demand), build the
+# last green main into release tarballs, sign a manifest of their SHA-256 sums with the channel's Ed25519 key, and
+# publish a GitHub release. Machines pull it themselves (`zm daemon update --release github`), canary first, and
+# install only what verifies; nothing is pushed.
+# The public copy's release (internal/deps/publiccopy: scripts/publish carries it in place of the private one):
+# GitHub-hosted, no routing. Only this repository's push runs release (the job's if).
+# The key lives only in the zm-release environment, which deploys from main alone.
+name: release
+on:
+  # ci finished: only a successful push to main in this repository releases (the job's if). The pick step
+  # still takes the newest green main push, so a run that queued behind another never releases an older commit.
+  workflow_run:
+    workflows: [ci]
+    types: [completed]
+    branches: [main]
+  schedule:
+    - cron: "0 15 * * *" # the backstop: 07:00/08:00 Pacific
+  workflow_dispatch:
+    inputs:
+      kept_tag:
+        description: 'Optional kept plugin release (vMAJOR.MINOR.PATCH); empty uses the rolling channel'
+        type: string
+        default: ''
+permissions:
+  contents: read
+concurrency:
+  group: zm-release
+  cancel-in-progress: false
+jobs:
+  release:
+    name: build, sign, publish
+    permissions:
+      contents: write
+      actions: read
+    runs-on: ${{ vars.RELEASE_RUNNER || 'ubuntu-latest' }}
+    environment: zm-release
+    if: >-
+      !cancelled() && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.head_repository.full_name == github.repository))
+    timeout-minutes: 30
+    steps:
+      - name: pick the last green main
+        id: pick
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          KEPT_TAG: ${{ inputs.kept_tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha=$(gh api "repos/$GH_REPO/actions/workflows/ci.yml/runs?branch=main&event=push&status=success&per_page=50" \
+            --jq '[.workflow_runs[] | select(.head_branch=="main" and .event=="push" and .conclusion=="success" and .repository.full_name==env.GH_REPO)] | max_by(.run_number) | .head_sha')
+          [[ "$sha" =~ ^[0-9a-f]{40}$ ]] || { echo "no green main push"; exit 1; }
+          tag="zm-main-${sha:0:12}"
+          version="main-${sha:0:12}"
+          if [[ -n "$KEPT_TAG" ]]; then
+            [[ "$KEPT_TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "kept_tag must be vMAJOR.MINOR.PATCH"; exit 1; }
+            tag="$KEPT_TAG"
+            version="${tag#v}"
+          fi
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"; echo "$tag is published already"
+          elif gh api "repos/$GH_REPO/git/ref/tags/$tag" >/dev/null 2>&1; then
+            # A tag without its release was deleted by hand: never publish it again. Yank with --prerelease.
+            echo "skip=true" >> "$GITHUB_OUTPUT"; echo "$tag was deleted; not republishing it"
+          fi
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: steps.pick.outputs.skip != 'true'
+        with:
+          ref: ${{ steps.pick.outputs.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        if: steps.pick.outputs.skip != 'true'
+        with:
+          go-version-file: go.mod
+          cache: false
+      - name: build
+        if: steps.pick.outputs.skip != 'true'
+        run: go run ./scripts/release -version "${{ steps.pick.outputs.version }}" -commit "${{ steps.pick.outputs.sha }}" -out dist
+      - name: sign
+        if: steps.pick.outputs.skip != 'true'
+        env:
+          ZM_RELEASE_KEY: ${{ secrets.ZM_RELEASE_KEY }}
+        run: go run ./scripts/release-sign -version "${{ steps.pick.outputs.version }}" -commit "${{ steps.pick.outputs.sha }}" -out dist
+      - name: publish
+        if: steps.pick.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release create "${{ steps.pick.outputs.tag }}" dist/*.tar.gz dist/SHA256SUMS dist/manifest.json dist/manifest.json.sig \
+            --target "${{ steps.pick.outputs.sha }}" --title "zm ${{ steps.pick.outputs.version }}" \
+            --notes "Signed zm release of green main ${{ steps.pick.outputs.sha }}. Machines install it with \`zm daemon update --release github\` (SPEC 2 \"Release channel\"). Yank it (no machine takes it): \`gh release edit ${{ steps.pick.outputs.tag }} --prerelease\`."
+      # Each release is ~140 MB and one follows every green push: keep the newest 50 and any younger than 14 days.
+      # Machines need only the newest (a rollback is local: the .prev files); a failure here never fails the release.
+      - name: prune old releases
+        if: steps.pick.outputs.skip != 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          cutoff=$(date -u -d '14 days ago' +%Y-%m-%dT%H:%M:%SZ)
+          gh api --paginate "repos/$GH_REPO/releases?per_page=100" \
+            --jq '.[] | select(.tag_name | test("^zm-main-[0-9a-f]{12}$")) | [(.published_at // .created_at), .tag_name] | @tsv' |
+            sort -r | tail -n +51 | while IFS=$'\t' read -r at tag; do
+              if [[ "$at" < "$cutoff" ]]; then
+                gh release delete "$tag" --yes --cleanup-tag && echo "pruned $tag (published $at)"
+              fi
+            done

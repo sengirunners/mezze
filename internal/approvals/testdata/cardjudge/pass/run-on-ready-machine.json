@@ -1,0 +1,29 @@
+{
+  "why_it_passes": "The step runs on the approver's ready machine as an agent task with a complete brief, so the press does all of it.",
+  "want_risk": "",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [{"machine": "mini", "ready": true}],
+    "machines_known": true,
+    "card": {
+      "title": "Let an agent renew the expiring web certificate on your Mac mini?",
+      "context": "The certificate that lets browsers trust our booking site expires in five days. It is renewed from your Mac mini, which holds the account it needs. If it lapses, patients see a security warning and most will not book.",
+      "question": "Should an agent renew the booking site's certificate from your Mac mini now?",
+      "choices": [
+        {"key": "a", "label": "Yes, renew it now", "pros": "no warning for patients; takes about two minutes", "cons": "the site reloads once, a second or two of errors"},
+        {"key": "b", "label": "Not now", "pros": "nothing changes today", "cons": "in five days patients see a security warning"}
+      ],
+      "recommend": "a",
+      "why": "Two seconds of reload now avoids days of patients being warned away."
+    },
+    "action": {
+      "kind": "run",
+      "on": "a",
+      "machine": "mini",
+      "agent": "claude",
+      "brief": "1. Run the certificate tool's renew command for the booking site in the infra checkout.\n2. Confirm the new certificate's expiry date is at least 60 days out.\n3. Reload the web server and check the site answers with the new certificate.\n4. Report the new expiry date. If any step fails, stop and report the error; change nothing else.",
+      "shown": "If you choose A, an agent (claude) on mini will work from this brief, as you. Any other answer does nothing."
+    },
+    "verify": "openssl s_client -connect booking.example.com:443 </dev/null 2>/dev/null | openssl x509 -checkend 5184000"
+  }
+}

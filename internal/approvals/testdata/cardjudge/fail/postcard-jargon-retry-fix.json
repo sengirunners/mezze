@@ -1,0 +1,42 @@
+{
+  "why_it_fails": "The face is far past a postcard (face_words over 140) and leans on inside terms (the status publisher, the hub, a mid-read restart); the second fix it bundles in is history, not part of this choice.",
+  "input": {
+    "approver": "tobi",
+    "approver_machines": [
+      {
+        "machine": "tobi-mac",
+        "ready": true
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Install the status publisher hub-retry fix",
+      "context": "A small job on the control server reads how busy our build machines are every 2 minutes and sends that status to the hub, our shared message board that every Mac reads to show the build machines. Twice today one send to the hub hung, so the job was marked failed (once it was cut off at its 90-second limit) and the app raised a red alert asking someone to look, even though the next run two minutes later worked. The fix lets each send try again for a few seconds, still inside the time limit, and only fails if the hub stays down. The same install also brings the second half of last week's fix you approved: when the server restarts its app mid-read, the job waits for it to come back and reads again within its time limit instead of raising an alert. Only your Mac can install it on that server; your own agent does the install, checks the first run, and can roll it back.",
+      "question": "Install the fix that stops the status publisher from failing when the hub is briefly slow?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Install it",
+          "pros": "No more red alerts from a single slow send or a server restart; a real outage still alerts",
+          "cons": "About a minute of your Mac's agent time"
+        },
+        {
+          "key": "b",
+          "label": "Leave it",
+          "pros": "Nothing to do",
+          "cons": "The app keeps raising a red alert each time the hub has a brief hiccup"
+        }
+      ],
+      "recommend": "a",
+      "why": "Both alerts today came from a single slow send and fixed themselves two minutes later; retrying inside the time limit removes that noise while a real outage still alerts."
+    },
+    "action": {
+      "kind": "hand",
+      "on": "a",
+      "agent": "claude",
+      "brief": "1. Back up the publish job on the control server. 2. Install the fixed publish job from the merged change. 3. Wait for its next run and check it sent the status. 4. If it failed, put the backup back and report. 5. Report what you did.",
+      "shown": "If you choose A, your own agent on your own machine works from this brief, as you, with full access."
+    },
+    "verify": "zm work comments bd:demo-1 | grep -q Installed"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "why_it_fails": "backticked command",
+  "input": {
+    "reader": "bea",
+    "body": "Run `make migrate` on your machine."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "why_it_fails": "Its face runs past a postcard (face_words over 140): the context retells how the public copy works, how the scan runs and that past copies were approved, none of which the yes or no turns on; that belongs in background.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [
+      {
+        "machine": "bea-mac",
+        "ready": true
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Publish Larder's latest fixes to the public copy now?",
+      "context": "Larder has a private copy where the team works and a public copy people install from. Copying the private one to the public one gives users a new signed release. Today's fix makes new kitchens lock every saved password on the way to a machine (required locking). It is only in the private copy, so the team's own tools and outside users can't get it until we copy it. The copy is checked by a scan for passwords, personal addresses and machine names before it goes out, and it stops if it finds any. You have approved each past copy this way, and the last three went out without a problem.",
+      "question": "Publish Larder's latest fixes to the public copy now?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Publish now",
+          "pros": "Required locking reaches users and the team's tools today, unblocking the launch work",
+          "cons": "A new public release goes out; it cannot be taken back"
+        },
+        {
+          "key": "b",
+          "label": "Not now",
+          "pros": "Nothing goes public",
+          "cons": "Users and the team's tools stay without required locking; launch prep waits"
+        }
+      ],
+      "recommend": "a",
+      "why": "Publishing now ships a reviewed, tested security fix and unblocks the launch work; the scan stops the copy if anything private slipped in. The cost is a public release you can't take back, like every past one."
+    },
+    "action": {
+      "kind": "command",
+      "on": "a",
+      "machine": "bea-mac",
+      "command": "scripts/public-sync.sh --push",
+      "shown": "If you choose A, zm runs scripts/public-sync.sh --push on bea-mac, as you, in a clean checkout of main."
+    },
+    "verify": "scripts/public-sync.sh --check"
+  }
+}

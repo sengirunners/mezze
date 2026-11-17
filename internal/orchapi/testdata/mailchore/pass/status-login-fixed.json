@@ -1,0 +1,7 @@
+{
+  "why_it_passes": "status: login fixed",
+  "input": {
+    "reader": "bea",
+    "body": "Login is fixed: the redirect loop is gone."
+  }
+}

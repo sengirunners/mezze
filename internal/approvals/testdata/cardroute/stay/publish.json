@@ -1,0 +1,45 @@
+{
+ "why": "Publishing a schedule to residents is the owners' decision even for a program's schedule.",
+ "want_party": 0,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Publish Lakeview's schedule?",
+   "context": "Lakeview's chiefs approved the draft schedule yesterday. Publishing sends it to all their residents.",
+   "background": "",
+   "question": "Should we publish Lakeview's approved schedule to residents today?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "Publish today",
+     "pros": "residents can plan",
+     "cons": "a late change means a second notice"
+    },
+    {
+     "key": "b",
+     "label": "Wait until Monday",
+     "pros": "time for last changes",
+     "cons": "residents wait"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

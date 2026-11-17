@@ -1,0 +1,37 @@
+{"seq":1,"at":"0001-01-01T00:00:00Z","type":"session","status":"starting","cwd":"/work","capabilities":{"steer":true,"interrupt":true,"approvals":true,"questions":true,"resume":true,"images":true,"partial":true,"usage":true,"plan":true,"tool_output":true,"model":true,"mcp":true,"tools":true}}
+{"seq":2,"at":"0001-01-01T00:00:00Z","type":"op","op":"op1","ok":true}
+{"seq":3,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-72a5-7623-b38e-7165e8ea961f","model":"gpt-6.1-sol"}
+{"seq":4,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","status":"running"}
+{"seq":5,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"01a1a862-72a5-7623-b38e-7165e8ea961f"}
+{"seq":6,"at":"0001-01-01T00:00:00Z","type":"op","op":"op2","ok":true}
+{"seq":7,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"01a1a862-787d-7b43-aeed-c9cdc9a16c35","status":"completed","role":"user","text":"Use the shell to run exactly this command: sleep 30 && echo slept\nThen reply in one short sentence."}
+{"seq":8,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","status":"streaming","role":"assistant"}
+{"seq":9,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","role":"assistant","text":"I"}
+{"seq":10,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","role":"assistant","text":"’ll"}
+{"seq":11,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","role":"assistant","text":" run"}
+{"seq":12,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","role":"assistant","text":" the"}
+{"seq":13,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","role":"assistant","text":" command"}
+{"seq":14,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","role":"assistant","text":" exactly"}
+{"seq":15,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","role":"assistant","text":" as"}
+{"seq":16,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","role":"assistant","text":" given"}
+{"seq":17,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","role":"assistant","text":"."}
+{"seq":18,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"msg_083d6ee2f2821ca0016aeb9e55956087d094ef47912e7f0ad0","status":"completed","role":"assistant","text":"I’ll run the command exactly as given."}
+{"seq":19,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"exec-fbee252d-9e00-460c-9829-318a02fede46","status":"running","kind":"command","name":"shell","title":"/bin/zsh -lc 'sleep 30 && echo slept'","input":{"command":"/bin/zsh -lc 'sleep 30 \u0026\u0026 echo slept'"}}
+{"seq":20,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","usage":{"input_tokens":20953,"output_tokens":53,"context_tokens":21006,"context_window":475000}}
+{"seq":21,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","usage":{"input_tokens":20953,"output_tokens":53,"context_tokens":21006,"context_window":475000}}
+{"seq":22,"at":"0001-01-01T00:00:00Z","type":"op","op":"op3","ok":true}
+{"seq":23,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","item":"exec-fbee252d-9e00-460c-9829-318a02fede46","status":"failed","kind":"command","name":"shell","title":"/bin/zsh -lc 'sleep 30 && echo slept'","input":{"command":"/bin/zsh -lc 'sleep 30 \u0026\u0026 echo slept'"}}
+{"seq":24,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-72c1-7861-a51e-380edda9f0ef","status":"interrupted","usage":{"input_tokens":20953,"output_tokens":53,"context_tokens":21006,"context_window":475000}}
+{"seq":25,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-72a5-7623-b38e-7165e8ea961f"}
+{"seq":26,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-8970-76d2-b900-4dbbf85df863","status":"running"}
+{"seq":27,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"01a1a862-72a5-7623-b38e-7165e8ea961f"}
+{"seq":28,"at":"0001-01-01T00:00:00Z","type":"op","op":"op4","ok":true}
+{"seq":29,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-8970-76d2-b900-4dbbf85df863","item":"01a1a862-8985-7923-9c3d-f99aad0c0794","status":"completed","role":"user","text":"Reply with exactly the word: after"}
+{"seq":30,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-8970-76d2-b900-4dbbf85df863","item":"msg_083d6ee2f2821ca0016aeb9e5b64b887d0872a0321270a5f33","status":"streaming","role":"assistant"}
+{"seq":31,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-8970-76d2-b900-4dbbf85df863","item":"msg_083d6ee2f2821ca0016aeb9e5b64b887d0872a0321270a5f33","role":"assistant","text":"after"}
+{"seq":32,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-8970-76d2-b900-4dbbf85df863","item":"msg_083d6ee2f2821ca0016aeb9e5b64b887d0872a0321270a5f33","status":"completed","role":"assistant","text":"after"}
+{"seq":33,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-8970-76d2-b900-4dbbf85df863","usage":{"input_tokens":46889,"output_tokens":58,"cached_input_tokens":20864,"context_tokens":25941,"context_window":475000}}
+{"seq":34,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-8970-76d2-b900-4dbbf85df863","status":"completed","usage":{"input_tokens":46889,"output_tokens":58,"cached_input_tokens":20864,"context_tokens":25941,"context_window":475000}}
+{"seq":35,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-72a5-7623-b38e-7165e8ea961f"}
+{"seq":36,"at":"0001-01-01T00:00:00Z","type":"op","op":"op5","ok":true}
+{"seq":37,"at":"0001-01-01T00:00:00Z","type":"session","status":"stopped","runtime_id":"01a1a862-72a5-7623-b38e-7165e8ea961f"}

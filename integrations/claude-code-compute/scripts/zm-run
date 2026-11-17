@@ -1,0 +1,23 @@
+#!/bin/sh
+# zm-run: the compute plugin's MCP server command. Runs zm "$@" (the plugin
+# passes: mcp --sandboxes). When zm is missing it installs the pinned release
+# first, but only if the user turned on the plugin's install_zm option
+# (ZM_COMPUTE_INSTALL=true); otherwise it says how to and exits 1. With no
+# ZM_HOST (a remote zm), it starts the local daemon the tools need.
+# stdout is the MCP protocol: everything else goes to stderr.
+here=$(cd "$(dirname "$0")" && pwd)
+if ! zm=$("$here/zm-install" --path 2>/dev/null); then
+	case "${ZM_COMPUTE_INSTALL:-}" in
+	true | 1 | yes) "$here/zm-install" --yes </dev/null >&2 || exit 1 ;;
+	*)
+		echo "zm-compute: zm is not installed. Allow the plugin to install it (/plugin, zm-compute, Configure: Install zm if it is missing), or run $here/zm-install in a terminal; then reconnect the server in /mcp." >&2
+		exit 1
+		;;
+	esac
+	zm=$("$here/zm-install" --path) || exit 1
+fi
+if [ -z "${ZM_HOST:-}" ]; then
+	"$zm" status >/dev/null 2>&1
+	[ $? -ne 3 ] || "$zm" daemon --detach </dev/null >&2 || echo "zm-compute: could not start the zm daemon (zm daemon --detach)" >&2
+fi
+exec "$zm" "$@"

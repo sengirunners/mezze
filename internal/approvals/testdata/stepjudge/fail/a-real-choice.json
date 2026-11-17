@@ -1,0 +1,10 @@
+{
+  "why_it_fails": "the person must pick between two paid plans: a decision for its own card, not a step",
+  "want_decision": true,
+  "input": {
+    "person": "bea",
+    "title": "Pick a hosting plan for the team",
+    "brief": "1. Open https://hosting.example.com/billing signed in as bea@example.com.\n2. Choose either the Pro plan ($20 a month, 3 sites) or the Team plan ($50 a month, 10 sites), whichever you think fits.\n3. Press Subscribe.",
+    "check": "curl -fsS https://hosting.example.com/api/accounts/bea/plan | grep -Eq 'pro|team'"
+  }
+}

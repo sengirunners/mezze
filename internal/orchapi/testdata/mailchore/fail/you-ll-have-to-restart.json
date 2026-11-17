@@ -1,0 +1,7 @@
+{
+  "why_it_fails": "you'll have to restart",
+  "input": {
+    "reader": "bea",
+    "body": "You'll have to restart the daemon there."
+  }
+}

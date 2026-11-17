@@ -1,0 +1,9 @@
+{
+  "why_it_passes": "accepting an invite sent to the person's own address, in their signed-in browser; the check asks Tailscale itself",
+  "input": {
+    "person": "bea",
+    "title": "Accept the invite to the team's Tailscale network",
+    "brief": "1. If the Tailscale app is not running on bea-mac, install it from https://tailscale.com/download/mac and open it.\n2. Open the email from Tailscale to bea@example.com with the subject \"You've been invited to join example-org.github on Tailscale\".\n3. Press Accept invite. If Tailscale asks you to sign in, sign in with the Google account bea@example.com.\n4. When the page asks which device, choose bea-mac, the Mac you are on.\n5. Open https://login.tailscale.com/admin/machines and confirm bea-mac is listed.",
+    "check": "tailscale status --json | jq -e '.Peer[] | select(.HostName==\"bea-mac\")' >/dev/null"
+  }
+}

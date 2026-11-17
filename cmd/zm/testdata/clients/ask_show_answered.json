@@ -1,0 +1,77 @@
+{
+  "asked_by": "string",
+  "asker_human": "string",
+  "body": "string",
+  "card": {
+    "choices": [
+      {
+        "cons": "string",
+        "key": "string",
+        "label": "string",
+        "pros": "string"
+      }
+    ],
+    "context": "string",
+    "question": "string",
+    "recommend": "string",
+    "searched": "string",
+    "title": "string",
+    "why": "string"
+  },
+  "card_sha256": "string",
+  "created": "string",
+  "decision": {
+    "answer": "string",
+    "answered_as": "string",
+    "approver": "string",
+    "approver_person": "string",
+    "ask": "string",
+    "decision": "string",
+    "deliveries": [
+      {
+        "kind": "string",
+        "state": "string"
+      }
+    ],
+    "machine": "string",
+    "method": "string",
+    "receipt": {
+      "answered_as": "string",
+      "approver": "string",
+      "ask": "string",
+      "card_sha256": "string",
+      "decision": "string",
+      "key_id": "string",
+      "node": "string",
+      "project": "string",
+      "sig": "string",
+      "subject": {
+        "head_sha": "string",
+        "pr": "number",
+        "repo": "string",
+        "work": "string"
+      },
+      "time": "string",
+      "v": "string"
+    },
+    "recorded_at": "string",
+    "surface": "string",
+    "time": "string"
+  },
+  "id": "string",
+  "options": [
+    "string"
+  ],
+  "priority": "number",
+  "project": "string",
+  "receipt_key": "string",
+  "status": "string",
+  "subject": {
+    "head_sha": "string",
+    "pr": "number",
+    "repo": "string",
+    "work": "string"
+  },
+  "to": "string",
+  "work_title": "string"
+}

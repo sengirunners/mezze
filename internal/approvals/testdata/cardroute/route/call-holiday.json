@@ -1,0 +1,45 @@
+{
+ "why": "Which days Lakeview counts as call holidays is Lakeview's own rule; only its chiefs can say.",
+ "want_party": 3,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Lakeview call holidays",
+   "context": "Lakeview OBGYN's chief residents set which days count as holidays for call. Their handbook lists the big holidays but not the day after Thanksgiving.",
+   "background": "",
+   "question": "Does Lakeview count the day after Thanksgiving as a call holiday?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "Yes, it is a holiday",
+     "pros": "matches most programs",
+     "cons": "may be wrong for Lakeview"
+    },
+    {
+     "key": "b",
+     "label": "No, a normal day",
+     "pros": "matches their handbook's list",
+     "cons": "residents may expect it off"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

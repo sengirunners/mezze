@@ -1,0 +1,12 @@
+{
+  "why": "Updating a tool on a machine is not content.",
+  "input": {
+    "title": "Update the build server tool now?",
+    "question": "Install the new version of the tool on the build server tonight?",
+    "context": "The update fixes a log bug. It restarts the tool for about a minute.",
+    "choices": [
+      "Yes, tonight",
+      "Not this week"
+    ]
+  }
+}

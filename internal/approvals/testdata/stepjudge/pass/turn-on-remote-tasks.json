@@ -1,0 +1,9 @@
+{
+  "why_it_passes": "a setting on the person's own machine, every value spelled out; the check reads zm's record of that machine",
+  "input": {
+    "person": "bea",
+    "title": "Let your Mac take tasks from the team",
+    "brief": "1. Open Terminal on your Mac, bea-mac (zm is already installed there).\n2. Run: zm config set remote_tasks true\n3. Run: zm daemon restart\n4. Run: zm status and confirm it says remote tasks: on.",
+    "check": "zm ask machines human:bea --json | jq -e '.[] | select(.machine==\"bea-mac\") | .remote_tasks == true' >/dev/null"
+  }
+}

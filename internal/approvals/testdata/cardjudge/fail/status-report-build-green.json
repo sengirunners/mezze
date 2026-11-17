@@ -1,0 +1,29 @@
+{
+  "why_it_fails": "A status note dressed as a card: the build passed and the agent only tells the person so; both choices change nothing.",
+  "input": {
+    "approver": "dana",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Build is green",
+      "context": "The new invoice screen passed all of its checks this morning, and the version with it is ready. Nothing failed and nothing is waiting on anyone.",
+      "question": "Is it fine that the build is green now?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Good to know",
+          "pros": "you are up to date",
+          "cons": "none"
+        },
+        {
+          "key": "b",
+          "label": "Tell me more",
+          "pros": "you get the details",
+          "cons": "takes your time"
+        }
+      ],
+      "recommend": "a",
+      "why": "Just keeping you in the loop."
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "why": "A blog post's wording is the item to approve before publishing.",
+  "input": {
+    "title": "Approve blog: Five ways a bakery can cut waste",
+    "question": "May this post go on the Acme Bakery blog as written?",
+    "context": "The draft is attached. It is 900 words, names no customers, and links to the signup page.",
+    "choices": [
+      "Yes, publish it as written",
+      "No, send it back for changes"
+    ]
+  }
+}

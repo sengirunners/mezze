@@ -1,0 +1,7 @@
+{
+  "why_it_passes": "status: ssh works",
+  "input": {
+    "reader": "bea",
+    "body": "SSH works now from the laptop."
+  }
+}

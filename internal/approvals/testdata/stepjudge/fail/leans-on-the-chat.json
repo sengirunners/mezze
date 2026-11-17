@@ -1,0 +1,9 @@
+{
+  "why_it_fails": "the brief points at a link the agent never sees",
+  "input": {
+    "person": "bea",
+    "title": "Install the new build",
+    "brief": "1. Download the build from the link I sent you yesterday.\n2. Open it and install it the usual way.\n3. Start it.",
+    "check": "zm machines --json | jq -e '.[] | select(.name==\"bea-mac\") | .app_version == \"2.1.0\"' >/dev/null"
+  }
+}

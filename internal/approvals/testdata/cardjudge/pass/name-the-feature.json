@@ -1,0 +1,29 @@
+{
+  "why_it_passes": "A pure product judgement about wording: the agent ships whichever name is picked, and each choice says what patients would see and the trade-off.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "What should the new reminders feature be called in the app?",
+      "context": "Next week the app starts texting patients the day before their appointment. Patients will see the feature's name in the app's settings and at the bottom of every text. The agent building it has finished everything except the name.",
+      "question": "Which name should patients see for appointment reminders?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "\"Appointment reminders\"",
+          "pros": "says exactly what it is; easy to find in settings",
+          "cons": "plain; a long phrase at the bottom of each text"
+        },
+        {
+          "key": "b",
+          "label": "\"Heads-up\"",
+          "pros": "short and friendly",
+          "cons": "some patients may not know what it is when they want to turn it off"
+        }
+      ],
+      "recommend": "a",
+      "why": "Patients looking to turn reminders off should find them on the first try; friendliness matters less than that. Either way the agent ships it; nothing else is asked of you."
+    }
+  }
+}

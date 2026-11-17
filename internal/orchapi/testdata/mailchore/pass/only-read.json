@@ -1,0 +1,7 @@
+{
+  "why_it_passes": "only read",
+  "input": {
+    "reader": "bea",
+    "body": "Please see the deploy log"
+  }
+}

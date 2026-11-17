@@ -1,0 +1,6 @@
+{
+  "acked": "bool",
+  "acked_at": "string",
+  "acked_by": "string",
+  "id": "string"
+}

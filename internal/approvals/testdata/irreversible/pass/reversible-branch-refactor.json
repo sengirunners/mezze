@@ -1,0 +1,24 @@
+{
+  "why_it_passes": "reversible: branch refactor",
+  "input": {
+    "card": {
+      "context": "Two ways to split the parser file on the feature branch.",
+      "background": "",
+      "question": "Split by format or by stage?",
+      "choices": [
+        {
+          "label": "By format"
+        },
+        {
+          "label": "By stage"
+        }
+      ],
+      "recommend": "a",
+      "why": "Either can be redone on the branch."
+    },
+    "work": {
+      "title": "split the parser",
+      "body": ""
+    }
+  }
+}

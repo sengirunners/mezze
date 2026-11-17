@@ -1,0 +1,34 @@
+{
+  "why_it_fails": "Written for an engineer: pgbouncer, pool_mode, RLS and RPC are never explained, and neither choice says in plain words what changes for patients or the team or what could go wrong.",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [
+      {
+        "machine": "mini",
+        "ready": true
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "pgbouncer pool_mode for RLS RPCs",
+      "context": "p95 on the RLS-heavy RPCs is 840 ms under load because session pool_mode pins backends. Transaction mode would fix it but breaks SET LOCAL-less session GUCs used by two RPCs.",
+      "question": "Switch pgbouncer to transaction pool_mode?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "transaction",
+          "pros": "p95 down",
+          "cons": "GUC refactor"
+        },
+        {
+          "key": "b",
+          "label": "session",
+          "pros": "no refactor",
+          "cons": "p95 stays"
+        }
+      ],
+      "recommend": "a",
+      "why": "Lower p95; the GUC refactor is small."
+    }
+  }
+}

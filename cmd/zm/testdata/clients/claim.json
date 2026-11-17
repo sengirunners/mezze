@@ -1,0 +1,22 @@
+{
+  "item": {
+    "created": "string",
+    "created_by": "string",
+    "id": "string",
+    "owner": "string",
+    "project": "string",
+    "source": "string",
+    "status": "string",
+    "title": "string",
+    "updated": "string"
+  },
+  "lease": {
+    "bound": "bool",
+    "claimed": "string",
+    "expires": "string",
+    "holder": "string",
+    "key": "string",
+    "project": "string",
+    "renewed": "string"
+  }
+}

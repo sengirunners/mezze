@@ -1,0 +1,10 @@
+[
+ {"name": "rank/common word", "n": 100, "p50_ms": 0, "p95_ms": 15.009, "max_ms": 0, "budget_ms": 16, "ok": true, "tries": 1, "first_p95_ms": 15.009},
+ {"name": "rank/common word, all statuses", "n": 100, "p50_ms": 0, "p95_ms": 6.155, "max_ms": 0, "budget_ms": 16, "ok": true, "tries": 1, "first_p95_ms": 6.155},
+ {"name": "rank/two words", "n": 100, "p50_ms": 0, "p95_ms": 12.162, "max_ms": 0, "budget_ms": 16, "ok": true, "tries": 1, "first_p95_ms": 12.162},
+ {"name": "rank/two words, all statuses", "n": 100, "p50_ms": 0, "p95_ms": 18.705, "max_ms": 0, "budget_ms": 16, "ok": false, "tries": 3, "first_p95_ms": 18.705},
+ {"name": "rank/rare word", "n": 100, "p50_ms": 0, "p95_ms": 1.899, "max_ms": 0, "budget_ms": 16, "ok": true, "tries": 1, "first_p95_ms": 1.899},
+ {"name": "rank/label filter", "n": 100, "p50_ms": 0, "p95_ms": 16.136, "max_ms": 0, "budget_ms": 16, "ok": false, "tries": 3, "first_p95_ms": 16.136},
+ {"name": "rank/type filter", "n": 100, "p50_ms": 0, "p95_ms": 16.539, "max_ms": 0, "budget_ms": 16, "ok": false, "tries": 3, "first_p95_ms": 16.539},
+ {"name": "rank/everything", "n": 100, "p50_ms": 0, "p95_ms": 2.791, "max_ms": 0, "budget_ms": 16, "ok": true, "tries": 1, "first_p95_ms": 2.791}
+]

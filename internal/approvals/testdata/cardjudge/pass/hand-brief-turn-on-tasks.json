@@ -1,0 +1,45 @@
+{
+  "why_it_passes": "Ivo's laptop takes no tasks, so the card carries a hand brief: one-time setup (remote tasks on), the change itself, a check, and a verify line; the card says in plain words what changes and what it costs.",
+  "want_risk": "",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [
+      {
+        "machine": "air",
+        "ready": false,
+        "why_not": "it takes no remote tasks: ivo sets remote_tasks in its zm config"
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Let agents run the weekly backup check on your laptop?",
+      "context": "Every Monday an agent checks that last week's backups of patient records can actually be restored. The only copy of the restore password is on your laptop, so today you run that check by hand and it was missed the last two weeks.",
+      "background": "Pressing A hands a numbered plan to your own agent in the Mezze app on your laptop. It turns on remote tasks for the laptop once, so the Monday check can run there by itself after this, then runs the check one time now and confirms it worked. You can watch it in the Mezze app, and turning remote tasks off again later is one card.",
+      "question": "Should your agent set up your laptop so the Monday backup check runs there on its own?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes, set it up now",
+          "pros": "the backup check runs every Monday without you; a missed check no longer goes unnoticed",
+          "cons": "your laptop starts taking approved tasks from agents (only ones an owner approved), and it has to be awake on Monday mornings"
+        },
+        {
+          "key": "b",
+          "label": "Keep doing it by hand",
+          "pros": "nothing changes on your laptop",
+          "cons": "the check depends on you remembering, and it was missed twice already"
+        }
+      ],
+      "recommend": "a",
+      "why": "A backup nobody has checked may not restore when we need it; this makes the check happen every week."
+    },
+    "action": {
+      "kind": "hand",
+      "on": "a",
+      "agent": "claude",
+      "brief": "You are on Ivo's laptop, approved by Ivo's answer to this card. Work until the verify line passes.\n1. One-time setup: turn on remote tasks for this machine in its zm config, restart the zm daemon, and confirm zm lists this machine as ready.\n2. Schedule the weekly backup restore check to run here every Monday at 8 am, using the restore password already stored on this machine.\n3. Run the backup restore check once now and confirm it restores last week's backup into a scratch folder, then delete the scratch folder.\n4. Run the verify line below; it must exit 0.\n5. Report what you changed, the check's result, and how to turn it off again.",
+      "shown": "If you choose A, your own agent (claude) on your own machine works from this brief, as you, with full access: this answer approves it (in the Mezze app: Hand to my agent)."
+    },
+    "verify": "zm ask machines --json | grep -q '\"air\".*\"ready\": true'"
+  }
+}

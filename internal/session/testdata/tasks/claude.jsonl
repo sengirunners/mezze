@@ -1,0 +1,2 @@
+{"type":"assistant","message":{"model":"claude-opus-5-5","content":[{"type":"text","text":"lane probe ok"}]}}
+{"duration_api_ms":926,"usage":{"input_tokens":2,"cache_creation_input_tokens":15184,"cache_read_input_tokens":11491,"output_tokens":8},"is_error":false,"num_turns":1,"subtype":"success","result":"lane probe ok","type":"result","duration_ms":2552}

@@ -1,0 +1,24 @@
+{
+  "why_it_fails": "missed by regex: history rewrite in plain words",
+  "input": {
+    "card": {
+      "context": "The main branch has a bad commit with a large file.",
+      "background": "",
+      "question": "Remove it from main's history for everyone, or add a new commit that deletes the file?",
+      "choices": [
+        {
+          "label": "Remove it from history"
+        },
+        {
+          "label": "Add a deleting commit"
+        }
+      ],
+      "recommend": "a",
+      "why": "Removing it shrinks the repo for good."
+    },
+    "work": {
+      "title": "big file on main",
+      "body": ""
+    }
+  }
+}

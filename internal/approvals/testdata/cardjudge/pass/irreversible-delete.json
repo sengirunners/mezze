@@ -1,0 +1,34 @@
+{
+  "why_it_passes": "An irreversible clean-up that the agent does itself: the card says what is deleted, why it is safe, what it saves, and what cannot be undone.",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [
+      {
+        "machine": "mini",
+        "ready": true
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Delete the old test copy of the clinic database?",
+      "context": "In March we made a full copy of the clinic database to test a move to new servers. The move finished in April and nobody has used the copy since. It costs $30 a month and holds real patient records, so it is one more place that could leak.",
+      "question": "Should the agent delete the March test copy of the clinic database?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Delete it",
+          "pros": "saves $30 a month and removes a spare copy of patient records",
+          "cons": "it cannot be brought back; if we ever needed March's exact data we would use the regular nightly backups instead"
+        },
+        {
+          "key": "b",
+          "label": "Keep it",
+          "pros": "nothing is lost",
+          "cons": "$30 a month, and a copy of patient records nobody watches"
+        }
+      ],
+      "recommend": "a",
+      "why": "Nobody has opened it since April, the nightly backups cover the same data, and an unwatched copy of patient records is a risk. The agent deletes it with access it already has."
+    }
+  }
+}

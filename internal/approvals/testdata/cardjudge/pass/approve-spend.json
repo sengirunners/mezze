@@ -1,0 +1,34 @@
+{
+  "why_it_passes": "An approval of a monthly cost: the agent does the upgrade itself with access it already has, and the card says what each choice costs and what it changes for clinics.",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [
+      {
+        "machine": "mini",
+        "ready": true
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Pay $40 more a month for a bigger database?",
+      "context": "Our database is 92% full and grows about 3% a week. When it fills up, clinics cannot save new notes until we make room. The hosting company's next size up costs $40 more a month ($65 to $105) and doubles the space. The agent that runs our hosting account can switch it in about five minutes with no downtime.",
+      "question": "Should the agent move the database to the next size up, for $40 more a month?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes, upgrade now",
+          "pros": "about a year of room; no risk of clinics being unable to save notes",
+          "cons": "$40 more a month, $480 a year"
+        },
+        {
+          "key": "b",
+          "label": "Not now; the agent clears out old chat logs instead",
+          "pros": "no new cost",
+          "cons": "deleting chat logs older than two years (the only data we can drop) buys two or three weeks, then this question comes back"
+        }
+      ],
+      "recommend": "a",
+      "why": "In under three weeks clinics could stop being able to save notes; $40 a month removes that risk for about a year. The agent switches it with access it already has; you only approve the cost."
+    }
+  }
+}

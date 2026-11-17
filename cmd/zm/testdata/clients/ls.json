@@ -1,0 +1,30 @@
+{
+  "sessions": [
+    {
+      "address": "string",
+      "agent": "string",
+      "cwd": "string",
+      "id": "string",
+      "launcher": "string",
+      "machine": "string",
+      "managed": "bool",
+      "needs": {
+        "at": "string",
+        "kind": "string"
+      },
+      "note": "string",
+      "project": "string",
+      "reach": "string",
+      "runtime_id": "string",
+      "started": "string",
+      "state": "string",
+      "title": "string",
+      "updated": "string",
+      "who": {
+        "kind": "string",
+        "name": "string"
+      },
+      "work": "string"
+    }
+  ]
+}

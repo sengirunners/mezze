@@ -1,0 +1,9 @@
+{
+  "why_it_fails": "a goal with no steps to done",
+  "input": {
+    "person": "bea",
+    "title": "Sort out backups",
+    "brief": "Get backups working on your laptop so we stop losing files. Whatever tool you like is fine.",
+    "check": "test -d /Volumes/Backup"
+  }
+}

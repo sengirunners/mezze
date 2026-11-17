@@ -1,0 +1,9 @@
+{
+  "why_it_fails": "the check passes whether or not anything was done",
+  "input": {
+    "person": "bea",
+    "title": "Update zm on your Mac",
+    "brief": "1. Open Terminal on your Mac.\n2. Run: zm daemon upgrade\n3. Run: zm version and confirm it prints the version shown at https://github.com/example-org/zm/releases/latest",
+    "check": "echo done"
+  }
+}

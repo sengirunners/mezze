@@ -1,0 +1,24 @@
+{
+  "why_it_fails": "money",
+  "input": {
+    "card": {
+      "context": "A check needs a build tool that one test machine lacks, so the check fails there.",
+      "background": "It means a refund to the customer.",
+      "question": "Should the check install the tool, or run only on the machine that has it?",
+      "choices": [
+        {
+          "label": "Install the tool"
+        },
+        {
+          "label": "Use the one machine"
+        }
+      ],
+      "recommend": "a",
+      "why": "Installing keeps every machine usable; it costs a minute once."
+    },
+    "work": {
+      "title": "runner",
+      "body": ""
+    }
+  }
+}

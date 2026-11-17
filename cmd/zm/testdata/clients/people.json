@@ -1,0 +1,26 @@
+{
+  "people": [
+    {
+      "id": "string",
+      "kind": "string",
+      "machines": [
+        "string"
+      ],
+      "name": "string",
+      "names": [
+        "string"
+      ],
+      "projects": [
+        {
+          "answers": "bool",
+          "identity": "string",
+          "name": "string",
+          "project": "string",
+          "slug": "string"
+        }
+      ],
+      "seen": "string",
+      "you": "bool"
+    }
+  ]
+}

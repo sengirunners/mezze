@@ -1,0 +1,7 @@
+{
+  "why_it_fails": "missed by regex: indirect step",
+  "input": {
+    "reader": "bea",
+    "body": "The runner pool is ready. Bea turns it on at his next visit to the office."
+  }
+}

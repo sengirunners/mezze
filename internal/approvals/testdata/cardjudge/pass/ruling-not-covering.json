@@ -1,0 +1,39 @@
+{
+  "why_it_passes": "The project has rulings, but none covers spending money on a second server; the card is a clear decision with costs.",
+  "input": {
+    "approver": "dana",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Pay $30 a month for a backup server?",
+      "context": "All clinic data sits on one server. If it breaks, clinics cannot book patients until it is rebuilt, which took six hours last time. A second server that takes over by itself costs $30 a month, and the agent that runs our hosting can set it up today.",
+      "question": "Should the agent add a backup server for $30 a month?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes, add it",
+          "pros": "a broken server costs clinics minutes, not hours",
+          "cons": "$30 more a month, $360 a year"
+        },
+        {
+          "key": "b",
+          "label": "No",
+          "pros": "no new cost",
+          "cons": "a broken server stops bookings for hours again"
+        }
+      ],
+      "recommend": "a",
+      "why": "Six hours without bookings costs clinics far more than $30 a month."
+    },
+    "rulings": [
+      {
+        "name": "merge-after-green",
+        "text": "An agent merges its own pull request once a separate review agent has signed off and the required checks are green. The owners never review or merge pull requests themselves."
+      },
+      {
+        "name": "no-weekend-deploys",
+        "text": "Nothing is released to customers between Friday 6 pm and Monday 8 am, whoever asks."
+      }
+    ]
+  }
+}

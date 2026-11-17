@@ -1,0 +1,19 @@
+{
+  "why_it_passes": "A pure judgement: the agent does the work either way, and the card says what each choice changes and costs.",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Ship the new sign-up page Monday or wait a week?",
+      "context": "The new sign-up page asks for three fields instead of nine. It is built and tested. One clinic asked us to hold changes until their training on Friday next week, because their front desk staff learn the screens by heart.",
+      "question": "Should the new sign-up page go live Monday or after that clinic's training?",
+      "choices": [
+        {"key": "a", "label": "Monday, for everyone", "pros": "new patients sign up faster from Monday", "cons": "that clinic's staff see a different screen than the one they are training on"},
+        {"key": "b", "label": "The Monday after their training", "pros": "that clinic trains on the screen they will use", "cons": "every clinic waits a week for the shorter form"}
+      ],
+      "recommend": "b",
+      "why": "A week's wait costs a little speed; surprising a clinic mid-training costs their trust. The agent ships it either way; nothing is asked of you but the choice."
+    }
+  }
+}

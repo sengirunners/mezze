@@ -1,0 +1,9 @@
+{
+  "why_it_passes": "a setting on the person's own Mac, numbered to done, and the check reads that very setting from zm's view of the machine",
+  "input": {
+    "person": "bea",
+    "title": "Turn on daily zm updates on your Mac",
+    "brief": "1. Open Terminal on your Mac, bea-mac.\n2. Run: zm update auto on\n3. Run: zm update auto and confirm it prints: daily updates on.\n4. Run: zm daemon restart so the change is reported to the team.",
+    "check": "zm machines --json | jq -e '.[] | select(.name==\"bea-mac\") | .zm_auto_update == true' >/dev/null"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "why_it_passes": "Ivo's agent asks Wren, another project member, to sign in to GitHub as himself and approve an app for the team's organization: only an organization owner, signed in, can grant that, and no agent holds his GitHub login. The step is his own owner_step on github.com with numbered steps and a verify line, so the sign-in is part of a carried step, not a missing action.",
+  "input": {
+    "approver": "wren",
+    "approver_machines": [{"machine": "wren-mac", "ready": true}],
+    "machines_known": true,
+    "card": {
+      "title": "Let the release helper read the team's GitHub code?",
+      "context": "The release helper writes the weekly what-changed notes from the team's code on GitHub. GitHub needs an owner of the team's organization to approve it once, signed in as themselves. Ivo is away until Monday, so this asks you.",
+      "background": "The helper can only read code and pull requests; it cannot change or delete anything. Without it, an agent writes the notes by hand each week, which takes about an hour and misses small fixes. You can remove the approval any time in the organization's settings on GitHub.",
+      "question": "Should the release helper get read access to the team's code on GitHub?",
+      "choices": [
+        {"key": "a", "label": "Yes, approve it (you sign in to GitHub and press Grant)", "effect": "the helper writes this Friday's notes itself", "pros": "notes on time and complete", "cons": "one more app can read all the team's code"},
+        {"key": "b", "label": "No", "effect": "an agent keeps writing the notes by hand", "pros": "no new app sees the code", "cons": "about an hour a week, and small fixes get missed"}
+      ],
+      "recommend": "a",
+      "why": "Read-only access is the least the helper needs and can be taken back in one press.",
+      "after_press": "You get three steps and a button to GitHub; the agent's check sees the approval and says so on the card."
+    },
+    "owner_step": {
+      "label": "Approve the release helper for the team on GitHub",
+      "steps": ["Open GitHub's page for the team's app approvals and sign in as yourself if it asks, with your phone code.", "Find Release helper in the list and press Grant.", "Confirm with your GitHub password or phone if GitHub asks."],
+      "link": "https://github.com/organizations/acme-studio/settings/oauth_application_policy",
+      "link_domain": "github.com",
+      "minutes": 2
+    },
+    "verify": "gh api orgs/acme-studio/installations --jq '.installations[].app_slug' | grep -qx release-helper"
+  }
+}

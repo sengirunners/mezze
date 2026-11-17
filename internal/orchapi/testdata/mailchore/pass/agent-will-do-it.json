@@ -1,0 +1,7 @@
+{
+  "why_it_passes": "agent will do it",
+  "input": {
+    "reader": "bea",
+    "body": "I'll run the tests next and report back."
+  }
+}

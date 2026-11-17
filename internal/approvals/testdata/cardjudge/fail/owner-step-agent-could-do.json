@@ -1,0 +1,28 @@
+{
+  "why_it_fails": "The step written as Ivo's own is a restart an agent with access to the build machine does in seconds: it needs no sign-in or press only Ivo can give, so naming it his step leaves him work an action should carry.",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [{"machine": "build-box", "ready": true}],
+    "machines_known": true,
+    "card": {
+      "title": "Restart the nightly build so tonight's test copy is fresh?",
+      "context": "The nightly build that refreshes the test copy of the schedule data stopped yesterday. Until it restarts, tests run against data a day old and may miss a broken change.",
+      "question": "Should the nightly build be restarted now?",
+      "choices": [
+        {"key": "a", "label": "Yes, restart it", "effect": "tonight's tests use fresh data", "pros": "broken changes get caught tonight", "cons": "the build machine is busy for ten minutes"},
+        {"key": "b", "label": "Leave it until Monday", "effect": "tests use day-old data over the weekend", "pros": "nothing changes", "cons": "a broken change may slip through"}
+      ],
+      "recommend": "a",
+      "why": "Ten minutes of a busy machine is cheap next to a missed broken change.",
+      "after_press": "You restart it with the steps; the check sees the build running."
+    },
+    "owner_step": {
+      "label": "Restart the nightly build",
+      "steps": ["Open the build server's page and sign in.", "Open a terminal on the build machine and run the restart command for the nightly build.", "Wait for it to say started."],
+      "link": "https://build.example.com/",
+      "link_domain": "build.example.com",
+      "minutes": 5
+    },
+    "verify": "systemctl --user is-active nightly-build"
+  }
+}

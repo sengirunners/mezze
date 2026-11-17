@@ -1,0 +1,42 @@
+{
+  "why_it_passes": "An irreversible production change: the command deletes a column from the live database; the card says what is lost, why it is safe and what waiting costs.",
+  "want_risk": "irreversible",
+  "input": {
+    "approver": "wren",
+    "approver_machines": [
+      {
+        "machine": "larch",
+        "ready": true
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Delete the old fax numbers from the live customer records?",
+      "context": "Every customer record still has a fax number field from the old system. Nobody has used it in three years, and it makes each nightly backup 20 minutes longer. Deleting it from the live database is permanent: once it runs, the fax numbers are gone except in last month's backups.",
+      "question": "Should zm delete the fax number field from the live customer records tonight?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes, delete it tonight",
+          "pros": "backups finish 20 minutes sooner every night",
+          "cons": "the fax numbers are gone for good, apart from last month's backups"
+        },
+        {
+          "key": "b",
+          "label": "Keep it",
+          "pros": "nothing is lost",
+          "cons": "backups stay slow"
+        }
+      ],
+      "recommend": "a",
+      "why": "Nobody has used fax numbers in three years and last month's backup keeps a copy; the nightly time saved adds up."
+    },
+    "action": {
+      "kind": "command",
+      "on": "a",
+      "machine": "larch",
+      "command": "./scripts/migrate.sh production drop-fax-numbers",
+      "shown": "If you choose A, this command runs on larch, as you: ./scripts/migrate.sh production drop-fax-numbers. Any other answer does nothing."
+    }
+  }
+}

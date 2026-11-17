@@ -1,0 +1,13 @@
+{
+  "name": "zm-compute",
+  "version": "0.1.3",
+  "description": "Mezze: throwaway VMs for your agent: zm's sandbox tools over MCP. Needs zm on PATH: run scripts/zm-install once.",
+  "author": {
+    "name": "zm contributors"
+  },
+  "homepage": "https://github.com/sengirunners/mezze",
+  "repository": "https://github.com/sengirunners/mezze",
+  "license": "Apache-2.0",
+  "keywords": ["sandbox", "vm", "compute", "agents"],
+  "mcpServers": "./codex.mcp.json"
+}

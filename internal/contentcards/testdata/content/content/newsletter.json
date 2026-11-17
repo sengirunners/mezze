@@ -1,0 +1,12 @@
+{
+  "why": "A newsletter is sent to people outside the team; the card approves its text.",
+  "input": {
+    "title": "Approve the November newsletter",
+    "question": "Send the November newsletter to the 1,200 subscribers?",
+    "context": "Subject line: 'What changed in October'. Body is four short items and one thank-you note. Draft below.",
+    "choices": [
+      "Send it",
+      "Hold it"
+    ]
+  }
+}

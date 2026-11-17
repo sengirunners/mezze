@@ -1,0 +1,7 @@
+{
+  "why_it_passes": "false positive in regex: please + run",
+  "input": {
+    "reader": "bea",
+    "body": "Shipped. Please note the nightly run now takes 12 minutes instead of 40."
+  }
+}

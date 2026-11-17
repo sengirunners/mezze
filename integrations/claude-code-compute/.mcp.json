@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "zm": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/scripts/zm-run",
+      "args": ["mcp", "--sandboxes"],
+      "env": {
+        "ZM_COMPUTE_INSTALL": "${user_config.install_zm}"
+      }
+    }
+  }
+}

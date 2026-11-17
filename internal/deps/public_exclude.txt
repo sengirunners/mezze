@@ -1,0 +1,32 @@
+# Paths a public copy of this repository leaves out. Whether and how a public copy is made is
+# an owner decision; this list is what it leaves out either way. Ownership and one-person setups name our people, customers,
+# contractors and machines. Plans, research, audits, the dogfood log and two runbooks live in the private ops repo. The public-tree gate
+# still scans these files: leaving them out of a copy is no excuse for a personal address in them.
+# One per line, each matching at least one tracked file (publictree_test.go checks), except a `dir/**  # guard: ...` line:
+#   <path, glob or dir/**>  # why
+OWNERSHIP.md  # which of our sessions owns which path
+docs/plans/**  # guard: plans live in the private ops repo; one added here again stays out of a public copy
+docs/research/**  # guard: same, research notes
+docs/audits/**  # guard: same, audits
+docs/decisions/2026-11-15-automations-as-zm-records.md  # internal build plan: our automations, people and machines
+docs/decisions/2026-11-15-secrets-key-inventory.md  # internal decision
+docs/decisions/2026-11-14-farm-update-canary.md  # internal decision
+docs/decisions/2026-11-16-pool-shadow-ci.md  # internal decision: our pool, broker and runners
+docs/decisions/zm-github-link-2026-11-13.md  # internal decision
+docs/decisions/run-tart-vm-layer-2026-11-06.md  # internal decision
+docs/decisions/macos-guests-2026-11-10.md  # internal decision
+internal/deps/private_names.txt  # the names the public tree must not carry: the list is itself private (scripts/publish refuses to ship it)
+internal/deps/publiccopy/**  # the public copy's own versions of a few files: scripts/publish puts each in its file's place
+deploy/**  # our Cloudflare Workers and their account settings (moving to the private ops repo)
+.github/CODEOWNERS  # names our maintainers; a public copy has none (publish replaces the whole tree)
+.github/workflows/bench.yml  # timing on our self-hosted bench runners
+.github/workflows/factory-watch.yml  # watches our self-hosted runner pool
+.github/workflows/pool-shadow.yml  # fast check shadowed on our Potluck pool boxes
+.github/workflows/real-tests.yml  # gated real tests on our self-hosted runners
+.github/workflows/runner-route.yml  # routes to our self-hosted runners; the public ci and release do not use it
+.github/workflows/send-diagnostic.yml  # a diagnostic on our self-hosted runners
+.github/workflows/z3-report.yml  # reports our CI to our own hooks
+.github/workflows/zm-connect-*.yml  # deploys and checks our outreach Worker (deploy/**)
+scripts/ci/factory-*  # the route and watcher scripts and tests for runner-route.yml and factory-watch.yml
+scripts/ci/pool-shadow-*  # tables pool-shadow.yml's runs beside ci's
+scripts/mezze-rename.sh  # the one-off rename to Mezze: it names the old public name and module path

@@ -1,0 +1,45 @@
+{
+ "why": "Asks what hours the program's own night call runs; only that program can say.",
+ "want_party": 2,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Riverside night call hours",
+   "context": "We are building Riverside Anesthesiology's call schedule. Their handbook says night call starts in the evening but not when it ends.",
+   "background": "",
+   "question": "Does Riverside's night call end at 7 am or 8 am?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "7 am",
+     "pros": "matches most programs",
+     "cons": "might be wrong for them"
+    },
+    {
+     "key": "b",
+     "label": "8 am",
+     "pros": "matches their old schedule",
+     "cons": "might be out of date"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

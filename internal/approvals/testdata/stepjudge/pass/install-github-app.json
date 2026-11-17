@@ -1,0 +1,9 @@
+{
+  "why_it_passes": "installs a named GitHub App on the person's own account for one named repository; nothing to choose; gh reads the installation",
+  "input": {
+    "person": "bea",
+    "title": "Let our test runner see your notes repository",
+    "brief": "1. In the browser where you are signed in to GitHub as bea-gh, open https://github.com/apps/example-runner/installations/new\n2. Pick the account bea-gh.\n3. Choose Only select repositories and select bea-gh/notes only.\n4. Press Install.\n5. Confirm the page then shows example-runner under Installed GitHub Apps.",
+    "check": "gh api repos/bea-gh/notes/installation --jq .app_slug | grep -qx example-runner"
+  }
+}

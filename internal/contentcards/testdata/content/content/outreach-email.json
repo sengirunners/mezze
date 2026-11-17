@@ -1,0 +1,12 @@
+{
+  "why": "A cold outreach email is wording that leaves the team.",
+  "input": {
+    "title": "Send this email to Dr. Example's clinic?",
+    "question": "May the agent send the intro email below?",
+    "context": "A short intro to the clinic's office manager, asking for a 15-minute call. Draft below.",
+    "choices": [
+      "Send it",
+      "Do not send"
+    ]
+  }
+}

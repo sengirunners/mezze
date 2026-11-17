@@ -1,0 +1,45 @@
+{
+ "why": "Vacation allowance is Northwind's own rule.",
+ "want_party": 1,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Northwind vacation weeks",
+   "context": "Northwind Psychiatry residents ask for vacation through our scheduler. We do not know their yearly allowance.",
+   "background": "",
+   "question": "Do Northwind residents get three or four weeks of vacation a year?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "Three weeks",
+     "pros": "matches the national minimum",
+     "cons": "may be too few for them"
+    },
+    {
+     "key": "b",
+     "label": "Four weeks",
+     "pros": "matches last year's requests",
+     "cons": "may be too many"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

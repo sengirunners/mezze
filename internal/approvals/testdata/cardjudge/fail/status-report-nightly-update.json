@@ -1,0 +1,29 @@
+{
+  "why_it_fails": "It asks whether tonight's update worked, which the agent can check itself; there is nothing for a person to decide.",
+  "input": {
+    "approver": "dana",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Did tonight's update work?",
+      "context": "Every night at 2 am the app installs the newest version of our booking software on the clinic computers. Last night was the first run after we moved it to the new server.",
+      "question": "Does tonight's update work?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes, it works",
+          "pros": "we can stop watching it",
+          "cons": "none"
+        },
+        {
+          "key": "b",
+          "label": "No, it is broken",
+          "pros": "we look into it",
+          "cons": "someone has to look into it"
+        }
+      ],
+      "recommend": "a",
+      "why": "It probably worked, but I wanted to be sure."
+    }
+  }
+}

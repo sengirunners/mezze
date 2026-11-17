@@ -1,0 +1,42 @@
+{
+  "why_it_fails": "Bea has no machine that takes tasks, so the card carries a hand brief, but the brief stops part way: it ends by asking Bea to restart the router himself, skips turning on remote tasks, and the card has no verify line.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [
+      {
+        "machine": "studio",
+        "ready": false,
+        "why_not": "it takes no remote tasks: bea sets remote_tasks in its zm config"
+      }
+    ],
+    "machines_known": true,
+    "card": {
+      "title": "Give the office printer a fixed address?",
+      "context": "The office printer changes its network address every few days, and then nobody's laptop can print until someone re-adds it. Giving it a fixed address on the office router stops that. It takes about five minutes and the network drops for about a minute while the router restarts.",
+      "question": "Should your agent give the office printer a fixed address on the router?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes, fix the address",
+          "pros": "printing stops breaking every few days",
+          "cons": "the office network drops for about a minute once"
+        },
+        {
+          "key": "b",
+          "label": "Leave it",
+          "pros": "no network blip",
+          "cons": "printing keeps breaking every few days"
+        }
+      ],
+      "recommend": "a",
+      "why": "A one-minute blip once beats a broken printer twice a week."
+    },
+    "action": {
+      "kind": "hand",
+      "on": "a",
+      "agent": "claude",
+      "brief": "1. Log in to the office router's admin page.\n2. Find the printer in the connected devices list.\n3. Reserve its current address for it.\n4. Then ask Bea to restart the router when the office is empty.",
+      "shown": "If you choose A, your own agent (claude) on your own machine works from this brief, as you, with full access: this answer approves it (in the Mezze app: Hand to my agent)."
+    }
+  }
+}

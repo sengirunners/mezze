@@ -1,0 +1,13 @@
+{
+  "why": "A reply to a stranger on a public forum is outward-facing wording.",
+  "input": {
+    "title": "Reply on a forum: How do bakeries track waste?",
+    "question": "Post this reply under the thread?",
+    "context": "Someone asked how small bakeries track waste. The reply below answers in three sentences and mentions our app once, with a link.",
+    "choices": [
+      "Post the reply",
+      "Do not reply"
+    ],
+    "work_title": "Community replies"
+  }
+}

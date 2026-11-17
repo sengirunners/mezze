@@ -1,0 +1,20 @@
+{
+  "why_it_fails": "2026-11-13 ask about an org-wide runner pool: 'Reply with the label; agents do the rest' and 'Only you can change workshop's runner pools' leave Bea the work; 'pool' and 'per-repo pools' are never explained, so neither choice's effect is clear.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [{"machine": "studio", "ready": false, "why_not": "it takes no remote tasks: bea sets remote_tasks in its zm config"}],
+    "machines_known": true,
+    "card": {
+      "title": "Will you add one small always-ready runner pool on workshop for the Sengi Run…",
+      "context": "Ivo wants one small always-on runner on workshop, shared by every repo in the Sengi Runners GitHub org (where the Mezze app, zm, Potluck and Sengi are moving), so quick bookkeeping jobs start in seconds. Only you can change workshop's runner pools.",
+      "background": "Suggested: 2 CPUs, one always idle, label sengi-control-2. Reply with the label; agents do the rest.",
+      "question": "Will you add one small always-ready runner pool on workshop for the Sengi Runners org?",
+      "choices": [
+        {"key": "a", "label": "Org-wide pool", "pros": "One warm machine for every repo", "cons": "Reserves one small machine all day"},
+        {"key": "b", "label": "Per-repo pools", "pros": "Tighter scope", "cons": "One reserved machine per repo"}
+      ],
+      "recommend": "a",
+      "why": "Ivo chose an always-ready workshop runner, org-wide."
+    }
+  }
+}

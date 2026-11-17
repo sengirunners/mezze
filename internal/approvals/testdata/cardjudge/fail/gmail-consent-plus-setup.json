@@ -1,0 +1,19 @@
+{
+  "why_it_fails": "The permission click is allowed, but this card leaves Bea more around it: making the app in Google's console and pasting its key back into the thread are his steps, which no action carries.",
+  "input": {
+    "approver": "bea",
+    "approver_machines": [{"machine": "beas-mac", "ready": false, "why_not": "it takes no remote tasks: bea sets remote_tasks in its zm config"}],
+    "machines_known": true,
+    "card": {
+      "title": "Let the outreach tool read your Gmail and save drafts?",
+      "context": "The outreach tool writes first emails to clinics for you. To see who replied and to save its emails as drafts in your Gmail (you still press send yourself), it needs your permission on your Google account. It can only read mail and save drafts.",
+      "question": "Should the outreach tool get read and draft access to your Gmail?",
+      "choices": [
+        {"key": "a", "label": "Yes: create the app in Google Cloud console, paste its client secret here, then press Allow on Google's page", "pros": "the tool sees replies and saves drafts", "cons": "the tool can read your whole mailbox"},
+        {"key": "b", "label": "Not now", "pros": "nothing gets access to your mail", "cons": "follow-ups stay by hand"}
+      ],
+      "recommend": "a",
+      "why": "Missed replies cost clinics; the setup takes about ten minutes of your time."
+    }
+  }
+}

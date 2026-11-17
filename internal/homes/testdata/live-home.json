@@ -1,0 +1,236 @@
+{
+ "admin": {
+  "user": "root",
+  "slot": "admin"
+ },
+ "backups": [
+  {
+   "id": "icloud",
+   "target": "icloud:/HOME/Library/Mobile Documents/com~apple~CloudDocs/zm-backups",
+   "base": "/HOME/Library/Mobile Documents/com~apple~CloudDocs/zm-backups",
+   "kind": "export",
+   "every_seconds": 3600,
+   "created": "2026-11-01T00:33:45.539535Z",
+   "last_run": "2026-11-01T16:47:10.738145Z",
+   "last_ok": "2026-11-01T16:47:11.686485Z",
+   "items": 11639
+  },
+  {
+   "id": "file:///Volumes/b",
+   "target": "file:///Volumes/b",
+   "base": "/Volumes/b",
+   "kind": "sqlite",
+   "every_seconds": 3600,
+   "keep": 24,
+   "created": "2026-11-02T00:00:00Z",
+   "last_run": "2026-11-09T22:00:00Z",
+   "last_ok": "2026-11-09T22:00:03Z",
+   "bytes": 48123904,
+   "store_bytes": 47185920,
+   "scrub_due": "2026-11-09T21:59:00Z"
+  }
+ ],
+ "move": {
+  "id": "01m6b6j2at77ejsw3858qvy5gg",
+  "from": "server://127.0.0.1:3307/beads",
+  "to": "zm-native",
+  "state": "done",
+  "step": "done",
+  "started": "2026-11-01T09:20:28.50641Z",
+  "finished": "2026-11-01T09:24:14.42272Z",
+  "frozen": [
+   {
+    "database": "beads",
+    "branch": "%",
+    "user": "root",
+    "host": "localhost",
+    "permissions": "admin"
+   },
+   {
+    "database": "beads",
+    "branch": "%",
+    "user": "%",
+    "host": "%",
+    "permissions": "read"
+   }
+  ],
+  "created_db": true,
+  "staging": "/HOME/.zm/trackers/01PROJECT0000000000000000/bd/moves/01m6b6j2at77ejsw3858qvy5gg",
+  "binding": {
+   "adapter": "native",
+   "prefix": "bd"
+  },
+  "from_binding": {
+   "adapter": "beads",
+   "prefix": "bd",
+   "config": {
+    "bin": "/HOME/go/bin/bd",
+    "database": "beads",
+    "dir": "/HOME/.zm/trackers/01PROJECT0000000000000000/bd",
+    "mode": "server",
+    "server": "127.0.0.1:3307",
+    "user": "beads"
+   }
+  },
+  "verified": {
+   "database": "beads",
+   "hash": "em90jnees57orsqljc32deq0q21cs4vi",
+   "head": "elomiract86v7bb3ghmrbhg7ok47k6po",
+   "branches": {
+    "main": "elomiract86v7bb3ghmrbhg7ok47k6po"
+   },
+   "tables": {
+    "child_counters": 593,
+    "comments": 14965,
+    "compaction_snapshots": 0,
+    "config": 48,
+    "custom_statuses": 0,
+    "custom_types": 0,
+    "dependencies": 12148,
+    "events": 69172,
+    "federation_peers": 0,
+    "ignored_schema_migrations": 8,
+    "interactions": 0,
+    "issue_counter": 0,
+    "issue_snapshots": 0,
+    "issues": 11626,
+    "labels": 12614,
+    "local_metadata": 0,
+    "metadata": 0,
+    "repo_mtimes": 0,
+    "routes": 0,
+    "schema_migrations": 49,
+    "wisp_child_counters": 0,
+    "wisp_comments": 0,
+    "wisp_dependencies": 0,
+    "wisp_events": 0,
+    "wisp_labels": 0,
+    "wisps": 0
+   },
+   "version": "2.1.9",
+   "at": "2026-11-01T09:20:29.72136Z"
+  },
+  "native_at": "01M6B6RTS7DWJYZ2ECM8DSEYTJ",
+  "revoked": [
+   {
+    "user": "beads",
+    "host": "%",
+    "privs": [
+     "INSERT",
+     "UPDATE",
+     "DELETE",
+     "CREATE",
+     "DROP",
+     "ALTER",
+     "INDEX",
+     "EXECUTE",
+     "TRIGGER",
+     "CREATE VIEW",
+     "CREATE ROUTINE",
+     "ALTER ROUTINE",
+     "EVENT"
+    ]
+   }
+  ]
+ },
+ "previous": {
+  "binding": {
+   "adapter": "beads",
+   "prefix": "bd",
+   "config": {
+    "bin": "/HOME/go/bin/bd",
+    "database": "beads",
+    "dir": "/HOME/.zm/trackers/01PROJECT0000000000000000/bd",
+    "mode": "server",
+    "server": "127.0.0.1:3307",
+    "user": "beads"
+   }
+  },
+  "target": "server://127.0.0.1:3307/beads",
+  "admin": {
+   "user": "root",
+   "slot": "prev-admin"
+  },
+  "frozen": [
+   {
+    "database": "beads",
+    "branch": "%",
+    "user": "root",
+    "host": "localhost",
+    "permissions": "admin"
+   },
+   {
+    "database": "beads",
+    "branch": "%",
+    "user": "%",
+    "host": "%",
+    "permissions": "read"
+   }
+  ],
+  "flip": {
+   "database": "beads",
+   "hash": "em90jnees57orsqljc32deq0q21cs4vi",
+   "head": "elomiract86v7bb3ghmrbhg7ok47k6po",
+   "branches": {
+    "main": "elomiract86v7bb3ghmrbhg7ok47k6po"
+   },
+   "tables": {
+    "child_counters": 593,
+    "comments": 14965,
+    "compaction_snapshots": 0,
+    "config": 48,
+    "custom_statuses": 0,
+    "custom_types": 0,
+    "dependencies": 12148,
+    "events": 69172,
+    "federation_peers": 0,
+    "ignored_schema_migrations": 8,
+    "interactions": 0,
+    "issue_counter": 0,
+    "issue_snapshots": 0,
+    "issues": 11626,
+    "labels": 12614,
+    "local_metadata": 0,
+    "metadata": 0,
+    "repo_mtimes": 0,
+    "routes": 0,
+    "schema_migrations": 49,
+    "wisp_child_counters": 0,
+    "wisp_comments": 0,
+    "wisp_dependencies": 0,
+    "wisp_events": 0,
+    "wisp_labels": 0,
+    "wisps": 0
+   },
+   "version": "2.1.9",
+   "at": "2026-11-01T09:20:29.72136Z"
+  },
+  "since": "2026-11-01T09:24:14.422753Z",
+  "native": true,
+  "native_at": "01M6B6RTS7DWJYZ2ECM8DSEYTJ",
+  "dolt_backups": [
+   "icloud"
+  ],
+  "revoked": [
+   {
+    "user": "beads",
+    "host": "%",
+    "privs": [
+     "INSERT",
+     "UPDATE",
+     "DELETE",
+     "CREATE",
+     "DROP",
+     "ALTER",
+     "INDEX",
+     "EXECUTE",
+     "TRIGGER",
+     "CREATE VIEW",
+     "CREATE ROUTINE",
+     "ALTER ROUTINE",
+     "EVENT"
+    ]
+   }
+  ]
+ }
+}

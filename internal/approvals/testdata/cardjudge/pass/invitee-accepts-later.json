@@ -1,0 +1,29 @@
+{
+  "why_it_passes": "The Tailscale invite of 2026-11-16 (refused four times). Inviting someone to the team's private network needs the network admin signed in on Tailscale's own admin page, which only Wren can do. The card gives it as his owner_step on tailscale.com with a verify line. Ivo accepting the invitation later is Ivo's own business, not a step this card leaves undone.",
+  "input": {
+    "approver": "wren",
+    "approver_machines": [{"machine": "wren-mac", "ready": false, "why_not": "it takes no remote tasks: wren sets remote_tasks in its zm config"}],
+    "machines_known": true,
+    "card": {
+      "title": "Invite Ivo to the team's private network?",
+      "context": "The team's machines talk to each other over a private network. Ivo's new laptop is not on it, so his agents cannot reach the build machines. Only you, as the network's admin signed in on Tailscale's site, can send him an invitation.",
+      "background": "The invitation lets Ivo add his own devices; it does not give him admin rights. Ivo accepts it from his email when he next opens it, and his laptop joins then. You can remove him any time on the same page.",
+      "question": "Should Ivo be invited to the team's private network?",
+      "choices": [
+        {"key": "a", "label": "Yes, invite him (about a minute on Tailscale's admin page)", "effect": "Ivo can join his laptop once he accepts", "pros": "his agents reach the build machines", "cons": "one more person's devices are on the network"},
+        {"key": "b", "label": "Not yet", "effect": "Ivo's laptop stays off the network", "pros": "nothing changes", "cons": "Ivo's agents keep failing to reach the build machines"}
+      ],
+      "recommend": "a",
+      "why": "Ivo is a co-owner; his laptop needs the same access as yours.",
+      "after_press": "You get the steps and a button to Tailscale; the agent's check sees the invitation sent, then Ivo accepts it when he likes."
+    },
+    "owner_step": {
+      "label": "Send Ivo an invitation on Tailscale's admin page",
+      "steps": ["Open Tailscale's admin page and sign in as yourself.", "Go to Users and press Invite users.", "Type Ivo's email address, keep the role Member, and press Send invite."],
+      "link": "https://login.tailscale.com/admin/users",
+      "link_domain": "login.tailscale.com",
+      "minutes": 1
+    },
+    "verify": "tailscale-admin users --pending --json | jq -e 'map(.email) | index(\"ivo@example.com\")'"
+  }
+}

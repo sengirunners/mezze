@@ -1,0 +1,15 @@
+[
+  {
+    "created": "string",
+    "id": "string",
+    "name": "string",
+    "paths": [
+      "string"
+    ],
+    "remotes": [
+      "string"
+    ],
+    "role": "string",
+    "slug": "string"
+  }
+]

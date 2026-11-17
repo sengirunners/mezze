@@ -1,0 +1,7 @@
+{
+  "why_it_fails": "you need to log in and run",
+  "input": {
+    "reader": "bea",
+    "body": "The fix is merged. You need to log in to PostHog and run the migration."
+  }
+}

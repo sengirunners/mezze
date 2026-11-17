@@ -1,0 +1,12 @@
+{
+  "why": "A merge is a software release decision, not wording to approve.",
+  "input": {
+    "title": "Merge the signup fix?",
+    "question": "Merge pull request 41, which fixes the signup page, now?",
+    "context": "All checks passed. The change fixes a crash when the phone field is empty.",
+    "choices": [
+      "Yes, merge",
+      "Wait"
+    ]
+  }
+}

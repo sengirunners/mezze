@@ -1,0 +1,6 @@
+{
+  "alg": "string",
+  "key_id": "string",
+  "line": "string",
+  "public_key": "string"
+}

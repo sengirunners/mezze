@@ -1,0 +1,45 @@
+{
+ "why": "A program rule only Northwind's director can confirm.",
+ "want_party": 1,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Northwind post-call day off",
+   "context": "Northwind Psychiatry residents work overnight call. We need to know whether their rules give a full day off after call.",
+   "background": "",
+   "question": "Do Northwind residents get the whole day off after overnight call?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "Yes, the whole day",
+     "pros": "safest for residents",
+     "cons": "fewer people on the next day"
+    },
+    {
+     "key": "b",
+     "label": "Only until noon",
+     "pros": "more coverage",
+     "cons": "may break their rule"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

@@ -1,0 +1,42 @@
+{"seq":1,"at":"0001-01-01T00:00:00Z","type":"session","status":"starting","cwd":"/work","capabilities":{"steer":true,"interrupt":true,"approvals":true,"questions":true,"resume":true,"images":true,"partial":true,"usage":true,"plan":true,"tool_output":true,"model":true,"mcp":true,"tools":true}}
+{"seq":2,"at":"0001-01-01T00:00:00Z","type":"op","op":"op1","ok":true}
+{"seq":3,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-95cb-7c42-acee-6096b982483e","model":"gpt-6.1-sol"}
+{"seq":4,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","status":"running"}
+{"seq":5,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"01a1a862-95cb-7c42-acee-6096b982483e"}
+{"seq":6,"at":"0001-01-01T00:00:00Z","type":"op","op":"op2","ok":true}
+{"seq":7,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"01a1a862-9cc3-7912-b14b-1233d2ceac3e","status":"completed","role":"user","text":"Use the shell to run exactly this command: sleep 8 && echo eight\nThen reply in one short sentence."}
+{"seq":8,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","status":"streaming","role":"assistant"}
+{"seq":9,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","role":"assistant","text":"I"}
+{"seq":10,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","role":"assistant","text":"’ll"}
+{"seq":11,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","role":"assistant","text":" run"}
+{"seq":12,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","role":"assistant","text":" the"}
+{"seq":13,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","role":"assistant","text":" command"}
+{"seq":14,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","role":"assistant","text":" exactly"}
+{"seq":15,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","role":"assistant","text":" as"}
+{"seq":16,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","role":"assistant","text":" given"}
+{"seq":17,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","role":"assistant","text":"."}
+{"seq":18,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e5e8c9487d0b57af8563bd8f3ab","status":"completed","role":"assistant","text":"I’ll run the command exactly as given."}
+{"seq":19,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"exec-ddda317b-f5cc-427e-b2fe-8de2c5fe6f0a","status":"running","kind":"command","name":"shell","title":"/bin/zsh -lc 'sleep 8 && echo eight'","input":{"command":"/bin/zsh -lc 'sleep 8 \u0026\u0026 echo eight'"}}
+{"seq":20,"at":"0001-01-01T00:00:00Z","type":"op","op":"op3","ok":true}
+{"seq":21,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","usage":{"input_tokens":20953,"output_tokens":47,"cached_input_tokens":18560,"context_tokens":21000,"context_window":475000}}
+{"seq":22,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"01a1a862-a856-74a2-867a-6f3b92473819","status":"completed","role":"user","text":"Also: end your reply with the word STEERED."}
+{"seq":23,"at":"0001-01-01T00:00:00Z","type":"output","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"exec-ddda317b-f5cc-427e-b2fe-8de2c5fe6f0a","text":"eight\n"}
+{"seq":24,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"exec-ddda317b-f5cc-427e-b2fe-8de2c5fe6f0a","status":"completed","kind":"command","name":"shell","title":"/bin/zsh -lc 'sleep 8 && echo eight'","input":{"command":"/bin/zsh -lc 'sleep 8 \u0026\u0026 echo eight'"},"output":"eight\n","exit_code":0}
+{"seq":25,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","usage":{"input_tokens":41997,"output_tokens":77,"cached_input_tokens":31360,"context_tokens":21074,"context_window":475000}}
+{"seq":26,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","status":"streaming","role":"assistant"}
+{"seq":27,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":"The"}
+{"seq":28,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":" command"}
+{"seq":29,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":" printed"}
+{"seq":30,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":" “"}
+{"seq":31,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":"eight"}
+{"seq":32,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":"”"}
+{"seq":33,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":" —"}
+{"seq":34,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":" STE"}
+{"seq":35,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":"ER"}
+{"seq":36,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","role":"assistant","text":"ED"}
+{"seq":37,"at":"0001-01-01T00:00:00Z","type":"message","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","item":"msg_0bb5cb145c29f930016aeb9e68303887d0b2f942129eeba10b","status":"completed","role":"assistant","text":"The command printed “eight” — STEERED"}
+{"seq":38,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","usage":{"input_tokens":63128,"output_tokens":91,"cached_input_tokens":52224,"context_tokens":21145,"context_window":475000}}
+{"seq":39,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"01a1a862-95e9-7b81-8b4e-71f979c77b40","status":"completed","usage":{"input_tokens":63128,"output_tokens":91,"cached_input_tokens":52224,"context_tokens":21145,"context_window":475000}}
+{"seq":40,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"01a1a862-95cb-7c42-acee-6096b982483e"}
+{"seq":41,"at":"0001-01-01T00:00:00Z","type":"op","op":"op4","ok":true}
+{"seq":42,"at":"0001-01-01T00:00:00Z","type":"session","status":"stopped","runtime_id":"01a1a862-95cb-7c42-acee-6096b982483e"}

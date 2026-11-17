@@ -1,0 +1,25 @@
+{"seq":1,"at":"0001-01-01T00:00:00Z","type":"session","status":"starting","model":"haiku","cwd":"/work","capabilities":{"steer":true,"interrupt":true,"approvals":true,"questions":true,"resume":true,"partial":true,"usage":true,"plan":true,"model":true,"mcp":true,"tools":true}}
+{"seq":2,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready"}
+{"seq":3,"at":"0001-01-01T00:00:00Z","type":"op","op":"op1","ok":true}
+{"seq":4,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t1","status":"running"}
+{"seq":5,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t1","item":"a342aaad-60cf-4725-b925-9ef05d1f62c2","status":"completed","role":"user","text":"Use the shell to run exactly this command: sleep 30 && echo slept\nThen reply in one short sentence."}
+{"seq":6,"at":"0001-01-01T00:00:00Z","type":"op","op":"op2","ok":true}
+{"seq":7,"at":"0001-01-01T00:00:00Z","type":"session","status":"running"}
+{"seq":8,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"fc846afd-71b2-43fe-8b8d-50072efb2409","model":"claude-haiku-5-5","version":"2.1.318"}
+{"seq":9,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"t1","item":"toolu_01P4W3Yi1TZyFwYJtQq5wBvB","status":"running","kind":"command","name":"Bash","title":"sleep 30 && echo slept","input":{"command":"sleep 30 \u0026\u0026 echo slept","description":"Sleep 30 seconds then echo slept"}}
+{"seq":10,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"t1","item":"toolu_01P4W3Yi1TZyFwYJtQq5wBvB","status":"failed","kind":"command","name":"Bash","title":"sleep 30 && echo slept","input":{"command":"sleep 30 \u0026\u0026 echo slept","description":"Sleep 30 seconds then echo slept"},"output":"<tool_use_error>Blocked: sleep 30 followed by: echo slept. To wait for a condition, use Monitor with an until-loop (e.g. `until <check>; do sleep 2; done`). To wait for a command you started, use run_in_background: true. Do not chain shorter sleeps to work around this block.</tool_use_error>"}
+{"seq":11,"at":"0001-01-01T00:00:00Z","type":"op","op":"op3","ok":true}
+{"seq":12,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"t1","usage":{"input_tokens":19813,"output_tokens":92,"cached_input_tokens":13157,"context_tokens":19905,"context_window":1000000,"cost_usd":0.00163857}}
+{"seq":13,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t1","status":"interrupted","usage":{"input_tokens":19813,"output_tokens":92,"cached_input_tokens":13157,"context_tokens":19905,"context_window":1000000,"cost_usd":0.00163857}}
+{"seq":14,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"fc846afd-71b2-43fe-8b8d-50072efb2409"}
+{"seq":15,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t2","status":"running"}
+{"seq":16,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t2","item":"5a6d98d7-5b75-4ba0-8d76-e5d6f16a961b","status":"completed","role":"user","text":"Reply with exactly the word: after"}
+{"seq":17,"at":"0001-01-01T00:00:00Z","type":"op","op":"op4","ok":true}
+{"seq":18,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"fc846afd-71b2-43fe-8b8d-50072efb2409"}
+{"seq":19,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t2","item":"msg_011CgiZxxfQ3Ut5yyoq1aJeb/1","role":"assistant","text":"after"}
+{"seq":20,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t2","item":"msg_011CgiZxxfQ3Ut5yyoq1aJeb/1","status":"completed","role":"assistant","text":"after"}
+{"seq":21,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"t2","usage":{"input_tokens":41688,"output_tokens":149,"cached_input_tokens":32968,"context_tokens":21932,"context_window":1000000,"cost_usd":0.00227778}}
+{"seq":22,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t2","status":"completed","usage":{"input_tokens":41688,"output_tokens":149,"cached_input_tokens":32968,"context_tokens":21932,"context_window":1000000,"cost_usd":0.00227778}}
+{"seq":23,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"fc846afd-71b2-43fe-8b8d-50072efb2409"}
+{"seq":24,"at":"0001-01-01T00:00:00Z","type":"op","op":"op5","ok":true}
+{"seq":25,"at":"0001-01-01T00:00:00Z","type":"session","status":"stopped","runtime_id":"fc846afd-71b2-43fe-8b8d-50072efb2409"}

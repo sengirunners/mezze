@@ -1,0 +1,21 @@
+{"seq":1,"at":"0001-01-01T00:00:00Z","type":"session","status":"starting","model":"haiku","cwd":"/work","capabilities":{"steer":true,"interrupt":true,"approvals":true,"questions":true,"resume":true,"partial":true,"usage":true,"plan":true,"model":true,"mcp":true,"tools":true}}
+{"seq":2,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready"}
+{"seq":3,"at":"0001-01-01T00:00:00Z","type":"op","op":"op1","ok":true}
+{"seq":4,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t1","status":"running"}
+{"seq":5,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t1","item":"a342aaad-60cf-4725-b925-9ef05d1f62c2","status":"completed","role":"user","text":"Use the shell to run exactly this command: sleep 8 && echo eight\nThen reply in one short sentence."}
+{"seq":6,"at":"0001-01-01T00:00:00Z","type":"op","op":"op2","ok":true}
+{"seq":7,"at":"0001-01-01T00:00:00Z","type":"session","status":"running"}
+{"seq":8,"at":"0001-01-01T00:00:00Z","type":"session","status":"running","runtime_id":"a3672589-3995-4a3f-bbb8-bbad0b37af0b","model":"claude-haiku-5-5","version":"2.1.318"}
+{"seq":9,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"t1","item":"toolu_01Uae89KPSaRLbAYcYqAvssr","status":"running","kind":"command","name":"Bash","title":"sleep 8 && echo eight","input":{"command":"sleep 8 \u0026\u0026 echo eight","description":"Sleep 8 seconds then echo eight"}}
+{"seq":10,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t1","item":"2c1bb9d9-bdc7-4db3-98c3-c358ec164d8d","status":"completed","role":"user","text":"Also: end your reply with the word STEERED."}
+{"seq":11,"at":"0001-01-01T00:00:00Z","type":"op","op":"op3","ok":true}
+{"seq":12,"at":"0001-01-01T00:00:00Z","type":"tool","turn":"t1","item":"toolu_01Uae89KPSaRLbAYcYqAvssr","status":"completed","kind":"command","name":"Bash","title":"sleep 8 && echo eight","input":{"command":"sleep 8 \u0026\u0026 echo eight","description":"Sleep 8 seconds then echo eight"},"output":"eight"}
+{"seq":13,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t1","item":"msg_011CgiZyp5jRF4PwbBVT8H84/1","role":"assistant","text":"The command"}
+{"seq":14,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t1","item":"msg_011CgiZyp5jRF4PwbBVT8H84/1","role":"assistant","text":" ran and printed `eight"}
+{"seq":15,"at":"0001-01-01T00:00:00Z","type":"message.delta","turn":"t1","item":"msg_011CgiZyp5jRF4PwbBVT8H84/1","role":"assistant","text":"`. STEERED"}
+{"seq":16,"at":"0001-01-01T00:00:00Z","type":"message","turn":"t1","item":"msg_011CgiZyp5jRF4PwbBVT8H84/1","status":"completed","role":"assistant","text":"The command ran and printed `eight`. STEERED"}
+{"seq":17,"at":"0001-01-01T00:00:00Z","type":"usage","turn":"t1","usage":{"input_tokens":41532,"output_tokens":237,"cached_input_tokens":32962,"context_tokens":21870,"context_window":1000000,"cost_usd":0.0022907200000000004}}
+{"seq":18,"at":"0001-01-01T00:00:00Z","type":"turn","turn":"t1","status":"completed","usage":{"input_tokens":41532,"output_tokens":237,"cached_input_tokens":32962,"context_tokens":21870,"context_window":1000000,"cost_usd":0.0022907200000000004}}
+{"seq":19,"at":"0001-01-01T00:00:00Z","type":"session","status":"ready","runtime_id":"a3672589-3995-4a3f-bbb8-bbad0b37af0b"}
+{"seq":20,"at":"0001-01-01T00:00:00Z","type":"op","op":"op4","ok":true}
+{"seq":21,"at":"0001-01-01T00:00:00Z","type":"session","status":"stopped","runtime_id":"a3672589-3995-4a3f-bbb8-bbad0b37af0b"}

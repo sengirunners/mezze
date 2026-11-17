@@ -1,0 +1,7 @@
+{
+  "why_it_fails": "bullet imperative",
+  "input": {
+    "reader": "bea",
+    "body": "- Click Rotate on the keys page"
+  }
+}

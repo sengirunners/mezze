@@ -1,0 +1,12 @@
+{
+  "why": "A price is a business decision.",
+  "input": {
+    "title": "Raise the monthly price to $29?",
+    "question": "Change the Pro plan from $24 to $29 a month for new customers?",
+    "context": "Current customers keep their price. Two competitors charge $30.",
+    "choices": [
+      "Raise it",
+      "Keep $24"
+    ]
+  }
+}

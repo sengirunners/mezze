@@ -1,0 +1,59 @@
+# Intentional mentions the public-tree gate (publictree_test.go) lets through. One per line:
+#   <path, glob, or dir/**> <rule or *>  # why it is here and who decides
+# A line that matches nothing fails the test, so this list only shrinks. Before the repository goes public,
+# each OWNER DECISION line below is resolved (moved to a private deploy config, or kept on purpose).
+
+# A workflow the public copy leaves out names a worker URL (workers-dev-account rule).
+.github/workflows/runner-route.yml workers-dev-account  # a worker URL in a workflow the public copy leaves out
+
+# Planted credentials: made-up tokens the redaction and approval checks must catch (secret rule).
+internal/approvals/command_action_internal_test.go secret  # fake tokens the command approval check must refuse
+internal/homes/home/home_test.go secret  # a URL with a fake password the home check must refuse
+internal/homes/offsite/offsite_test.go secret  # a URL with a fake key the offsite check must refuse
+internal/session/output_scrub_test.go secret  # a planted fake key the output scrub must hide
+internal/session/task_redaction_fuzz_test.go secret  # planted fake keys the task redaction must hide
+internal/team/ask_actions_test.go secret  # a fake token an ask action must refuse
+internal/work/adapter/tail_test.go secret  # a fake token the adapter tail must hide
+
+# A retired public name (retired-name rule) where the text is a shipped migration, which is never edited.
+internal/door/migrations.go retired-name  # the comments in a shipped migration's SQL
+
+# gitleaks' default rules (scripts/publish runs them over the exact tree it pushes). Named rule by rule:
+# "*" never covers them. Each is a made-up value a test or a local test config plants.
+internal/automations/automations_test.go gitleaks:generic-api-key  # a planted fake token the automation redaction must hide
+internal/automations/store/storetest/storetest.go gitleaks:generic-api-key  # a planted fake key the store's redaction test must hide
+go.sum gitleaks:generic-api-key  # h1: module checksums beside modules named credentials, oauth2 and token
+internal/agentpipe/testdata/claude/*.rec.jsonl gitleaks:generic-api-key  # recorded api_message_id values, not keys
+internal/approvals/command_action_internal_test.go gitleaks:aws-access-token  # fake tokens the command approval check must refuse
+internal/approvals/command_action_internal_test.go gitleaks:curl-auth-header  # the same
+internal/approvals/command_action_internal_test.go gitleaks:curl-auth-user  # the same
+internal/approvals/command_action_internal_test.go gitleaks:generic-api-key  # the same
+internal/homes/offsite/offsite_test.go gitleaks:generic-api-key  # a fake key the offsite check must refuse
+internal/homes/offsite_home_test.go gitleaks:generic-api-key  # a fake signing secret
+internal/issues/redact_test.go gitleaks:generic-api-key  # planted secrets the redaction must hide
+internal/issues/restore_test.go gitleaks:generic-api-key  # a planted secret a purge must remove
+internal/session/output_scrub_test.go gitleaks:generic-api-key  # a planted fake key the output scrub must hide
+internal/session/task_attack190_test.go gitleaks:generic-api-key  # a planted .env the task must not leak
+internal/session/task_redaction_fuzz_test.go gitleaks:generic-api-key  # planted fake keys the task redaction must hide
+internal/session/task_redaction_fuzz_test.go gitleaks:jwt  # the same
+internal/session/task_redaction_fuzz_test.go gitleaks:slack-webhook-url  # the same
+internal/session/task_redaction_fuzz_test.go gitleaks:stripe-access-token  # the same
+internal/team/activity_test.go gitleaks:curl-auth-user  # a fake password in a test session's title
+internal/team/issues_proxy_test.go gitleaks:generic-api-key  # a planted secret the proxy must hide
+internal/team/redact_test.go gitleaks:generic-api-key  # a planted secret the replica must hide
+internal/team/session_relay_internal_test.go gitleaks:generic-api-key  # a planted secret the relay must hide
+internal/work/adapter/tail_test.go gitleaks:github-pat  # a fake token the adapter tail must hide
+
+# The config judge (scripts/publish) over made-up fixtures. The model reads a different few of these as real each
+# run, so the lines cover the directories: every file in them is a synthetic eval case (the public-tree gate still
+# scans them).
+internal/approvals/testdata/cardroute/** judge  # card router eval cases: made-up programs (Northwind, Riverside, Lakeview), contacts (Dr. Okafor)
+internal/approvals/testdata/cardjudge/** judge  # card judge eval cases: the scrub's placeholder people and machines (Bea, beas-mac, studio)
+scripts/ceilings/ceilings.json judge  # its why notes cite Sengi, the CI runners of the sengirunners org that hosts this repo, and run ids
+internal/homes/testdata/live-home.json judge  # a home snapshot fixture with /HOME placeholder paths, the generic db role "beads", ids and timestamps; read by hand: no names, hosts or addresses
+
+# Names the private names list (private-name rule) still finds in files a public copy keeps. Each is a leftover to
+# reword or turn into a setting; the line goes when it does (a line that matches nothing fails the test).
+internal/connect/bridge/bridge.go private-name  # the outreach bridge's consent-screen app name, bound to live behaviour
+internal/connect/dbrole/sql.go private-name  # database role names bound to a live database
+SPEC.md private-name  # a database role name in the connect section, bound to a live database; the bridge code is reworded together with it

@@ -1,0 +1,13 @@
+{
+  "why": "Whether to run a content effort or change its topic is strategy, not an item of content.",
+  "input": {
+    "title": "Write a blog every week?",
+    "question": "Should the agent draft one blog post a week from now on?",
+    "context": "Posts bring in about 20 visits each. Drafting costs the agent an hour a week. Nothing would be published without a separate yes per post.",
+    "choices": [
+      "Yes, weekly drafts",
+      "Monthly instead",
+      "No blog"
+    ]
+  }
+}

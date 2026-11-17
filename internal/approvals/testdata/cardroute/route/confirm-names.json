@@ -1,0 +1,45 @@
+{
+ "why": "Whether these are Riverside's real rotation names is a fact only they know.",
+ "want_party": 2,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Riverside rotation names",
+   "context": "Riverside sent a schedule using short names for rotations. We guessed what each means.",
+   "background": "",
+   "question": "Is 'Peds' at Riverside the children's hospital rotation, not a clinic day?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "The children's hospital",
+     "pros": "matches their site list",
+     "cons": "we may mislabel a clinic"
+    },
+    {
+     "key": "b",
+     "label": "A clinic day",
+     "pros": "matches the old file",
+     "cons": "we may miss a hospital rotation"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

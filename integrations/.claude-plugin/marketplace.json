@@ -1,0 +1,18 @@
+{
+  "name": "zm",
+  "owner": {
+    "name": "zm contributors"
+  },
+  "plugins": [
+    {
+      "name": "zm",
+      "source": "./claude-code",
+      "description": "Connect Claude Code to the zm bus (hooks + MCP)."
+    },
+    {
+      "name": "zm-compute",
+      "source": "./claude-code-compute",
+      "description": "Sandbox tools (throwaway VMs) for your agent; installs a pinned zm release on first use if you allow it."
+    }
+  ]
+}

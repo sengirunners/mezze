@@ -1,0 +1,24 @@
+{
+  "why_it_fails": "outbound message",
+  "input": {
+    "card": {
+      "context": "A check needs a build tool that one test machine lacks, so the check fails there.",
+      "background": "Both fixes can be changed back in a minute.",
+      "question": "Should the check install the tool, or run only on the machine that has it?",
+      "choices": [
+        {
+          "label": "Install the tool"
+        },
+        {
+          "label": "Use the one machine"
+        }
+      ],
+      "recommend": "a",
+      "why": "We email every resident tonight."
+    },
+    "work": {
+      "title": "runner",
+      "body": ""
+    }
+  }
+}

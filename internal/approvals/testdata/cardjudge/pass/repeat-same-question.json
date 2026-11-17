@@ -1,0 +1,52 @@
+{
+  "why_it_passes": "A clear card whose question, in other words, is the open backup server card's: one answer settles both.",
+  "want_repeat_of": "01HZTESTOPENCARD0000000001",
+  "input": {
+    "approver": "dana",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Second server so bookings never stop?",
+      "context": "Our clinics' data lives on a single server. When it failed in the spring, nobody could book patients for six hours. For $30 a month the hosting company runs a standby that takes over on its own; the hosting agent can switch it on today.",
+      "question": "Do we pay $30 a month for a standby server that takes over if ours fails?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Yes",
+          "pros": "no more hours without bookings",
+          "cons": "$360 a year"
+        },
+        {
+          "key": "b",
+          "label": "No",
+          "pros": "no cost",
+          "cons": "another outage stops bookings for hours"
+        }
+      ],
+      "recommend": "a",
+      "why": "One outage costs clinics more than a year of the standby."
+    },
+    "open_cards": [
+      {
+        "id": "01HZTESTOPENCARD0000000001",
+        "title": "Pay for a second server?",
+        "context": "All clinic data is on one server; a backup that takes over by itself costs $30 a month.",
+        "question": "Should the agent add a backup server for $30 a month?",
+        "choices": [
+          "Yes, add it",
+          "No"
+        ]
+      },
+      {
+        "id": "01HZTESTOPENCARD0000000002",
+        "title": "Move email to a new company?",
+        "context": "Our email company raises its price by half next month; another company costs the same as today.",
+        "question": "Should we move our email to the other company before the price rises?",
+        "choices": [
+          "Move",
+          "Stay"
+        ]
+      }
+    ]
+  }
+}

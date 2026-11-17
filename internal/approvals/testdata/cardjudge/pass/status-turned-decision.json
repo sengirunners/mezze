@@ -1,0 +1,39 @@
+{
+  "why_it_passes": "It starts from a status (a release is broken) but asks a real choice only an owner can make, with what each choice costs.",
+  "input": {
+    "approver": "dana",
+    "approver_machines": [],
+    "machines_known": true,
+    "card": {
+      "title": "Pull back today's release?",
+      "context": "Today's release broke printing for about a third of clinics: the print button does nothing. A fix is two days away. We can pull the release back now, which also removes the new invoice screen clinics asked for, or keep it and tell those clinics to print from the browser menu until the fix.",
+      "question": "Should we pull back today's release until printing is fixed?",
+      "choices": [
+        {
+          "key": "a",
+          "label": "Pull it back now",
+          "pros": "printing works again within the hour",
+          "cons": "clinics lose the new invoice screen for two days"
+        },
+        {
+          "key": "b",
+          "label": "Keep it and send the workaround",
+          "pros": "clinics keep the new screen",
+          "cons": "a third of clinics print the slow way for two days, and some will call support"
+        }
+      ],
+      "recommend": "a",
+      "why": "Printing is used all day; the new screen can wait two days."
+    },
+    "rulings": [
+      {
+        "name": "merge-after-green",
+        "text": "An agent merges its own pull request once a separate review agent has signed off and the required checks are green. The owners never review or merge pull requests themselves."
+      },
+      {
+        "name": "no-weekend-deploys",
+        "text": "Nothing is released to customers between Friday 6 pm and Monday 8 am, whoever asks."
+      }
+    ]
+  }
+}

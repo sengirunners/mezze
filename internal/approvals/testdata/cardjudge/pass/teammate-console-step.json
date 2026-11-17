@@ -1,0 +1,29 @@
+{
+  "why_it_passes": "Wren's agent asks Ivo (a teammate, not the owner it works for) for a press only Ivo can give: Apple lets only the developer account's holder accept its new agreement, on Apple's own site, signed in as himself. No agent can sign in as Ivo. The card names it as Ivo's own step with numbered steps, an apple.com link and a verify line, so it is carried even though no machine of Ivo's takes tasks.",
+  "input": {
+    "approver": "ivo",
+    "approver_machines": [{"machine": "ivo-laptop", "ready": false, "why_not": "it takes no remote tasks: ivo sets remote_tasks in its zm config"}],
+    "machines_known": true,
+    "card": {
+      "title": "Accept Apple's new developer agreement so the app update can ship?",
+      "context": "Apple changed its developer agreement this week. Until the account holder accepts it, Apple blocks every new version of the clinic app, including Friday's fix for the missed-shift alerts. You are the account holder, so only you can accept it, signed in on Apple's own site.",
+      "background": "The agreement is Apple's standard yearly update; nothing in it changes what the team pays. The agent checked the account page: the update is waiting only on this. After you accept, the agent's check sees the block gone and it sends the update for review.",
+      "question": "Will you accept Apple's updated agreement now so Friday's fix can ship?",
+      "choices": [
+        {"key": "a", "label": "Yes, I will accept it (about 2 minutes on Apple's site)", "effect": "the app update goes to Apple for review today", "pros": "Friday's alert fix reaches people this week", "cons": "two minutes of your time"},
+        {"key": "b", "label": "Not this week", "effect": "the update waits; alerts keep missing some shifts", "pros": "nothing to do now", "cons": "people keep missing shift alerts until you accept"}
+      ],
+      "recommend": "a",
+      "why": "The fix is ready and only this press holds it; the agreement costs nothing.",
+      "after_press": "You get the steps and a button to Apple's page; the agent's check sees it accepted and ships the update."
+    },
+    "owner_step": {
+      "label": "Accept Apple's updated developer agreement",
+      "steps": ["Open Apple's developer account page and sign in as yourself.", "Press Review Agreement on the banner at the top.", "Read it, tick the box and press Agree."],
+      "link": "https://developer.apple.com/account",
+      "link_domain": "developer.apple.com",
+      "minutes": 2
+    },
+    "verify": "asc agreements status --json | jq -e '.pending == 0'"
+  }
+}

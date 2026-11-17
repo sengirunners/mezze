@@ -1,0 +1,45 @@
+{
+ "why": "Pricing is the owners' own decision even though a program is mentioned.",
+ "want_party": 0,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Price for Northwind",
+   "context": "Northwind Psychiatry wants to keep using our scheduler next year. We need a price to quote them.",
+   "background": "",
+   "question": "Should we quote Northwind the standard price or a discount?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "Standard price",
+     "pros": "more money",
+     "cons": "they may say no"
+    },
+    {
+     "key": "b",
+     "label": "A 20 percent discount",
+     "pros": "more likely to stay",
+     "cons": "less money"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}

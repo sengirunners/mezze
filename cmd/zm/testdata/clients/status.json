@@ -1,0 +1,13 @@
+{
+  "commit": "string",
+  "machine": "string",
+  "ok": "bool",
+  "pid": "number",
+  "protocol": "string",
+  "selfcheck": {
+    "checked": "string",
+    "ok": "bool"
+  },
+  "started": "string",
+  "version": "string"
+}

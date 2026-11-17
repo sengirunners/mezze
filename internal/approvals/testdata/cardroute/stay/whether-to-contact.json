@@ -1,0 +1,45 @@
+{
+ "why": "Whether to email the program is the owners' call, not the program's.",
+ "want_party": 0,
+ "input": {
+  "parties": [
+   {
+    "n": 1,
+    "group": "Northwind Psychiatry Residency",
+    "contact": "the program director"
+   },
+   {
+    "n": 2,
+    "group": "Riverside Anesthesiology Residency",
+    "contact": "Dr. Okafor"
+   },
+   {
+    "n": 3,
+    "group": "Lakeview OBGYN",
+    "contact": "the chief residents"
+   }
+  ],
+  "card": {
+   "title": "Email Riverside now?",
+   "context": "Riverside has not answered our last two questions. We could email Dr. Okafor again now or wait for our meeting next week.",
+   "background": "",
+   "question": "Should we email Riverside again now, or wait for next week's meeting?",
+   "choices": [
+    {
+     "key": "a",
+     "label": "Email now",
+     "pros": "faster answers",
+     "cons": "may annoy them"
+    },
+    {
+     "key": "b",
+     "label": "Wait for the meeting",
+     "pros": "one conversation",
+     "cons": "a week's delay"
+    }
+   ],
+   "recommend": "a",
+   "why": "It matches what we know so far."
+  }
+ }
+}
